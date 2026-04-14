@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "build/client",
+  "outputDirectory": "dist/client",
   "framework": "react-router"
 }
