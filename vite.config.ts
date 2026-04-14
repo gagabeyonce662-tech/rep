@@ -10,7 +10,9 @@ const isNode = process.env.HYDROGEN_DEPLOYMENT_TARGET === 'node';
 export default defineConfig({
   plugins: [
     tailwindcss(),
-    hydrogen(),
+    hydrogen({
+      serverEntryPoint: 'app/server.ts',
+    }),
     !isNode && oxygen(),  // Only include oxygen() when NOT building for Node
     reactRouter(),
     tsconfigPaths(),
