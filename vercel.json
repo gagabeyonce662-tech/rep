@@ -1,5 +1,10 @@
 {
-  "buildCommand": "HYDROGEN_DEPLOYMENT_TARGET=node npm run build",
-  "outputDirectory": "build/client",
-  "framework": "react-router"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/client",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api/index"
+    }
+  ]
 }
