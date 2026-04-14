@@ -1,5 +1,5 @@
 {
   "buildCommand": "HYDROGEN_DEPLOYMENT_TARGET=node npm run build",
-  "outputDirectory": "dist/client",
+  "outputDirectory": "build/client",
   "framework": "react-router"
 }

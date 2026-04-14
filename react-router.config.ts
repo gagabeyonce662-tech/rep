@@ -13,6 +13,7 @@ const isNode = process.env.HYDROGEN_DEPLOYMENT_TARGET === 'node';
 
 export default {
   presets: [hydrogenPreset()],
+  buildDirectory: isNode ? 'build' : 'dist',
   future: {
     v8_middleware: true,
   },
