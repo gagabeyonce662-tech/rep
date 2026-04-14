@@ -39,8 +39,13 @@ export function ProductItem({
         <div className="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-[10px] font-anton uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
           View Detail
         </div>
+        {!product.availableForSale && (
+          <div className="absolute top-2 left-2 bg-brand-black text-white px-2 py-1 text-[10px] font-anton uppercase tracking-widest z-10">
+            Sold Out
+          </div>
+        )}
       </div>
-      <div className="flex flex-col gap-1">
+      <div className={`flex flex-col gap-1 ${!product.availableForSale ? 'opacity-40' : ''}`}>
         <h4 className="font-anton text-lg uppercase tracking-tight leading-none truncate">
           {product.title}
         </h4>

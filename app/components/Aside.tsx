@@ -36,39 +36,65 @@ export function Aside({
   const {type: activeType, close} = useAside();
   const expanded = type === activeType;
   const id = useId();
+
   useEffect(() => {
     const abortController = new AbortController();
-
     if (expanded) {
+      document.body.style.overflow = 'hidden';
       document.addEventListener(
         'keydown',
-        function handler(event: KeyboardEvent) {
-          if (event.key === 'Escape') {
-            close();
-          }
+        (event: KeyboardEvent) => {
+          if (event.key === 'Escape') close();
         },
         {signal: abortController.signal},
       );
+    } else {
+      document.body.style.overflow = '';
     }
-    return () => abortController.abort();
+    return () => {
+      abortController.abort();
+      document.body.style.overflow = '';
+    };
   }, [close, expanded]);
 
   return (
     <div
       aria-modal
-      className={`overlay ${expanded ? 'expanded' : ''}`}
+      className={`fixed inset-0 z-[100] transition-opacity duration-300 ${
+        expanded ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
       role="dialog"
       aria-labelledby={id}
     >
-      <button className="close-outside" onClick={close} />
-      <aside>
-        <header>
-          <h3 id={id}>{heading}</h3>
-          <button className="close reset" onClick={close} aria-label="Close">
-            &times;
+      {/* Overlay Backdrop */}
+      <div 
+        className="absolute inset-0 bg-brand-black/40 backdrop-blur-sm" 
+        onClick={close} 
+      />
+      
+      {/* Aside Content */}
+      <aside
+        className={`fixed top-0 right-0 h-full w-full max-w-[400px] bg-white shadow-2xl transition-transform duration-500 ease-in-out transform ${
+          expanded ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <header className="flex items-center justify-between h-16 px-6 border-b border-brand-black/5">
+          <h3 id={id} className="font-anton text-xl uppercase tracking-tighter">
+            {heading}
+          </h3>
+          <button 
+            className="p-2 -mr-2 text-brand-black hover:opacity-50 transition-opacity" 
+            onClick={close} 
+            aria-label="Close"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
           </button>
         </header>
-        <main>{children}</main>
+        <main className="h-[calc(100vh-64px)] overflow-y-auto p-6 font-assistant">
+          {children}
+        </main>
       </aside>
     </div>
   );

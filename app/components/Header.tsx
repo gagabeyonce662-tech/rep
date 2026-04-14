@@ -1,5 +1,5 @@
 import {Suspense} from 'react';
-import {Await, NavLink, useAsyncValue} from 'react-router';
+import {Await, NavLink, useLocation} from 'react-router';
 import {
   type CartViewPayload,
   useAnalytics,
@@ -25,9 +25,11 @@ export function Header({
 }: HeaderProps) {
   const {shop, menu} = header;
   const {open} = useAside();
+  const {pathname} = useLocation();
+  const isHome = pathname === '/';
 
   return (
-    <header className="header sticky top-0 z-50 flex h-16 w-full items-center px-4 bg-white border-b border-brand-black/5 md:px-8">
+    <header className={`${isHome ? 'absolute bg-transparent border-none text-white' : 'sticky bg-white border-b border-brand-black/5 text-brand-black'} top-0 z-50 flex h-16 w-full items-center px-4 md:px-8 transition-colors duration-300`}>
       {/* Left: Desktop Menu */}
       <div className="flex-1 hidden md:block">
         <HeaderMenu
@@ -41,11 +43,11 @@ export function Header({
       {/* Center: Brand + Toggle */}
       <div className="flex items-center justify-center flex-1 gap-4 md:flex-initial">
         <button 
-          className="group relative flex items-center justify-center w-8 h-8 rounded-full border border-brand-black/10 hover:bg-brand-black hover:text-white transition-all scale-110"
+          className={`group relative flex items-center justify-center w-8 h-8 rounded-full border ${isHome ? 'border-white/20 hover:bg-white hover:text-brand-black' : 'border-brand-black/10 hover:bg-brand-black hover:text-white'} transition-all scale-110`}
           onClick={() => open('notifications')}
         >
           <span className="font-bold text-xl leading-none group-hover:rotate-90 transition-transform">+</span>
-          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand-blue text-[10px] text-white">2</span>
+          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand-blue text-[10px] text-white border border-white">2</span>
         </button>
         
         <NavLink prefetch="intent" to="/" className="flex items-center" end>
@@ -57,7 +59,7 @@ export function Header({
 
       {/* Right: CTAs */}
       <div className="flex-1 flex justify-end items-center gap-4">
-        <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+        <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} isHome={isHome} />
       </div>
     </header>
   );
@@ -106,7 +108,8 @@ export function HeaderMenu({
 function HeaderCtas({
   isLoggedIn,
   cart,
-}: Pick<HeaderProps, 'isLoggedIn' | 'cart'>) {
+  isHome,
+}: Pick<HeaderProps, 'isLoggedIn' | 'cart'> & {isHome: boolean}) {
   return (
     <nav className="flex items-center gap-6" role="navigation">
       <NavLink prefetch="intent" to="/account" className="hidden md:block">

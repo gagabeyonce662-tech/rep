@@ -86,32 +86,33 @@ export default function Homepage() {
   );
 }
 
+import {Button} from '~/components/ui/Button';
+
 function Hero({collection}: {collection: FeaturedCollectionFragment}) {
   if (!collection) return null;
   const image = collection?.image;
 
   return (
-    <section className="relative h-[85vh] w-full bg-brand-black overflow-hidden group">
-      {image && (
-        <div className="absolute inset-0 z-0">
-          <Image
-            data={image}
-            sizes="100vw"
-            className="object-cover w-full h-full scale-105 group-hover:scale-100 transition-transform duration-[3000ms] ease-out opacity-80"
-            alt={image.altText || collection.title}
-          />
-        </div>
-      )}
+    <section className="relative h-screen w-full overflow-hidden group">
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          className="object-cover w-full h-full"
+          alt="Collection Background"
+        />
+      </div>
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-4">
         <h1 className="font-anton text-8xl md:text-[12rem] text-white uppercase tracking-tighter leading-[0.8] mb-8 drop-shadow-2xl">
           {collection.title}
         </h1>
-        <Link
+        <Button
           to={`/collections/${collection.handle}`}
-          className="bg-white text-brand-black px-12 py-4 font-anton uppercase tracking-widest text-lg hover:bg-brand-blue hover:text-white transition-colors animate-bounce"
+          variant="white"
+          animate
+          className="animate-bounce"
         >
           Explore Drop
-        </Link>
+        </Button>
       </div>
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 text-white/50 animate-pulse font-assistant font-bold uppercase tracking-[0.3em] text-[10px]">
         Scroll to Discover
@@ -183,6 +184,7 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
       width
       height
     }
+    availableForSale
   }
   query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
     @inContext(country: $country, language: $language) {

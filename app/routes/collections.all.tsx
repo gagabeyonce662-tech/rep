@@ -93,6 +93,7 @@ const COLLECTION_ITEM_FRAGMENT = `#graphql
         ...MoneyCollectionItem
       }
     }
+    availableForSale
   }
 ` as const;
 
