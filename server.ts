@@ -12,9 +12,19 @@ export default {
     executionContext: ExecutionContext,
   ): Promise<Response> {
     try {
+      /**
+       * In Vercel, environment variables are available on process.env.
+       * In Oxygen, they are passed as the second argument to the fetch handler.
+       * We merge them here to ensure compatibility across platforms.
+       */
+      const mergedEnv = {
+        ...(typeof process !== 'undefined' ? process.env : {}),
+        ...env,
+      } as unknown as Env;
+
       const hydrogenContext = await createHydrogenRouterContext(
         request,
-        env,
+        mergedEnv,
         executionContext,
       );
 
@@ -24,7 +34,7 @@ export default {
        */
       const handleRequest = createRequestHandler({
         build: serverBuild,
-        mode: process.env.NODE_ENV,
+        mode: mergedEnv.NODE_ENV,
         getLoadContext: () => hydrogenContext,
       });
 
@@ -52,8 +62,14 @@ export default {
 
       return response;
     } catch (error) {
-      console.error(error);
-      return new Response('An unexpected error occurred', {status: 500});
+      // eslint-disable-next-line no-console
+      console.error('Server error:', error);
+      return new Response(
+        `An unexpected error occurred: ${
+          error instanceof Error ? error.message : 'Unknown error'
+        }`,
+        {status: 500},
+      );
     }
   },
 };

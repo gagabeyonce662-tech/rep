@@ -34,9 +34,16 @@ export async function createHydrogenRouterContext(
     throw new Error('SESSION_SECRET environment variable is not set');
   }
 
-  const waitUntil = executionContext.waitUntil.bind(executionContext);
+  const waitUntil = (promise: Promise<any>) => {
+    return executionContext?.waitUntil
+      ? executionContext.waitUntil(promise)
+      : undefined;
+  };
+
   const [cache, session] = await Promise.all([
-    caches.open('hydrogen'),
+    typeof caches !== 'undefined'
+      ? caches.open('hydrogen')
+      : Promise.resolve(undefined),
     AppSession.init(request, [env.SESSION_SECRET]),
   ]);
 
