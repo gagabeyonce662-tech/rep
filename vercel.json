@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build && mv dist build",
-  "outputDirectory": "build/client",
+  "buildCommand": "HYDROGEN_DEPLOYMENT_TARGET=node npm run build",
+  "outputDirectory": "dist/client",
   "framework": "react-router"
 }
