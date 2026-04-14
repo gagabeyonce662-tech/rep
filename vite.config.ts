@@ -1,15 +1,17 @@
-import {defineConfig} from 'vite';
-import {hydrogen} from '@shopify/hydrogen/vite';
-import {oxygen} from '@shopify/mini-oxygen/vite';
-import {reactRouter} from '@react-router/dev/vite';
+import { defineConfig } from 'vite';
+import { hydrogen } from '@shopify/hydrogen/vite';
+import { oxygen } from '@shopify/mini-oxygen/vite';
+import { reactRouter } from '@react-router/dev/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
+
+const isNode = process.env.HYDROGEN_DEPLOYMENT_TARGET === 'node';
 
 export default defineConfig({
   plugins: [
     tailwindcss(),
     hydrogen(),
-    oxygen(),
+    !isNode && oxygen(),  // Only include oxygen() when NOT building for Node
     reactRouter(),
     tsconfigPaths(),
   ],
@@ -19,6 +21,7 @@ export default defineConfig({
     assetsInlineLimit: 0,
   },
   ssr: {
+    noExternal: [/react-dom/],
     optimizeDeps: {
       /**
        * Include dependencies here if they throw CJS<>ESM errors.
@@ -30,7 +33,7 @@ export default defineConfig({
        * Include 'example-dep' in the array below.
        * @see https://vitejs.dev/config/dep-optimization-options
        */
-      include: ['set-cookie-parser', 'cookie', 'react-router'],
+      include: ['set-cookie-parser', 'cookie', 'react-router', 'react-dom/server'],
     },
   },
   server: {
