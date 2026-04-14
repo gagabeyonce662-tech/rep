@@ -4,7 +4,7 @@ node_modules
 /dist
 /public/build
 /.mf
-.env
+# .env removed to allow upload per user request
 .shopify
 .react-router
 
