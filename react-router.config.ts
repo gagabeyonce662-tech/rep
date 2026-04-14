@@ -12,5 +12,6 @@ export default {
   presets: [hydrogenPreset()],
   future: {
     v8_middleware: true,
+    v3_singleFetch: true,
   },
 } satisfies Config;
