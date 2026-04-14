@@ -1,6 +1,12 @@
-/**
- * Configure Tailwind v4 in this file using CSS variables and directives:
- * https://tailwindcss.com/docs/v4-beta#css-first-configuration
- */
-
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Assistant:wght@200..800&display=swap');
+
+@theme {
+  --font-anton: "Anton", sans-serif;
+  --font-assistant: "Assistant", sans-serif;
+
+  --color-brand-blue: #334fb4;
+  --color-brand-black: #121212;
+  --color-brand-gray: #f3f3f3;
+  --color-brand-dark-blue: #242833;
+}

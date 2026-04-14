@@ -94,15 +94,23 @@ function CartEmpty({
 }) {
   const {close} = useAside();
   return (
-    <div hidden={hidden}>
-      <br />
-      <p>
-        Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
-        started!
+    <div hidden={hidden} className="flex flex-col items-center justify-center p-8 text-center min-h-[60vh]">
+      <div className="w-16 h-16 mb-6 opacity-20">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
+          <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
+        </svg>
+      </div>
+      <h3 className="font-anton text-2xl uppercase tracking-tighter mb-4">Your bag is empty</h3>
+      <p className="font-assistant text-brand-black/60 mb-8 max-w-[250px]">
+        Looks like you haven&rsquo;t added anything yet. Let&rsquo;s get you started!
       </p>
-      <br />
-      <Link to="/collections" onClick={close} prefetch="viewport">
-        Continue shopping →
+      <Link 
+        to="/collections/all-products" 
+        onClick={close} 
+        prefetch="viewport"
+        className="bg-brand-black text-white px-8 py-3 font-anton uppercase tracking-widest text-sm hover:opacity-80 transition-opacity"
+      >
+        Shop Latest Drop
       </Link>
     </div>
   );

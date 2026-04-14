@@ -61,37 +61,62 @@ function loadDeferredData({context}: Route.LoaderArgs) {
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="home">
-      {data.isShopLinked ? null : <MockShopNotice />}
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+    <div className="home bg-white font-assistant">
+      <Hero collection={data.featuredCollection} />
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-16">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+          <div>
+            <h2 className="font-anton text-4xl md:text-6xl uppercase tracking-tighter leading-none mb-2">
+              New Arrivals
+            </h2>
+            <p className="text-brand-black/60 font-semibold uppercase tracking-widest text-xs">
+              Latest Streetwear Drops
+            </p>
+          </div>
+          <Link 
+            to="/collections/all-products" 
+            className="font-anton text-sm uppercase tracking-wider border-b-2 border-brand-black pb-1 hover:opacity-70 transition-opacity"
+          >
+            View All
+          </Link>
+        </div>
+        <RecommendedProducts products={data.recommendedProducts} />
+      </div>
     </div>
   );
 }
 
-function FeaturedCollection({
-  collection,
-}: {
-  collection: FeaturedCollectionFragment;
-}) {
+function Hero({collection}: {collection: FeaturedCollectionFragment}) {
   if (!collection) return null;
   const image = collection?.image;
+
   return (
-    <Link
-      className="featured-collection"
-      to={`/collections/${collection.handle}`}
-    >
+    <section className="relative h-[85vh] w-full bg-brand-black overflow-hidden group">
       {image && (
-        <div className="featured-collection-image">
+        <div className="absolute inset-0 z-0">
           <Image
             data={image}
             sizes="100vw"
+            className="object-cover w-full h-full scale-105 group-hover:scale-100 transition-transform duration-[3000ms] ease-out opacity-80"
             alt={image.altText || collection.title}
           />
         </div>
       )}
-      <h1>{collection.title}</h1>
-    </Link>
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center p-4">
+        <h1 className="font-anton text-8xl md:text-[12rem] text-white uppercase tracking-tighter leading-[0.8] mb-8 drop-shadow-2xl">
+          {collection.title}
+        </h1>
+        <Link
+          to={`/collections/${collection.handle}`}
+          className="bg-white text-brand-black px-12 py-4 font-anton uppercase tracking-widest text-lg hover:bg-brand-blue hover:text-white transition-colors animate-bounce"
+        >
+          Explore Drop
+        </Link>
+      </div>
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 text-white/50 animate-pulse font-assistant font-bold uppercase tracking-[0.3em] text-[10px]">
+        Scroll to Discover
+      </div>
+    </section>
   );
 }
 
@@ -101,26 +126,19 @@ function RecommendedProducts({
   products: Promise<RecommendedProductsQuery | null>;
 }) {
   return (
-    <section
-      className="recommended-products"
-      aria-labelledby="recommended-products"
-    >
-      <h2 id="recommended-products">Recommended Products</h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {(response) => (
-            <div className="recommended-products-grid">
-              {response
-                ? response.products.nodes.map((product) => (
-                    <ProductItem key={product.id} product={product} />
-                  ))
-                : null}
-            </div>
-          )}
-        </Await>
-      </Suspense>
-      <br />
-    </section>
+    <Suspense fallback={<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 italic opacity-50">Loading Drops...</div>}>
+      <Await resolve={products}>
+        {(response) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-8 md:gap-y-16">
+            {response
+              ? response.products.nodes.map((product) => (
+                  <ProductItem key={product.id} product={product} />
+                ))
+              : null}
+          </div>
+        )}
+      </Await>
+    </Suspense>
   );
 }
 
@@ -168,7 +186,7 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
   }
   query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
     @inContext(country: $country, language: $language) {
-    products(first: 4, sortKey: UPDATED_AT, reverse: true) {
+    products(first: 12, sortKey: UPDATED_AT, reverse: true) {
       nodes {
         ...RecommendedProduct
       }
