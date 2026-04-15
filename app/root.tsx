@@ -160,6 +160,7 @@ export function Layout({children}: {children?: React.ReactNode}) {
           type="module"
           src="https://cdn.jsdelivr.net/npm/@google/model-viewer@latest/dist/model-viewer.min.js"
           async
+          nonce={nonce}
         ></script>
         <Meta />
         <Links />
