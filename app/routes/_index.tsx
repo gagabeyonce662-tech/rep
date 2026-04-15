@@ -6,8 +6,8 @@ import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
-import {ProductItem} from '~/components/ProductItem';
-import {MockShopNotice} from '~/components/MockShopNotice';
+import {ProductItem} from '~/components/Product/ProductItem';
+import {MockShopNotice} from '~/components/Shared/MockShopNotice';
 
 export const meta: Route.MetaFunction = () => {
   return [{title: 'Hydrogen | Home'}];
@@ -96,7 +96,7 @@ function Hero({collection}: {collection: FeaturedCollectionFragment}) {
     <section className="relative h-screen w-full overflow-hidden group">
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="/Model_hero-upscaled.png"
           className="object-cover w-full h-full"
           alt="Collection Background"
         />

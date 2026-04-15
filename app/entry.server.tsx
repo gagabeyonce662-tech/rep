@@ -24,17 +24,36 @@ export default async function handleRequest(
       'https://cdn.shopify.com',
       'https://images.unsplash.com',
       'data:',
+      'http://localhost:*',
     ],
     scriptSrc: [
       'self',
       'https://cdn.shopify.com',
       'https://cdn.jsdelivr.net',
       'https://shop.app',
+      'http://localhost:*',
+      "'unsafe-eval'",
     ],
     connectSrc: [
       'self',
       'https://cdn.shopify.com',
       'https://monorail-edge.shopifysvc.com',
+      'https://cdn.jsdelivr.net',
+      'https://www.gstatic.com',
+      'http://localhost:*',
+      'ws://localhost:*',
+    ],
+    styleSrc: [
+      'self',
+      "'unsafe-inline'",
+      'https://cdn.shopify.com',
+      'https://fonts.googleapis.com',
+      'http://localhost:*',
+    ],
+    fontSrc: [
+      'self',
+      'https://fonts.gstatic.com',
+      'http://localhost:*',
     ],
   });
 
