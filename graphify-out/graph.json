@@ -9,7 +9,7 @@
       "source_file": "customer-accountapi.generated.d.ts",
       "source_location": "L1",
       "id": "customer_accountapi_generated_d_ts",
-      "community": 42,
+      "community": 46,
       "norm_label": "customer-accountapi.generated.d.ts"
     },
     {
@@ -18,7 +18,7 @@
       "source_file": "env.d.ts",
       "source_location": "L1",
       "id": "env_d_ts",
-      "community": 43,
+      "community": 47,
       "norm_label": "env.d.ts"
     },
     {
@@ -27,7 +27,7 @@
       "source_file": "eslint.config.js",
       "source_location": "L1",
       "id": "eslint_config_js",
-      "community": 44,
+      "community": 48,
       "norm_label": "eslint.config.js"
     },
     {
@@ -36,7 +36,7 @@
       "source_file": "react-router.config.ts",
       "source_location": "L1",
       "id": "react_router_config_ts",
-      "community": 45,
+      "community": 49,
       "norm_label": "react-router.config.ts"
     },
     {
@@ -45,7 +45,7 @@
       "source_file": "server.ts",
       "source_location": "L1",
       "id": "server_ts",
-      "community": 46,
+      "community": 50,
       "norm_label": "server.ts"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "storefrontapi.generated.d.ts",
       "source_location": "L1",
       "id": "storefrontapi_generated_d_ts",
-      "community": 47,
+      "community": 51,
       "norm_label": "storefrontapi.generated.d.ts"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "vite.config.ts",
       "source_location": "L1",
       "id": "vite_config_ts",
-      "community": 48,
+      "community": 52,
       "norm_label": "vite.config.ts"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "api\\index.js",
       "source_location": "L1",
       "id": "api_index_js",
-      "community": 28,
+      "community": 32,
       "norm_label": "index.js"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "api\\index.js",
       "source_location": "L7",
       "id": "index_handler",
-      "community": 28,
+      "community": 32,
       "norm_label": "handler()"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "app\\entry.client.tsx",
       "source_location": "L1",
       "id": "app_entry_client_tsx",
-      "community": 49,
+      "community": 53,
       "norm_label": "entry.client.tsx"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "app\\entry.server.tsx",
       "source_location": "L1",
       "id": "app_entry_server_tsx",
-      "community": 5,
+      "community": 6,
       "norm_label": "entry.server.tsx"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "app\\entry.server.tsx",
       "source_location": "L10",
       "id": "entry_server_handlerequest",
-      "community": 5,
+      "community": 6,
       "norm_label": "handlerequest()"
     },
     {
@@ -121,10 +121,19 @@
       "norm_label": "root.tsx"
     },
     {
+      "label": "meta()",
+      "file_type": "code",
+      "source_file": "app\\root.tsx",
+      "source_location": "L25",
+      "id": "root_meta",
+      "community": 4,
+      "norm_label": "meta()"
+    },
+    {
       "label": "shouldRevalidate()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L27",
+      "source_location": "L44",
       "id": "root_shouldrevalidate",
       "community": 4,
       "norm_label": "shouldrevalidate()"
@@ -133,7 +142,7 @@
       "label": "links()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L56",
+      "source_location": "L73",
       "id": "root_links",
       "community": 4,
       "norm_label": "links()"
@@ -142,7 +151,7 @@
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L70",
+      "source_location": "L87",
       "id": "root_loader",
       "community": 4,
       "norm_label": "loader()"
@@ -151,7 +160,7 @@
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L102",
+      "source_location": "L123",
       "id": "root_loadcriticaldata",
       "community": 4,
       "norm_label": "loadcriticaldata()"
@@ -160,7 +169,7 @@
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L123",
+      "source_location": "L144",
       "id": "root_loaddeferreddata",
       "community": 4,
       "norm_label": "loaddeferreddata()"
@@ -169,7 +178,7 @@
       "label": "raf()",
       "file_type": "code",
       "source_file": "app\\root.tsx",
-      "source_location": "L194",
+      "source_location": "L225",
       "id": "root_raf",
       "community": 4,
       "norm_label": "raf()"
@@ -180,7 +189,7 @@
       "source_file": "app\\routes.ts",
       "source_location": "L1",
       "id": "app_routes_ts",
-      "community": 50,
+      "community": 54,
       "norm_label": "routes.ts"
     },
     {
@@ -189,7 +198,7 @@
       "source_file": "app\\server.ts",
       "source_location": "L1",
       "id": "app_server_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "server.ts"
     },
     {
@@ -198,7 +207,7 @@
       "source_file": "app\\server.ts",
       "source_location": "L9",
       "id": "server_handler",
-      "community": 5,
+      "community": 6,
       "norm_label": "handler()"
     },
     {
@@ -207,40 +216,130 @@
       "source_file": "app\\server.ts",
       "source_location": "L53",
       "id": "server_startserver",
-      "community": 5,
+      "community": 6,
       "norm_label": "startserver()"
+    },
+    {
+      "label": "ClickTracker.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Analytics\\ClickTracker.tsx",
+      "source_location": "L1",
+      "id": "app_components_analytics_clicktracker_tsx",
+      "community": 23,
+      "norm_label": "clicktracker.tsx"
+    },
+    {
+      "label": "ClickTracker()",
+      "file_type": "code",
+      "source_file": "app\\components\\Analytics\\ClickTracker.tsx",
+      "source_location": "L11",
+      "id": "clicktracker_clicktracker",
+      "community": 23,
+      "norm_label": "clicktracker()"
+    },
+    {
+      "label": "buildProps()",
+      "file_type": "code",
+      "source_file": "app\\components\\Analytics\\ClickTracker.tsx",
+      "source_location": "L74",
+      "id": "clicktracker_buildprops",
+      "community": 23,
+      "norm_label": "buildprops()"
     },
     {
       "label": "AddToCartButton.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\AddToCartButton.tsx",
+      "source_file": "app\\components\\Cart\\AddToCartButton.tsx",
       "source_location": "L1",
-      "id": "app_components_addtocartbutton_tsx",
-      "community": 29,
+      "id": "app_components_cart_addtocartbutton_tsx",
+      "community": 33,
       "norm_label": "addtocartbutton.tsx"
     },
     {
       "label": "AddToCartButton()",
       "file_type": "code",
-      "source_file": "app\\components\\AddToCartButton.tsx",
+      "source_file": "app\\components\\Cart\\AddToCartButton.tsx",
       "source_location": "L4",
       "id": "addtocartbutton_addtocartbutton",
-      "community": 29,
+      "community": 33,
       "norm_label": "addtocartbutton()"
+    },
+    {
+      "label": "CartLineItem.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Cart\\CartLineItem.tsx",
+      "source_location": "L1",
+      "id": "app_components_cart_cartlineitem_tsx",
+      "community": 55,
+      "norm_label": "cartlineitem.tsx"
+    },
+    {
+      "label": "CartMain.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Cart\\CartMain.tsx",
+      "source_location": "L1",
+      "id": "app_components_cart_cartmain_tsx",
+      "community": 34,
+      "norm_label": "cartmain.tsx"
+    },
+    {
+      "label": "getLineItemChildrenMap()",
+      "file_type": "code",
+      "source_file": "app\\components\\Cart\\CartMain.tsx",
+      "source_location": "L18",
+      "id": "cartmain_getlineitemchildrenmap",
+      "community": 34,
+      "norm_label": "getlineitemchildrenmap()"
+    },
+    {
+      "label": "CartSummary.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Cart\\CartSummary.tsx",
+      "source_location": "L1",
+      "id": "app_components_cart_cartsummary_tsx",
+      "community": 56,
+      "norm_label": "cartsummary.tsx"
+    },
+    {
+      "label": "CollectionFilters.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Collection\\CollectionFilters.tsx",
+      "source_location": "L1",
+      "id": "app_components_collection_collectionfilters_tsx",
+      "community": 24,
+      "norm_label": "collectionfilters.tsx"
+    },
+    {
+      "label": "toggleFilter()",
+      "file_type": "code",
+      "source_file": "app\\components\\Collection\\CollectionFilters.tsx",
+      "source_location": "L9",
+      "id": "collectionfilters_togglefilter",
+      "community": 24,
+      "norm_label": "togglefilter()"
+    },
+    {
+      "label": "clearFilters()",
+      "file_type": "code",
+      "source_file": "app\\components\\Collection\\CollectionFilters.tsx",
+      "source_location": "L48",
+      "id": "collectionfilters_clearfilters",
+      "community": 24,
+      "norm_label": "clearfilters()"
     },
     {
       "label": "Aside.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L1",
-      "id": "app_components_aside_tsx",
+      "id": "app_components_layout_aside_tsx",
       "community": 3,
       "norm_label": "aside.tsx"
     },
     {
       "label": "Aside()",
       "file_type": "code",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L27",
       "id": "aside_aside",
       "community": 3,
@@ -249,71 +348,35 @@
     {
       "label": "useAside()",
       "file_type": "code",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L121",
       "id": "aside_useaside",
       "community": 3,
       "norm_label": "useaside()"
     },
     {
-      "label": "CartLineItem.tsx",
-      "file_type": "code",
-      "source_file": "app\\components\\CartLineItem.tsx",
-      "source_location": "L1",
-      "id": "app_components_cartlineitem_tsx",
-      "community": 51,
-      "norm_label": "cartlineitem.tsx"
-    },
-    {
-      "label": "CartMain.tsx",
-      "file_type": "code",
-      "source_file": "app\\components\\CartMain.tsx",
-      "source_location": "L1",
-      "id": "app_components_cartmain_tsx",
-      "community": 30,
-      "norm_label": "cartmain.tsx"
-    },
-    {
-      "label": "getLineItemChildrenMap()",
-      "file_type": "code",
-      "source_file": "app\\components\\CartMain.tsx",
-      "source_location": "L17",
-      "id": "cartmain_getlineitemchildrenmap",
-      "community": 30,
-      "norm_label": "getlineitemchildrenmap()"
-    },
-    {
-      "label": "CartSummary.tsx",
-      "file_type": "code",
-      "source_file": "app\\components\\CartSummary.tsx",
-      "source_location": "L1",
-      "id": "app_components_cartsummary_tsx",
-      "community": 52,
-      "norm_label": "cartsummary.tsx"
-    },
-    {
       "label": "Footer.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\Footer.tsx",
+      "source_file": "app\\components\\Layout\\Footer.tsx",
       "source_location": "L1",
-      "id": "app_components_footer_tsx",
-      "community": 53,
+      "id": "app_components_layout_footer_tsx",
+      "community": 57,
       "norm_label": "footer.tsx"
     },
     {
       "label": "Header.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\Header.tsx",
+      "source_file": "app\\components\\Layout\\Header.tsx",
       "source_location": "L1",
-      "id": "app_components_header_tsx",
+      "id": "app_components_layout_header_tsx",
       "community": 3,
       "norm_label": "header.tsx"
     },
     {
       "label": "Header()",
       "file_type": "code",
-      "source_file": "app\\components\\Header.tsx",
-      "source_location": "L20",
+      "source_file": "app\\components\\Layout\\Header.tsx",
+      "source_location": "L21",
       "id": "header_header",
       "community": 3,
       "norm_label": "header()"
@@ -321,151 +384,151 @@
     {
       "label": "MobileBottomNav.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\MobileBottomNav.tsx",
+      "source_file": "app\\components\\Layout\\MobileBottomNav.tsx",
       "source_location": "L1",
-      "id": "app_components_mobilebottomnav_tsx",
-      "community": 31,
+      "id": "app_components_layout_mobilebottomnav_tsx",
+      "community": 35,
       "norm_label": "mobilebottomnav.tsx"
     },
     {
       "label": "MobileBottomNav()",
       "file_type": "code",
-      "source_file": "app\\components\\MobileBottomNav.tsx",
+      "source_file": "app\\components\\Layout\\MobileBottomNav.tsx",
       "source_location": "L3",
       "id": "mobilebottomnav_mobilebottomnav",
-      "community": 31,
+      "community": 35,
       "norm_label": "mobilebottomnav()"
-    },
-    {
-      "label": "MockShopNotice.tsx",
-      "file_type": "code",
-      "source_file": "app\\components\\MockShopNotice.tsx",
-      "source_location": "L1",
-      "id": "app_components_mockshopnotice_tsx",
-      "community": 32,
-      "norm_label": "mockshopnotice.tsx"
-    },
-    {
-      "label": "MockShopNotice()",
-      "file_type": "code",
-      "source_file": "app\\components\\MockShopNotice.tsx",
-      "source_location": "L1",
-      "id": "mockshopnotice_mockshopnotice",
-      "community": 32,
-      "norm_label": "mockshopnotice()"
     },
     {
       "label": "PageLayout.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\PageLayout.tsx",
+      "source_file": "app\\components\\Layout\\PageLayout.tsx",
       "source_location": "L1",
-      "id": "app_components_pagelayout_tsx",
-      "community": 54,
+      "id": "app_components_layout_pagelayout_tsx",
+      "community": 58,
       "norm_label": "pagelayout.tsx"
     },
     {
-      "label": "PaginatedResourceSection.tsx",
+      "label": "ProductDescription.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\PaginatedResourceSection.tsx",
+      "source_file": "app\\components\\Product\\ProductDescription.tsx",
       "source_location": "L1",
-      "id": "app_components_paginatedresourcesection_tsx",
-      "community": 55,
-      "norm_label": "paginatedresourcesection.tsx"
+      "id": "app_components_product_productdescription_tsx",
+      "community": 36,
+      "norm_label": "productdescription.tsx"
+    },
+    {
+      "label": "check()",
+      "file_type": "code",
+      "source_file": "app\\components\\Product\\ProductDescription.tsx",
+      "source_location": "L11",
+      "id": "productdescription_check",
+      "community": 36,
+      "norm_label": "check()"
     },
     {
       "label": "ProductForm.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\ProductForm.tsx",
+      "source_file": "app\\components\\Product\\ProductForm.tsx",
       "source_location": "L1",
-      "id": "app_components_productform_tsx",
-      "community": 56,
+      "id": "app_components_product_productform_tsx",
+      "community": 59,
       "norm_label": "productform.tsx"
-    },
-    {
-      "label": "ProductImage.tsx",
-      "file_type": "code",
-      "source_file": "app\\components\\ProductImage.tsx",
-      "source_location": "L1",
-      "id": "app_components_productimage_tsx",
-      "community": 33,
-      "norm_label": "productimage.tsx"
-    },
-    {
-      "label": "ProductImage()",
-      "file_type": "code",
-      "source_file": "app\\components\\ProductImage.tsx",
-      "source_location": "L4",
-      "id": "productimage_productimage",
-      "community": 33,
-      "norm_label": "productimage()"
     },
     {
       "label": "ProductItem.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\ProductItem.tsx",
+      "source_file": "app\\components\\Product\\ProductItem.tsx",
       "source_location": "L1",
-      "id": "app_components_productitem_tsx",
-      "community": 9,
+      "id": "app_components_product_productitem_tsx",
+      "community": 7,
       "norm_label": "productitem.tsx"
     },
     {
       "label": "ProductItem()",
       "file_type": "code",
-      "source_file": "app\\components\\ProductItem.tsx",
-      "source_location": "L10",
+      "source_file": "app\\components\\Product\\ProductItem.tsx",
+      "source_location": "L12",
       "id": "productitem_productitem",
-      "community": 9,
+      "community": 7,
       "norm_label": "productitem()"
+    },
+    {
+      "label": "ProductMedia.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Product\\ProductMedia.tsx",
+      "source_location": "L1",
+      "id": "app_components_product_productmedia_tsx",
+      "community": 60,
+      "norm_label": "productmedia.tsx"
     },
     {
       "label": "ProductPrice.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\ProductPrice.tsx",
+      "source_file": "app\\components\\Product\\ProductPrice.tsx",
       "source_location": "L1",
-      "id": "app_components_productprice_tsx",
-      "community": 57,
+      "id": "app_components_product_productprice_tsx",
+      "community": 61,
       "norm_label": "productprice.tsx"
+    },
+    {
+      "label": "ProductReviews.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Product\\ProductReviews.tsx",
+      "source_location": "L1",
+      "id": "app_components_product_productreviews_tsx",
+      "community": 62,
+      "norm_label": "productreviews.tsx"
+    },
+    {
+      "label": "RelatedProducts.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Product\\RelatedProducts.tsx",
+      "source_location": "L1",
+      "id": "app_components_product_relatedproducts_tsx",
+      "community": 63,
+      "norm_label": "relatedproducts.tsx"
     },
     {
       "label": "SearchForm.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L1",
-      "id": "app_components_searchform_tsx",
-      "community": 22,
+      "id": "app_components_search_searchform_tsx",
+      "community": 25,
       "norm_label": "searchform.tsx"
     },
     {
       "label": "SearchForm()",
       "file_type": "code",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L29",
       "id": "searchform_searchform",
-      "community": 22,
+      "community": 25,
       "norm_label": "searchform()"
     },
     {
       "label": "useFocusOnCmdK()",
       "file_type": "code",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L48",
       "id": "searchform_usefocusoncmdk",
-      "community": 22,
+      "community": 25,
       "norm_label": "usefocusoncmdk()"
     },
     {
       "label": "SearchFormPredictive.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\SearchFormPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchFormPredictive.tsx",
       "source_location": "L1",
-      "id": "app_components_searchformpredictive_tsx",
+      "id": "app_components_search_searchformpredictive_tsx",
       "community": 3,
       "norm_label": "searchformpredictive.tsx"
     },
     {
       "label": "SearchFormPredictive()",
       "file_type": "code",
-      "source_file": "app\\components\\SearchFormPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchFormPredictive.tsx",
       "source_location": "L27",
       "id": "searchformpredictive_searchformpredictive",
       "community": 3,
@@ -474,38 +537,65 @@
     {
       "label": "SearchResults.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\SearchResults.tsx",
+      "source_file": "app\\components\\Search\\SearchResults.tsx",
       "source_location": "L1",
-      "id": "app_components_searchresults_tsx",
-      "community": 34,
+      "id": "app_components_search_searchresults_tsx",
+      "community": 37,
       "norm_label": "searchresults.tsx"
     },
     {
       "label": "SearchResults()",
       "file_type": "code",
-      "source_file": "app\\components\\SearchResults.tsx",
+      "source_file": "app\\components\\Search\\SearchResults.tsx",
       "source_location": "L16",
       "id": "searchresults_searchresults",
-      "community": 34,
+      "community": 37,
       "norm_label": "searchresults()"
     },
     {
       "label": "SearchResultsPredictive.tsx",
       "file_type": "code",
-      "source_file": "app\\components\\SearchResultsPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchResultsPredictive.tsx",
       "source_location": "L1",
-      "id": "app_components_searchresultspredictive_tsx",
+      "id": "app_components_search_searchresultspredictive_tsx",
       "community": 3,
       "norm_label": "searchresultspredictive.tsx"
     },
     {
       "label": "SearchResultsPredictive()",
       "file_type": "code",
-      "source_file": "app\\components\\SearchResultsPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchResultsPredictive.tsx",
       "source_location": "L42",
       "id": "searchresultspredictive_searchresultspredictive",
       "community": 3,
       "norm_label": "searchresultspredictive()"
+    },
+    {
+      "label": "MockShopNotice.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Shared\\MockShopNotice.tsx",
+      "source_location": "L1",
+      "id": "app_components_shared_mockshopnotice_tsx",
+      "community": 38,
+      "norm_label": "mockshopnotice.tsx"
+    },
+    {
+      "label": "MockShopNotice()",
+      "file_type": "code",
+      "source_file": "app\\components\\Shared\\MockShopNotice.tsx",
+      "source_location": "L1",
+      "id": "mockshopnotice_mockshopnotice",
+      "community": 38,
+      "norm_label": "mockshopnotice()"
+    },
+    {
+      "label": "PaginatedResourceSection.tsx",
+      "file_type": "code",
+      "source_file": "app\\components\\Shared\\PaginatedResourceSection.tsx",
+      "source_location": "L1",
+      "id": "app_components_shared_paginatedresourcesection_tsx",
+      "community": 64,
+      "norm_label": "paginatedresourcesection.tsx"
     },
     {
       "label": "Button.tsx",
@@ -513,7 +603,7 @@
       "source_file": "app\\components\\ui\\Button.tsx",
       "source_location": "L1",
       "id": "app_components_ui_button_tsx",
-      "community": 35,
+      "community": 39,
       "norm_label": "button.tsx"
     },
     {
@@ -522,7 +612,7 @@
       "source_file": "app\\components\\ui\\Button.tsx",
       "source_location": "L14",
       "id": "button_button",
-      "community": 35,
+      "community": 39,
       "norm_label": "button()"
     },
     {
@@ -531,7 +621,7 @@
       "source_file": "app\\graphql\\customer-account\\CustomerAddressMutations.ts",
       "source_location": "L1",
       "id": "app_graphql_customer_account_customeraddressmutations_ts",
-      "community": 58,
+      "community": 65,
       "norm_label": "customeraddressmutations.ts"
     },
     {
@@ -540,7 +630,7 @@
       "source_file": "app\\graphql\\customer-account\\CustomerDetailsQuery.ts",
       "source_location": "L1",
       "id": "app_graphql_customer_account_customerdetailsquery_ts",
-      "community": 59,
+      "community": 66,
       "norm_label": "customerdetailsquery.ts"
     },
     {
@@ -549,7 +639,7 @@
       "source_file": "app\\graphql\\customer-account\\CustomerOrderQuery.ts",
       "source_location": "L1",
       "id": "app_graphql_customer_account_customerorderquery_ts",
-      "community": 60,
+      "community": 67,
       "norm_label": "customerorderquery.ts"
     },
     {
@@ -558,7 +648,7 @@
       "source_file": "app\\graphql\\customer-account\\CustomerOrdersQuery.ts",
       "source_location": "L1",
       "id": "app_graphql_customer_account_customerordersquery_ts",
-      "community": 61,
+      "community": 68,
       "norm_label": "customerordersquery.ts"
     },
     {
@@ -567,7 +657,7 @@
       "source_file": "app\\graphql\\customer-account\\CustomerUpdateMutation.ts",
       "source_location": "L1",
       "id": "app_graphql_customer_account_customerupdatemutation_ts",
-      "community": 62,
+      "community": 69,
       "norm_label": "customerupdatemutation.ts"
     },
     {
@@ -576,7 +666,7 @@
       "source_file": "app\\lib\\context.ts",
       "source_location": "L1",
       "id": "app_lib_context_ts",
-      "community": 5,
+      "community": 6,
       "norm_label": "context.ts"
     },
     {
@@ -585,8 +675,35 @@
       "source_file": "app\\lib\\context.ts",
       "source_location": "L25",
       "id": "context_createhydrogenroutercontext",
-      "community": 5,
+      "community": 6,
       "norm_label": "createhydrogenroutercontext()"
+    },
+    {
+      "label": "filter.ts",
+      "file_type": "code",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L1",
+      "id": "app_lib_filter_ts",
+      "community": 5,
+      "norm_label": "filter.ts"
+    },
+    {
+      "label": "parseAsCurrency()",
+      "file_type": "code",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L3",
+      "id": "filter_parseascurrency",
+      "community": 5,
+      "norm_label": "parseascurrency()"
+    },
+    {
+      "label": "getFiltersFromParams()",
+      "file_type": "code",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L12",
+      "id": "filter_getfiltersfromparams",
+      "community": 5,
+      "norm_label": "getfiltersfromparams()"
     },
     {
       "label": "fragments.ts",
@@ -594,7 +711,7 @@
       "source_file": "app\\lib\\fragments.ts",
       "source_location": "L1",
       "id": "app_lib_fragments_ts",
-      "community": 63,
+      "community": 70,
       "norm_label": "fragments.ts"
     },
     {
@@ -603,7 +720,7 @@
       "source_file": "app\\lib\\orderFilters.ts",
       "source_location": "L1",
       "id": "app_lib_orderfilters_ts",
-      "community": 1,
+      "community": 2,
       "norm_label": "orderfilters.ts"
     },
     {
@@ -612,7 +729,7 @@
       "source_file": "app\\lib\\orderFilters.ts",
       "source_location": "L25",
       "id": "orderfilters_sanitizefiltervalue",
-      "community": 1,
+      "community": 2,
       "norm_label": "sanitizefiltervalue()"
     },
     {
@@ -621,7 +738,7 @@
       "source_file": "app\\lib\\orderFilters.ts",
       "source_location": "L39",
       "id": "orderfilters_buildordersearchquery",
-      "community": 1,
+      "community": 2,
       "norm_label": "buildordersearchquery()"
     },
     {
@@ -630,8 +747,44 @@
       "source_file": "app\\lib\\orderFilters.ts",
       "source_location": "L72",
       "id": "orderfilters_parseorderfilters",
-      "community": 1,
+      "community": 2,
       "norm_label": "parseorderfilters()"
+    },
+    {
+      "label": "posthog.client.ts",
+      "file_type": "code",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L1",
+      "id": "app_lib_posthog_client_ts",
+      "community": 16,
+      "norm_label": "posthog.client.ts"
+    },
+    {
+      "label": "initPostHog()",
+      "file_type": "code",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L5",
+      "id": "posthog_client_initposthog",
+      "community": 16,
+      "norm_label": "initposthog()"
+    },
+    {
+      "label": "capturePageView()",
+      "file_type": "code",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L32",
+      "id": "posthog_client_capturepageview",
+      "community": 16,
+      "norm_label": "capturepageview()"
+    },
+    {
+      "label": "captureEvent()",
+      "file_type": "code",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L37",
+      "id": "posthog_client_captureevent",
+      "community": 16,
+      "norm_label": "captureevent()"
     },
     {
       "label": "redirect.ts",
@@ -639,7 +792,7 @@
       "source_file": "app\\lib\\redirect.ts",
       "source_location": "L1",
       "id": "app_lib_redirect_ts",
-      "community": 6,
+      "community": 8,
       "norm_label": "redirect.ts"
     },
     {
@@ -648,7 +801,7 @@
       "source_file": "app\\lib\\redirect.ts",
       "source_location": "L3",
       "id": "redirect_redirectifhandleislocalized",
-      "community": 6,
+      "community": 8,
       "norm_label": "redirectifhandleislocalized()"
     },
     {
@@ -657,7 +810,7 @@
       "source_file": "app\\lib\\search.ts",
       "source_location": "L1",
       "id": "app_lib_search_ts",
-      "community": 23,
+      "community": 26,
       "norm_label": "search.ts"
     },
     {
@@ -666,7 +819,7 @@
       "source_file": "app\\lib\\search.ts",
       "source_location": "L25",
       "id": "search_getemptypredictivesearchresult",
-      "community": 23,
+      "community": 26,
       "norm_label": "getemptypredictivesearchresult()"
     },
     {
@@ -675,7 +828,7 @@
       "source_file": "app\\lib\\search.ts",
       "source_location": "L63",
       "id": "search_urlwithtrackingparams",
-      "community": 23,
+      "community": 26,
       "norm_label": "urlwithtrackingparams()"
     },
     {
@@ -778,12 +931,30 @@
       "norm_label": ".commit()"
     },
     {
+      "label": "useWishlist.ts",
+      "file_type": "code",
+      "source_file": "app\\lib\\useWishlist.ts",
+      "source_location": "L1",
+      "id": "app_lib_usewishlist_ts",
+      "community": 7,
+      "norm_label": "usewishlist.ts"
+    },
+    {
+      "label": "useWishlist()",
+      "file_type": "code",
+      "source_file": "app\\lib\\useWishlist.ts",
+      "source_location": "L5",
+      "id": "usewishlist_usewishlist",
+      "community": 7,
+      "norm_label": "usewishlist()"
+    },
+    {
       "label": "variants.ts",
       "file_type": "code",
       "source_file": "app\\lib\\variants.ts",
       "source_location": "L1",
       "id": "app_lib_variants_ts",
-      "community": 9,
+      "community": 7,
       "norm_label": "variants.ts"
     },
     {
@@ -792,7 +963,7 @@
       "source_file": "app\\lib\\variants.ts",
       "source_location": "L5",
       "id": "variants_usevarianturl",
-      "community": 9,
+      "community": 7,
       "norm_label": "usevarianturl()"
     },
     {
@@ -801,7 +972,7 @@
       "source_file": "app\\lib\\variants.ts",
       "source_location": "L21",
       "id": "variants_getvarianturl",
-      "community": 9,
+      "community": 7,
       "norm_label": "getvarianturl()"
     },
     {
@@ -810,7 +981,7 @@
       "source_file": "app\\routes\\$.tsx",
       "source_location": "L1",
       "id": "app_routes_tsx",
-      "community": 24,
+      "community": 27,
       "norm_label": "$.tsx"
     },
     {
@@ -819,7 +990,7 @@
       "source_file": "app\\routes\\$.tsx",
       "source_location": "L3",
       "id": "loader",
-      "community": 24,
+      "community": 27,
       "norm_label": "loader()"
     },
     {
@@ -828,7 +999,7 @@
       "source_file": "app\\routes\\$.tsx",
       "source_location": "L9",
       "id": "catchallpage",
-      "community": 24,
+      "community": 27,
       "norm_label": "catchallpage()"
     },
     {
@@ -837,7 +1008,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L1",
       "id": "app_routes_account_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "account.tsx"
     },
     {
@@ -846,7 +1017,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L15",
       "id": "account_loader",
-      "community": 2,
+      "community": 1,
       "norm_label": "loader()"
     },
     {
@@ -855,7 +1026,7 @@
       "source_file": "app\\routes\\account.addresses.tsx",
       "source_location": "L1",
       "id": "app_routes_account_addresses_tsx",
-      "community": 16,
+      "community": 17,
       "norm_label": "account.addresses.tsx"
     },
     {
@@ -864,7 +1035,7 @@
       "source_file": "app\\routes\\account.addresses.tsx",
       "source_location": "L30",
       "id": "account_addresses_meta",
-      "community": 16,
+      "community": 17,
       "norm_label": "meta()"
     },
     {
@@ -873,7 +1044,7 @@
       "source_file": "app\\routes\\account.addresses.tsx",
       "source_location": "L34",
       "id": "account_addresses_loader",
-      "community": 16,
+      "community": 17,
       "norm_label": "loader()"
     },
     {
@@ -882,7 +1053,7 @@
       "source_file": "app\\routes\\account.addresses.tsx",
       "source_location": "L40",
       "id": "account_addresses_action",
-      "community": 16,
+      "community": 17,
       "norm_label": "action()"
     },
     {
@@ -891,7 +1062,7 @@
       "source_file": "app\\routes\\account.orders.$id.tsx",
       "source_location": "L1",
       "id": "app_routes_account_orders_id_tsx",
-      "community": 17,
+      "community": 18,
       "norm_label": "account.orders.$id.tsx"
     },
     {
@@ -900,7 +1071,7 @@
       "source_file": "app\\routes\\account.orders.$id.tsx",
       "source_location": "L10",
       "id": "account_orders_id_meta",
-      "community": 17,
+      "community": 18,
       "norm_label": "meta()"
     },
     {
@@ -909,7 +1080,7 @@
       "source_file": "app\\routes\\account.orders.$id.tsx",
       "source_location": "L14",
       "id": "account_orders_id_loader",
-      "community": 17,
+      "community": 18,
       "norm_label": "loader()"
     },
     {
@@ -918,7 +1089,7 @@
       "source_file": "app\\routes\\account.orders.$id.tsx",
       "source_location": "L76",
       "id": "account_orders_id_orderroute",
-      "community": 17,
+      "community": 18,
       "norm_label": "orderroute()"
     },
     {
@@ -927,7 +1098,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L1",
       "id": "app_routes_account_orders_index_tsx",
-      "community": 1,
+      "community": 2,
       "norm_label": "account.orders._index.tsx"
     },
     {
@@ -936,7 +1107,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L32",
       "id": "account_orders_index_meta",
-      "community": 1,
+      "community": 2,
       "norm_label": "meta()"
     },
     {
@@ -945,7 +1116,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L36",
       "id": "account_orders_index_loader",
-      "community": 1,
+      "community": 2,
       "norm_label": "loader()"
     },
     {
@@ -954,7 +1125,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L61",
       "id": "account_orders_index_orders",
-      "community": 1,
+      "community": 2,
       "norm_label": "orders()"
     },
     {
@@ -963,7 +1134,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L73",
       "id": "account_orders_index_orderstable",
-      "community": 1,
+      "community": 2,
       "norm_label": "orderstable()"
     },
     {
@@ -972,7 +1143,7 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L131",
       "id": "account_orders_index_handlesubmit",
-      "community": 1,
+      "community": 2,
       "norm_label": "handlesubmit()"
     },
     {
@@ -981,7 +1152,7 @@
       "source_file": "app\\routes\\account.profile.tsx",
       "source_location": "L1",
       "id": "app_routes_account_profile_tsx",
-      "community": 18,
+      "community": 19,
       "norm_label": "account.profile.tsx"
     },
     {
@@ -990,7 +1161,7 @@
       "source_file": "app\\routes\\account.profile.tsx",
       "source_location": "L18",
       "id": "account_profile_meta",
-      "community": 18,
+      "community": 19,
       "norm_label": "meta()"
     },
     {
@@ -999,7 +1170,7 @@
       "source_file": "app\\routes\\account.profile.tsx",
       "source_location": "L22",
       "id": "account_profile_loader",
-      "community": 18,
+      "community": 19,
       "norm_label": "loader()"
     },
     {
@@ -1008,7 +1179,7 @@
       "source_file": "app\\routes\\account.profile.tsx",
       "source_location": "L28",
       "id": "account_profile_action",
-      "community": 18,
+      "community": 19,
       "norm_label": "action()"
     },
     {
@@ -1017,7 +1188,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L11",
       "id": "account_shouldrevalidate",
-      "community": 2,
+      "community": 1,
       "norm_label": "shouldrevalidate()"
     },
     {
@@ -1026,7 +1197,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L37",
       "id": "account_accountlayout",
-      "community": 2,
+      "community": 1,
       "norm_label": "accountlayout()"
     },
     {
@@ -1035,7 +1206,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L57",
       "id": "account_accountmenu",
-      "community": 2,
+      "community": 1,
       "norm_label": "accountmenu()"
     },
     {
@@ -1044,7 +1215,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L68",
       "id": "account_accountnavlink",
-      "community": 2,
+      "community": 1,
       "norm_label": "accountnavlink()"
     },
     {
@@ -1053,7 +1224,7 @@
       "source_file": "app\\routes\\account.tsx",
       "source_location": "L85",
       "id": "account_logout",
-      "community": 2,
+      "community": 1,
       "norm_label": "logout()"
     },
     {
@@ -1062,7 +1233,7 @@
       "source_file": "app\\routes\\account._index.tsx",
       "source_location": "L1",
       "id": "app_routes_account_index_tsx",
-      "community": 36,
+      "community": 40,
       "norm_label": "account._index.tsx"
     },
     {
@@ -1071,7 +1242,7 @@
       "source_file": "app\\routes\\account._index.tsx",
       "source_location": "L3",
       "id": "account_index_loader",
-      "community": 36,
+      "community": 40,
       "norm_label": "loader()"
     },
     {
@@ -1080,7 +1251,7 @@
       "source_file": "app\\routes\\account_.authorize.tsx",
       "source_location": "L1",
       "id": "app_routes_account_authorize_tsx",
-      "community": 37,
+      "community": 41,
       "norm_label": "account_.authorize.tsx"
     },
     {
@@ -1089,7 +1260,7 @@
       "source_file": "app\\routes\\account_.authorize.tsx",
       "source_location": "L3",
       "id": "account_authorize_loader",
-      "community": 37,
+      "community": 41,
       "norm_label": "loader()"
     },
     {
@@ -1098,7 +1269,7 @@
       "source_file": "app\\routes\\account_.login.tsx",
       "source_location": "L1",
       "id": "app_routes_account_login_tsx",
-      "community": 38,
+      "community": 42,
       "norm_label": "account_.login.tsx"
     },
     {
@@ -1107,7 +1278,7 @@
       "source_file": "app\\routes\\account_.login.tsx",
       "source_location": "L3",
       "id": "account_login_loader",
-      "community": 38,
+      "community": 42,
       "norm_label": "loader()"
     },
     {
@@ -1116,7 +1287,7 @@
       "source_file": "app\\routes\\account_.logout.tsx",
       "source_location": "L1",
       "id": "app_routes_account_logout_tsx",
-      "community": 2,
+      "community": 1,
       "norm_label": "account_.logout.tsx"
     },
     {
@@ -1125,7 +1296,7 @@
       "source_file": "app\\routes\\account_.logout.tsx",
       "source_location": "L5",
       "id": "account_logout_loader",
-      "community": 2,
+      "community": 1,
       "norm_label": "loader()"
     },
     {
@@ -1134,8 +1305,35 @@
       "source_file": "app\\routes\\account_.logout.tsx",
       "source_location": "L9",
       "id": "account_logout_action",
-      "community": 2,
+      "community": 1,
       "norm_label": "action()"
+    },
+    {
+      "label": "analytics.tsx",
+      "file_type": "code",
+      "source_file": "app\\routes\\analytics.tsx",
+      "source_location": "L1",
+      "id": "app_routes_analytics_tsx",
+      "community": 28,
+      "norm_label": "analytics.tsx"
+    },
+    {
+      "label": "meta()",
+      "file_type": "code",
+      "source_file": "app\\routes\\analytics.tsx",
+      "source_location": "L4",
+      "id": "analytics_meta",
+      "community": 28,
+      "norm_label": "meta()"
+    },
+    {
+      "label": "loader()",
+      "file_type": "code",
+      "source_file": "app\\routes\\analytics.tsx",
+      "source_location": "L31",
+      "id": "analytics_loader",
+      "community": 28,
+      "norm_label": "loader()"
     },
     {
       "label": "blogs.$blogHandle.$articleHandle.tsx",
@@ -1143,7 +1341,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
       "source_location": "L1",
       "id": "app_routes_blogs_bloghandle_articlehandle_tsx",
-      "community": 10,
+      "community": 8,
       "norm_label": "blogs.$bloghandle.$articlehandle.tsx"
     },
     {
@@ -1152,34 +1350,34 @@
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
       "source_location": "L6",
       "id": "blogs_bloghandle_articlehandle_meta",
-      "community": 10,
+      "community": 8,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L10",
+      "source_location": "L22",
       "id": "blogs_bloghandle_articlehandle_loader",
-      "community": 10,
+      "community": 8,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L24",
+      "source_location": "L36",
       "id": "blogs_bloghandle_articlehandle_loadcriticaldata",
-      "community": 10,
+      "community": 8,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L64",
+      "source_location": "L76",
       "id": "blogs_bloghandle_articlehandle_loaddeferreddata",
-      "community": 10,
+      "community": 8,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1188,7 +1386,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L1",
       "id": "app_routes_blogs_bloghandle_index_tsx",
-      "community": 11,
+      "community": 12,
       "norm_label": "blogs.$bloghandle._index.tsx"
     },
     {
@@ -1197,7 +1395,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L8",
       "id": "blogs_bloghandle_index_meta",
-      "community": 11,
+      "community": 12,
       "norm_label": "meta()"
     },
     {
@@ -1206,7 +1404,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L12",
       "id": "blogs_bloghandle_index_loader",
-      "community": 11,
+      "community": 12,
       "norm_label": "loader()"
     },
     {
@@ -1215,7 +1413,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L26",
       "id": "blogs_bloghandle_index_loadcriticaldata",
-      "community": 11,
+      "community": 12,
       "norm_label": "loadcriticaldata()"
     },
     {
@@ -1224,7 +1422,7 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L59",
       "id": "blogs_bloghandle_index_loaddeferreddata",
-      "community": 11,
+      "community": 12,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1233,7 +1431,7 @@
       "source_file": "app\\routes\\blogs._index.tsx",
       "source_location": "L1",
       "id": "app_routes_blogs_index_tsx",
-      "community": 12,
+      "community": 13,
       "norm_label": "blogs._index.tsx"
     },
     {
@@ -1242,7 +1440,7 @@
       "source_file": "app\\routes\\blogs._index.tsx",
       "source_location": "L9",
       "id": "blogs_index_meta",
-      "community": 12,
+      "community": 13,
       "norm_label": "meta()"
     },
     {
@@ -1251,7 +1449,7 @@
       "source_file": "app\\routes\\blogs._index.tsx",
       "source_location": "L13",
       "id": "blogs_index_loader",
-      "community": 12,
+      "community": 13,
       "norm_label": "loader()"
     },
     {
@@ -1260,7 +1458,7 @@
       "source_file": "app\\routes\\blogs._index.tsx",
       "source_location": "L27",
       "id": "blogs_index_loadcriticaldata",
-      "community": 12,
+      "community": 13,
       "norm_label": "loadcriticaldata()"
     },
     {
@@ -1269,7 +1467,7 @@
       "source_file": "app\\routes\\blogs._index.tsx",
       "source_location": "L49",
       "id": "blogs_index_loaddeferreddata",
-      "community": 12,
+      "community": 13,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1278,7 +1476,7 @@
       "source_file": "app\\routes\\cart.$lines.tsx",
       "source_location": "L1",
       "id": "app_routes_cart_lines_tsx",
-      "community": 25,
+      "community": 29,
       "norm_label": "cart.$lines.tsx"
     },
     {
@@ -1287,7 +1485,7 @@
       "source_file": "app\\routes\\cart.$lines.tsx",
       "source_location": "L22",
       "id": "cart_lines_loader",
-      "community": 25,
+      "community": 29,
       "norm_label": "loader()"
     },
     {
@@ -1296,7 +1494,7 @@
       "source_file": "app\\routes\\cart.$lines.tsx",
       "source_location": "L68",
       "id": "cart_lines_component",
-      "community": 25,
+      "community": 29,
       "norm_label": "component()"
     },
     {
@@ -1305,7 +1503,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L1",
       "id": "app_routes_cart_tsx",
-      "community": 7,
+      "community": 10,
       "norm_label": "cart.tsx"
     },
     {
@@ -1314,7 +1512,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L7",
       "id": "cart_meta",
-      "community": 7,
+      "community": 10,
       "norm_label": "meta()"
     },
     {
@@ -1323,7 +1521,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L11",
       "id": "cart_headers",
-      "community": 7,
+      "community": 10,
       "norm_label": "headers()"
     },
     {
@@ -1332,7 +1530,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L13",
       "id": "cart_action",
-      "community": 7,
+      "community": 10,
       "norm_label": "action()"
     },
     {
@@ -1341,7 +1539,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L99",
       "id": "cart_loader",
-      "community": 7,
+      "community": 10,
       "norm_label": "loader()"
     },
     {
@@ -1350,7 +1548,7 @@
       "source_file": "app\\routes\\cart.tsx",
       "source_location": "L104",
       "id": "cart_cart",
-      "community": 7,
+      "community": 10,
       "norm_label": "cart()"
     },
     {
@@ -1359,43 +1557,43 @@
       "source_file": "app\\routes\\collections.$handle.tsx",
       "source_location": "L1",
       "id": "app_routes_collections_handle_tsx",
-      "community": 6,
+      "community": 5,
       "norm_label": "collections.$handle.tsx"
     },
     {
       "label": "meta()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L9",
+      "source_location": "L12",
       "id": "collections_handle_meta",
-      "community": 6,
+      "community": 5,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L13",
+      "source_location": "L29",
       "id": "collections_handle_loader",
-      "community": 6,
+      "community": 5,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L27",
+      "source_location": "L43",
       "id": "collections_handle_loadcriticaldata",
-      "community": 6,
+      "community": 5,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L64",
+      "source_location": "L83",
       "id": "collections_handle_loaddeferreddata",
-      "community": 6,
+      "community": 5,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1404,7 +1602,7 @@
       "source_file": "app\\routes\\collections.all.tsx",
       "source_location": "L1",
       "id": "app_routes_collections_all_tsx",
-      "community": 13,
+      "community": 14,
       "norm_label": "collections.all.tsx"
     },
     {
@@ -1413,34 +1611,34 @@
       "source_file": "app\\routes\\collections.all.tsx",
       "source_location": "L8",
       "id": "collections_all_meta",
-      "community": 13,
+      "community": 14,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L12",
+      "source_location": "L16",
       "id": "collections_all_loader",
-      "community": 13,
+      "community": 14,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L26",
+      "source_location": "L30",
       "id": "collections_all_loadcriticaldata",
-      "community": 13,
+      "community": 14,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L46",
+      "source_location": "L50",
       "id": "collections_all_loaddeferreddata",
-      "community": 13,
+      "community": 14,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1449,7 +1647,7 @@
       "source_file": "app\\routes\\collections._index.tsx",
       "source_location": "L1",
       "id": "app_routes_collections_index_tsx",
-      "community": 19,
+      "community": 20,
       "norm_label": "collections._index.tsx"
     },
     {
@@ -1458,7 +1656,7 @@
       "source_file": "app\\routes\\collections._index.tsx",
       "source_location": "L7",
       "id": "collections_index_loader",
-      "community": 19,
+      "community": 20,
       "norm_label": "loader()"
     },
     {
@@ -1467,7 +1665,7 @@
       "source_file": "app\\routes\\collections._index.tsx",
       "source_location": "L21",
       "id": "collections_index_loadcriticaldata",
-      "community": 19,
+      "community": 20,
       "norm_label": "loadcriticaldata()"
     },
     {
@@ -1476,7 +1674,7 @@
       "source_file": "app\\routes\\collections._index.tsx",
       "source_location": "L41",
       "id": "collections_index_loaddeferreddata",
-      "community": 19,
+      "community": 20,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1485,7 +1683,7 @@
       "source_file": "app\\routes\\discount.$code.tsx",
       "source_location": "L1",
       "id": "app_routes_discount_code_tsx",
-      "community": 39,
+      "community": 43,
       "norm_label": "discount.$code.tsx"
     },
     {
@@ -1494,7 +1692,7 @@
       "source_file": "app\\routes\\discount.$code.tsx",
       "source_location": "L15",
       "id": "discount_code_loader",
-      "community": 39,
+      "community": 43,
       "norm_label": "loader()"
     },
     {
@@ -1503,52 +1701,52 @@
       "source_file": "app\\routes\\pages.$handle.tsx",
       "source_location": "L1",
       "id": "app_routes_pages_handle_tsx",
-      "community": 8,
+      "community": 9,
       "norm_label": "pages.$handle.tsx"
     },
     {
       "label": "meta()",
       "file_type": "code",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "id": "pages_handle_meta",
-      "community": 8,
+      "community": 9,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L9",
+      "source_location": "L17",
       "id": "pages_handle_loader",
-      "community": 8,
+      "community": 9,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L23",
+      "source_location": "L31",
       "id": "pages_handle_loadcriticaldata",
-      "community": 8,
+      "community": 9,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L53",
+      "source_location": "L61",
       "id": "pages_handle_loaddeferreddata",
-      "community": 8,
+      "community": 9,
       "norm_label": "loaddeferreddata()"
     },
     {
       "label": "Page()",
       "file_type": "code",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L57",
+      "source_location": "L65",
       "id": "pages_handle_page",
-      "community": 8,
+      "community": 9,
       "norm_label": "page()"
     },
     {
@@ -1557,7 +1755,7 @@
       "source_file": "app\\routes\\policies.$handle.tsx",
       "source_location": "L1",
       "id": "app_routes_policies_handle_tsx",
-      "community": 20,
+      "community": 21,
       "norm_label": "policies.$handle.tsx"
     },
     {
@@ -1566,7 +1764,7 @@
       "source_file": "app\\routes\\policies.$handle.tsx",
       "source_location": "L10",
       "id": "policies_handle_meta",
-      "community": 20,
+      "community": 21,
       "norm_label": "meta()"
     },
     {
@@ -1575,7 +1773,7 @@
       "source_file": "app\\routes\\policies.$handle.tsx",
       "source_location": "L14",
       "id": "policies_handle_loader",
-      "community": 20,
+      "community": 21,
       "norm_label": "loader()"
     },
     {
@@ -1584,7 +1782,7 @@
       "source_file": "app\\routes\\policies.$handle.tsx",
       "source_location": "L44",
       "id": "policies_handle_policy",
-      "community": 20,
+      "community": 21,
       "norm_label": "policy()"
     },
     {
@@ -1593,7 +1791,7 @@
       "source_file": "app\\routes\\policies._index.tsx",
       "source_location": "L1",
       "id": "app_routes_policies_index_tsx",
-      "community": 26,
+      "community": 30,
       "norm_label": "policies._index.tsx"
     },
     {
@@ -1602,7 +1800,7 @@
       "source_file": "app\\routes\\policies._index.tsx",
       "source_location": "L5",
       "id": "policies_index_loader",
-      "community": 26,
+      "community": 30,
       "norm_label": "loader()"
     },
     {
@@ -1611,7 +1809,7 @@
       "source_file": "app\\routes\\policies._index.tsx",
       "source_location": "L24",
       "id": "policies_index_policies",
-      "community": 26,
+      "community": 30,
       "norm_label": "policies()"
     },
     {
@@ -1620,43 +1818,43 @@
       "source_file": "app\\routes\\products.$handle.tsx",
       "source_location": "L1",
       "id": "app_routes_products_handle_tsx",
-      "community": 14,
+      "community": 15,
       "norm_label": "products.$handle.tsx"
     },
     {
       "label": "meta()",
       "file_type": "code",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L16",
+      "source_location": "L21",
       "id": "products_handle_meta",
-      "community": 14,
+      "community": 15,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L26",
+      "source_location": "L59",
       "id": "products_handle_loader",
-      "community": 14,
+      "community": 15,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L40",
+      "source_location": "L73",
       "id": "products_handle_loadcriticaldata",
-      "community": 14,
+      "community": 15,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L72",
+      "source_location": "L105",
       "id": "products_handle_loaddeferreddata",
-      "community": 14,
+      "community": 15,
       "norm_label": "loaddeferreddata()"
     },
     {
@@ -1665,7 +1863,7 @@
       "source_file": "app\\routes\\search.tsx",
       "source_location": "L1",
       "id": "app_routes_search_tsx",
-      "community": 27,
+      "community": 31,
       "norm_label": "search.tsx"
     },
     {
@@ -1674,7 +1872,7 @@
       "source_file": "app\\routes\\search.tsx",
       "source_location": "L16",
       "id": "search_meta",
-      "community": 27,
+      "community": 31,
       "norm_label": "meta()"
     },
     {
@@ -1683,7 +1881,7 @@
       "source_file": "app\\routes\\search.tsx",
       "source_location": "L20",
       "id": "search_loader",
-      "community": 27,
+      "community": 31,
       "norm_label": "loader()"
     },
     {
@@ -1692,7 +1890,7 @@
       "source_file": "app\\routes\\sitemap.$type.$page[.xml].tsx",
       "source_location": "L1",
       "id": "app_routes_sitemap_type_page_xml_tsx",
-      "community": 40,
+      "community": 44,
       "norm_label": "sitemap.$type.$page[.xml].tsx"
     },
     {
@@ -1701,7 +1899,7 @@
       "source_file": "app\\routes\\sitemap.$type.$page[.xml].tsx",
       "source_location": "L4",
       "id": "sitemap_type_page_xml_loader",
-      "community": 40,
+      "community": 44,
       "norm_label": "loader()"
     },
     {
@@ -1710,7 +1908,7 @@
       "source_file": "app\\routes\\[robots.txt].tsx",
       "source_location": "L1",
       "id": "app_routes_robots_txt_tsx",
-      "community": 21,
+      "community": 22,
       "norm_label": "[robots.txt].tsx"
     },
     {
@@ -1719,7 +1917,7 @@
       "source_file": "app\\routes\\[robots.txt].tsx",
       "source_location": "L3",
       "id": "robots_txt_loader",
-      "community": 21,
+      "community": 22,
       "norm_label": "loader()"
     },
     {
@@ -1728,7 +1926,7 @@
       "source_file": "app\\routes\\[robots.txt].tsx",
       "source_location": "L17",
       "id": "robots_txt_robotstxtdata",
-      "community": 21,
+      "community": 22,
       "norm_label": "robotstxtdata()"
     },
     {
@@ -1737,7 +1935,7 @@
       "source_file": "app\\routes\\[robots.txt].tsx",
       "source_location": "L55",
       "id": "robots_txt_generaldisallowrules",
-      "community": 21,
+      "community": 22,
       "norm_label": "generaldisallowrules()"
     },
     {
@@ -1746,7 +1944,7 @@
       "source_file": "app\\routes\\[sitemap.xml].tsx",
       "source_location": "L1",
       "id": "app_routes_sitemap_xml_tsx",
-      "community": 41,
+      "community": 45,
       "norm_label": "[sitemap.xml].tsx"
     },
     {
@@ -1755,7 +1953,7 @@
       "source_file": "app\\routes\\[sitemap.xml].tsx",
       "source_location": "L4",
       "id": "sitemap_xml_loader",
-      "community": 41,
+      "community": 45,
       "norm_label": "loader()"
     },
     {
@@ -1764,7 +1962,7 @@
       "source_file": "app\\routes\\_index.tsx",
       "source_location": "L1",
       "id": "app_routes_index_tsx",
-      "community": 15,
+      "community": 11,
       "norm_label": "_index.tsx"
     },
     {
@@ -1773,35 +1971,44 @@
       "source_file": "app\\routes\\_index.tsx",
       "source_location": "L12",
       "id": "index_meta",
-      "community": 15,
+      "community": 11,
       "norm_label": "meta()"
     },
     {
       "label": "loader()",
       "file_type": "code",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L16",
+      "source_location": "L21",
       "id": "index_loader",
-      "community": 15,
+      "community": 11,
       "norm_label": "loader()"
     },
     {
       "label": "loadCriticalData()",
       "file_type": "code",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L30",
+      "source_location": "L35",
       "id": "index_loadcriticaldata",
-      "community": 15,
+      "community": 11,
       "norm_label": "loadcriticaldata()"
     },
     {
       "label": "loadDeferredData()",
       "file_type": "code",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L47",
+      "source_location": "L52",
       "id": "index_loaddeferreddata",
-      "community": 15,
+      "community": 11,
       "norm_label": "loaddeferreddata()"
+    },
+    {
+      "label": "Homepage()",
+      "file_type": "code",
+      "source_file": "app\\routes\\_index.tsx",
+      "source_location": "L66",
+      "id": "index_homepage",
+      "community": 11,
+      "norm_label": "homepage()"
     }
   ],
   "links": [
@@ -1835,17 +2042,29 @@
       "source_file": "app\\server.ts",
       "source_location": "L36",
       "weight": 0.5,
-      "_src": "server_handler",
-      "_tgt": "entry_server_handlerequest",
+      "_src": "entry_server_handlerequest",
+      "_tgt": "server_handler",
+      "confidence_score": 0.5,
       "source": "entry_server_handlerequest",
-      "target": "server_handler",
-      "confidence_score": 0.5
+      "target": "server_handler"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L27",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_src": "app_root_tsx",
+      "_tgt": "root_meta",
+      "source": "app_root_tsx",
+      "target": "root_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\root.tsx",
+      "source_location": "L44",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_shouldrevalidate",
@@ -1857,7 +2076,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L56",
+      "source_location": "L73",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_links",
@@ -1869,7 +2088,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L70",
+      "source_location": "L87",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_loader",
@@ -1881,7 +2100,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L102",
+      "source_location": "L123",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_loadcriticaldata",
@@ -1893,7 +2112,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L123",
+      "source_location": "L144",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_loaddeferreddata",
@@ -1905,7 +2124,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L194",
+      "source_location": "L225",
       "weight": 1.0,
       "_src": "app_root_tsx",
       "_tgt": "root_raf",
@@ -1917,7 +2136,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L72",
+      "source_location": "L89",
       "weight": 1.0,
       "_src": "root_loader",
       "_tgt": "root_loaddeferreddata",
@@ -1929,7 +2148,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\root.tsx",
-      "source_location": "L75",
+      "source_location": "L92",
       "weight": 1.0,
       "_src": "root_loader",
       "_tgt": "root_loadcriticaldata",
@@ -1969,50 +2188,110 @@
       "weight": 0.5,
       "_src": "server_handler",
       "_tgt": "context_createhydrogenroutercontext",
+      "confidence_score": 0.5,
       "source": "server_handler",
-      "target": "context_createhydrogenroutercontext",
-      "confidence_score": 0.5
+      "target": "context_createhydrogenroutercontext"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\AddToCartButton.tsx",
+      "source_file": "app\\components\\Analytics\\ClickTracker.tsx",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_src": "app_components_analytics_clicktracker_tsx",
+      "_tgt": "clicktracker_clicktracker",
+      "source": "app_components_analytics_clicktracker_tsx",
+      "target": "clicktracker_clicktracker",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Analytics\\ClickTracker.tsx",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_src": "app_components_analytics_clicktracker_tsx",
+      "_tgt": "clicktracker_buildprops",
+      "source": "app_components_analytics_clicktracker_tsx",
+      "target": "clicktracker_buildprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Cart\\AddToCartButton.tsx",
       "source_location": "L4",
       "weight": 1.0,
-      "_src": "app_components_addtocartbutton_tsx",
+      "_src": "app_components_cart_addtocartbutton_tsx",
       "_tgt": "addtocartbutton_addtocartbutton",
-      "source": "app_components_addtocartbutton_tsx",
+      "source": "app_components_cart_addtocartbutton_tsx",
       "target": "addtocartbutton_addtocartbutton",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Cart\\CartMain.tsx",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_src": "app_components_cart_cartmain_tsx",
+      "_tgt": "cartmain_getlineitemchildrenmap",
+      "source": "app_components_cart_cartmain_tsx",
+      "target": "cartmain_getlineitemchildrenmap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Collection\\CollectionFilters.tsx",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_src": "app_components_collection_collectionfilters_tsx",
+      "_tgt": "collectionfilters_togglefilter",
+      "source": "app_components_collection_collectionfilters_tsx",
+      "target": "collectionfilters_togglefilter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Collection\\CollectionFilters.tsx",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_src": "app_components_collection_collectionfilters_tsx",
+      "_tgt": "collectionfilters_clearfilters",
+      "source": "app_components_collection_collectionfilters_tsx",
+      "target": "collectionfilters_clearfilters",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L27",
       "weight": 1.0,
-      "_src": "app_components_aside_tsx",
+      "_src": "app_components_layout_aside_tsx",
       "_tgt": "aside_aside",
-      "source": "app_components_aside_tsx",
+      "source": "app_components_layout_aside_tsx",
       "target": "aside_aside",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L121",
       "weight": 1.0,
-      "_src": "app_components_aside_tsx",
+      "_src": "app_components_layout_aside_tsx",
       "_tgt": "aside_useaside",
-      "source": "app_components_aside_tsx",
+      "source": "app_components_layout_aside_tsx",
       "target": "aside_useaside",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\Aside.tsx",
+      "source_file": "app\\components\\Layout\\Aside.tsx",
       "source_location": "L36",
       "weight": 1.0,
       "_src": "aside_aside",
@@ -2027,11 +2306,11 @@
       "source_file": "app\\components\\Header.tsx",
       "source_location": "L27",
       "weight": 0.5,
-      "_src": "header_header",
-      "_tgt": "aside_useaside",
+      "_src": "aside_useaside",
+      "_tgt": "header_header",
+      "confidence_score": 0.5,
       "source": "aside_useaside",
-      "target": "header_header",
-      "confidence_score": 0.5
+      "target": "header_header"
     },
     {
       "relation": "calls",
@@ -2039,11 +2318,11 @@
       "source_file": "app\\components\\SearchFormPredictive.tsx",
       "source_location": "L35",
       "weight": 0.5,
-      "_src": "searchformpredictive_searchformpredictive",
-      "_tgt": "aside_useaside",
+      "_src": "aside_useaside",
+      "_tgt": "searchformpredictive_searchformpredictive",
+      "confidence_score": 0.5,
       "source": "aside_useaside",
-      "target": "searchformpredictive_searchformpredictive",
-      "confidence_score": 0.5
+      "target": "searchformpredictive_searchformpredictive"
     },
     {
       "relation": "calls",
@@ -2051,81 +2330,57 @@
       "source_file": "app\\components\\SearchResultsPredictive.tsx",
       "source_location": "L45",
       "weight": 0.5,
-      "_src": "searchresultspredictive_searchresultspredictive",
-      "_tgt": "aside_useaside",
+      "_src": "aside_useaside",
+      "_tgt": "searchresultspredictive_searchresultspredictive",
+      "confidence_score": 0.5,
       "source": "aside_useaside",
-      "target": "searchresultspredictive_searchresultspredictive",
-      "confidence_score": 0.5
+      "target": "searchresultspredictive_searchresultspredictive"
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\CartMain.tsx",
-      "source_location": "L17",
+      "source_file": "app\\components\\Layout\\Header.tsx",
+      "source_location": "L21",
       "weight": 1.0,
-      "_src": "app_components_cartmain_tsx",
-      "_tgt": "cartmain_getlineitemchildrenmap",
-      "source": "app_components_cartmain_tsx",
-      "target": "cartmain_getlineitemchildrenmap",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app\\components\\Header.tsx",
-      "source_location": "L20",
-      "weight": 1.0,
-      "_src": "app_components_header_tsx",
+      "_src": "app_components_layout_header_tsx",
       "_tgt": "header_header",
-      "source": "app_components_header_tsx",
+      "source": "app_components_layout_header_tsx",
       "target": "header_header",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\MobileBottomNav.tsx",
+      "source_file": "app\\components\\Layout\\MobileBottomNav.tsx",
       "source_location": "L3",
       "weight": 1.0,
-      "_src": "app_components_mobilebottomnav_tsx",
+      "_src": "app_components_layout_mobilebottomnav_tsx",
       "_tgt": "mobilebottomnav_mobilebottomnav",
-      "source": "app_components_mobilebottomnav_tsx",
+      "source": "app_components_layout_mobilebottomnav_tsx",
       "target": "mobilebottomnav_mobilebottomnav",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\MockShopNotice.tsx",
-      "source_location": "L1",
+      "source_file": "app\\components\\Product\\ProductDescription.tsx",
+      "source_location": "L11",
       "weight": 1.0,
-      "_src": "app_components_mockshopnotice_tsx",
-      "_tgt": "mockshopnotice_mockshopnotice",
-      "source": "app_components_mockshopnotice_tsx",
-      "target": "mockshopnotice_mockshopnotice",
+      "_src": "app_components_product_productdescription_tsx",
+      "_tgt": "productdescription_check",
+      "source": "app_components_product_productdescription_tsx",
+      "target": "productdescription_check",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\ProductImage.tsx",
-      "source_location": "L4",
+      "source_file": "app\\components\\Product\\ProductItem.tsx",
+      "source_location": "L12",
       "weight": 1.0,
-      "_src": "app_components_productimage_tsx",
-      "_tgt": "productimage_productimage",
-      "source": "app_components_productimage_tsx",
-      "target": "productimage_productimage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app\\components\\ProductItem.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_src": "app_components_productitem_tsx",
+      "_src": "app_components_product_productitem_tsx",
       "_tgt": "productitem_productitem",
-      "source": "app_components_productitem_tsx",
+      "source": "app_components_product_productitem_tsx",
       "target": "productitem_productitem",
       "confidence_score": 1.0
     },
@@ -2137,38 +2392,50 @@
       "weight": 0.5,
       "_src": "productitem_productitem",
       "_tgt": "variants_usevarianturl",
+      "confidence_score": 0.5,
       "source": "productitem_productitem",
-      "target": "variants_usevarianturl",
+      "target": "variants_usevarianturl"
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "app\\components\\Product\\ProductItem.tsx",
+      "source_location": "L24",
+      "weight": 0.5,
+      "_src": "productitem_productitem",
+      "_tgt": "usewishlist_usewishlist",
+      "source": "productitem_productitem",
+      "target": "usewishlist_usewishlist",
       "confidence_score": 0.5
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L29",
       "weight": 1.0,
-      "_src": "app_components_searchform_tsx",
+      "_src": "app_components_search_searchform_tsx",
       "_tgt": "searchform_searchform",
-      "source": "app_components_searchform_tsx",
+      "source": "app_components_search_searchform_tsx",
       "target": "searchform_searchform",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L48",
       "weight": 1.0,
-      "_src": "app_components_searchform_tsx",
+      "_src": "app_components_search_searchform_tsx",
       "_tgt": "searchform_usefocusoncmdk",
-      "source": "app_components_searchform_tsx",
+      "source": "app_components_search_searchform_tsx",
       "target": "searchform_usefocusoncmdk",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchForm.tsx",
+      "source_file": "app\\components\\Search\\SearchForm.tsx",
       "source_location": "L32",
       "weight": 1.0,
       "_src": "searchform_searchform",
@@ -2180,37 +2447,49 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchFormPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchFormPredictive.tsx",
       "source_location": "L27",
       "weight": 1.0,
-      "_src": "app_components_searchformpredictive_tsx",
+      "_src": "app_components_search_searchformpredictive_tsx",
       "_tgt": "searchformpredictive_searchformpredictive",
-      "source": "app_components_searchformpredictive_tsx",
+      "source": "app_components_search_searchformpredictive_tsx",
       "target": "searchformpredictive_searchformpredictive",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchResults.tsx",
+      "source_file": "app\\components\\Search\\SearchResults.tsx",
       "source_location": "L16",
       "weight": 1.0,
-      "_src": "app_components_searchresults_tsx",
+      "_src": "app_components_search_searchresults_tsx",
       "_tgt": "searchresults_searchresults",
-      "source": "app_components_searchresults_tsx",
+      "source": "app_components_search_searchresults_tsx",
       "target": "searchresults_searchresults",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app\\components\\SearchResultsPredictive.tsx",
+      "source_file": "app\\components\\Search\\SearchResultsPredictive.tsx",
       "source_location": "L42",
       "weight": 1.0,
-      "_src": "app_components_searchresultspredictive_tsx",
+      "_src": "app_components_search_searchresultspredictive_tsx",
       "_tgt": "searchresultspredictive_searchresultspredictive",
-      "source": "app_components_searchresultspredictive_tsx",
+      "source": "app_components_search_searchresultspredictive_tsx",
       "target": "searchresultspredictive_searchresultspredictive",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\components\\Shared\\MockShopNotice.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_src": "app_components_shared_mockshopnotice_tsx",
+      "_tgt": "mockshopnotice_mockshopnotice",
+      "source": "app_components_shared_mockshopnotice_tsx",
+      "target": "mockshopnotice_mockshopnotice",
       "confidence_score": 1.0
     },
     {
@@ -2236,6 +2515,54 @@
       "source": "app_lib_context_ts",
       "target": "context_createhydrogenroutercontext",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_src": "app_lib_filter_ts",
+      "_tgt": "filter_parseascurrency",
+      "source": "app_lib_filter_ts",
+      "target": "filter_parseascurrency",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_src": "app_lib_filter_ts",
+      "_tgt": "filter_getfiltersfromparams",
+      "source": "app_lib_filter_ts",
+      "target": "filter_getfiltersfromparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\filter.ts",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_src": "filter_getfiltersfromparams",
+      "_tgt": "filter_parseascurrency",
+      "source": "filter_parseascurrency",
+      "target": "filter_getfiltersfromparams",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "source_file": "app\\routes\\collections.$handle.tsx",
+      "source_location": "L51",
+      "weight": 0.5,
+      "_src": "collections_handle_loadcriticaldata",
+      "_tgt": "filter_getfiltersfromparams",
+      "source": "filter_getfiltersfromparams",
+      "target": "collections_handle_loadcriticaldata",
+      "confidence_score": 0.5
     },
     {
       "relation": "contains",
@@ -2291,11 +2618,11 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L44",
       "weight": 0.5,
-      "_src": "account_orders_index_loader",
-      "_tgt": "orderfilters_buildordersearchquery",
+      "_src": "orderfilters_buildordersearchquery",
+      "_tgt": "account_orders_index_loader",
+      "confidence_score": 0.5,
       "source": "orderfilters_buildordersearchquery",
-      "target": "account_orders_index_loader",
-      "confidence_score": 0.5
+      "target": "account_orders_index_loader"
     },
     {
       "relation": "calls",
@@ -2303,11 +2630,47 @@
       "source_file": "app\\routes\\account.orders._index.tsx",
       "source_location": "L43",
       "weight": 0.5,
-      "_src": "account_orders_index_loader",
-      "_tgt": "orderfilters_parseorderfilters",
+      "_src": "orderfilters_parseorderfilters",
+      "_tgt": "account_orders_index_loader",
+      "confidence_score": 0.5,
       "source": "orderfilters_parseorderfilters",
-      "target": "account_orders_index_loader",
-      "confidence_score": 0.5
+      "target": "account_orders_index_loader"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "app_lib_posthog_client_ts",
+      "_tgt": "posthog_client_initposthog",
+      "source": "app_lib_posthog_client_ts",
+      "target": "posthog_client_initposthog",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_src": "app_lib_posthog_client_ts",
+      "_tgt": "posthog_client_capturepageview",
+      "source": "app_lib_posthog_client_ts",
+      "target": "posthog_client_capturepageview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\posthog.client.ts",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_src": "app_lib_posthog_client_ts",
+      "_tgt": "posthog_client_captureevent",
+      "source": "app_lib_posthog_client_ts",
+      "target": "posthog_client_captureevent",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -2327,11 +2690,11 @@
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
       "source_location": "L42",
       "weight": 0.5,
-      "_src": "blogs_bloghandle_articlehandle_loadcriticaldata",
-      "_tgt": "redirect_redirectifhandleislocalized",
+      "_src": "redirect_redirectifhandleislocalized",
+      "_tgt": "blogs_bloghandle_articlehandle_loadcriticaldata",
+      "confidence_score": 0.5,
       "source": "redirect_redirectifhandleislocalized",
-      "target": "blogs_bloghandle_articlehandle_loadcriticaldata",
-      "confidence_score": 0.5
+      "target": "blogs_bloghandle_articlehandle_loadcriticaldata"
     },
     {
       "relation": "calls",
@@ -2339,11 +2702,11 @@
       "source_file": "app\\routes\\blogs.$blogHandle._index.tsx",
       "source_location": "L49",
       "weight": 0.5,
-      "_src": "blogs_bloghandle_index_loadcriticaldata",
-      "_tgt": "redirect_redirectifhandleislocalized",
+      "_src": "redirect_redirectifhandleislocalized",
+      "_tgt": "blogs_bloghandle_index_loadcriticaldata",
+      "confidence_score": 0.5,
       "source": "redirect_redirectifhandleislocalized",
-      "target": "blogs_bloghandle_index_loadcriticaldata",
-      "confidence_score": 0.5
+      "target": "blogs_bloghandle_index_loadcriticaldata"
     },
     {
       "relation": "calls",
@@ -2351,11 +2714,11 @@
       "source_file": "app\\routes\\collections.$handle.tsx",
       "source_location": "L52",
       "weight": 0.5,
-      "_src": "collections_handle_loadcriticaldata",
-      "_tgt": "redirect_redirectifhandleislocalized",
+      "_src": "redirect_redirectifhandleislocalized",
+      "_tgt": "collections_handle_loadcriticaldata",
+      "confidence_score": 0.5,
       "source": "redirect_redirectifhandleislocalized",
-      "target": "collections_handle_loadcriticaldata",
-      "confidence_score": 0.5
+      "target": "collections_handle_loadcriticaldata"
     },
     {
       "relation": "calls",
@@ -2363,11 +2726,11 @@
       "source_file": "app\\routes\\pages.$handle.tsx",
       "source_location": "L41",
       "weight": 0.5,
-      "_src": "pages_handle_loadcriticaldata",
-      "_tgt": "redirect_redirectifhandleislocalized",
+      "_src": "redirect_redirectifhandleislocalized",
+      "_tgt": "pages_handle_loadcriticaldata",
+      "confidence_score": 0.5,
       "source": "redirect_redirectifhandleislocalized",
-      "target": "pages_handle_loadcriticaldata",
-      "confidence_score": 0.5
+      "target": "pages_handle_loadcriticaldata"
     },
     {
       "relation": "calls",
@@ -2375,11 +2738,11 @@
       "source_file": "app\\routes\\products.$handle.tsx",
       "source_location": "L60",
       "weight": 0.5,
-      "_src": "products_handle_loadcriticaldata",
-      "_tgt": "redirect_redirectifhandleislocalized",
+      "_src": "redirect_redirectifhandleislocalized",
+      "_tgt": "products_handle_loadcriticaldata",
+      "confidence_score": 0.5,
       "source": "redirect_redirectifhandleislocalized",
-      "target": "products_handle_loadcriticaldata",
-      "confidence_score": 0.5
+      "target": "products_handle_loadcriticaldata"
     },
     {
       "relation": "contains",
@@ -2535,6 +2898,18 @@
       "_tgt": "session_appsession_get",
       "source": "session_appsession_init",
       "target": "session_appsession_get",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\lib\\useWishlist.ts",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_src": "app_lib_usewishlist_ts",
+      "_tgt": "usewishlist_usewishlist",
+      "source": "app_lib_usewishlist_ts",
+      "target": "usewishlist_usewishlist",
       "confidence_score": 1.0
     },
     {
@@ -2831,11 +3206,11 @@
       "source_file": "app\\routes\\account_.logout.tsx",
       "source_location": "L10",
       "weight": 0.5,
-      "_src": "account_logout_action",
-      "_tgt": "account_logout",
+      "_src": "account_logout",
+      "_tgt": "account_logout_action",
+      "confidence_score": 0.5,
       "source": "account_logout",
-      "target": "account_logout_action",
-      "confidence_score": 0.5
+      "target": "account_logout_action"
     },
     {
       "relation": "contains",
@@ -2900,6 +3275,30 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app\\routes\\analytics.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_src": "app_routes_analytics_tsx",
+      "_tgt": "analytics_meta",
+      "source": "app_routes_analytics_tsx",
+      "target": "analytics_meta",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\routes\\analytics.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_src": "app_routes_analytics_tsx",
+      "_tgt": "analytics_loader",
+      "source": "app_routes_analytics_tsx",
+      "target": "analytics_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
       "source_location": "L6",
       "weight": 1.0,
@@ -2913,7 +3312,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L10",
+      "source_location": "L22",
       "weight": 1.0,
       "_src": "app_routes_blogs_bloghandle_articlehandle_tsx",
       "_tgt": "blogs_bloghandle_articlehandle_loader",
@@ -2925,7 +3324,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L24",
+      "source_location": "L36",
       "weight": 1.0,
       "_src": "app_routes_blogs_bloghandle_articlehandle_tsx",
       "_tgt": "blogs_bloghandle_articlehandle_loadcriticaldata",
@@ -2937,7 +3336,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L64",
+      "source_location": "L76",
       "weight": 1.0,
       "_src": "app_routes_blogs_bloghandle_articlehandle_tsx",
       "_tgt": "blogs_bloghandle_articlehandle_loaddeferreddata",
@@ -2949,7 +3348,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L12",
+      "source_location": "L24",
       "weight": 1.0,
       "_src": "blogs_bloghandle_articlehandle_loader",
       "_tgt": "blogs_bloghandle_articlehandle_loaddeferreddata",
@@ -2961,7 +3360,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\blogs.$blogHandle.$articleHandle.tsx",
-      "source_location": "L15",
+      "source_location": "L27",
       "weight": 1.0,
       "_src": "blogs_bloghandle_articlehandle_loader",
       "_tgt": "blogs_bloghandle_articlehandle_loadcriticaldata",
@@ -3201,7 +3600,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L9",
+      "source_location": "L12",
       "weight": 1.0,
       "_src": "app_routes_collections_handle_tsx",
       "_tgt": "collections_handle_meta",
@@ -3213,7 +3612,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L13",
+      "source_location": "L29",
       "weight": 1.0,
       "_src": "app_routes_collections_handle_tsx",
       "_tgt": "collections_handle_loader",
@@ -3225,7 +3624,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L27",
+      "source_location": "L43",
       "weight": 1.0,
       "_src": "app_routes_collections_handle_tsx",
       "_tgt": "collections_handle_loadcriticaldata",
@@ -3237,7 +3636,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L64",
+      "source_location": "L83",
       "weight": 1.0,
       "_src": "app_routes_collections_handle_tsx",
       "_tgt": "collections_handle_loaddeferreddata",
@@ -3249,7 +3648,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L15",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "collections_handle_loader",
       "_tgt": "collections_handle_loaddeferreddata",
@@ -3261,7 +3660,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.$handle.tsx",
-      "source_location": "L18",
+      "source_location": "L34",
       "weight": 1.0,
       "_src": "collections_handle_loader",
       "_tgt": "collections_handle_loadcriticaldata",
@@ -3285,7 +3684,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L12",
+      "source_location": "L16",
       "weight": 1.0,
       "_src": "app_routes_collections_all_tsx",
       "_tgt": "collections_all_loader",
@@ -3297,7 +3696,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L26",
+      "source_location": "L30",
       "weight": 1.0,
       "_src": "app_routes_collections_all_tsx",
       "_tgt": "collections_all_loadcriticaldata",
@@ -3309,7 +3708,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L46",
+      "source_location": "L50",
       "weight": 1.0,
       "_src": "app_routes_collections_all_tsx",
       "_tgt": "collections_all_loaddeferreddata",
@@ -3321,7 +3720,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L14",
+      "source_location": "L18",
       "weight": 1.0,
       "_src": "collections_all_loader",
       "_tgt": "collections_all_loaddeferreddata",
@@ -3333,7 +3732,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\collections.all.tsx",
-      "source_location": "L17",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "collections_all_loader",
       "_tgt": "collections_all_loadcriticaldata",
@@ -3417,7 +3816,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_src": "app_routes_pages_handle_tsx",
       "_tgt": "pages_handle_meta",
@@ -3429,7 +3828,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L9",
+      "source_location": "L17",
       "weight": 1.0,
       "_src": "app_routes_pages_handle_tsx",
       "_tgt": "pages_handle_loader",
@@ -3441,7 +3840,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L23",
+      "source_location": "L31",
       "weight": 1.0,
       "_src": "app_routes_pages_handle_tsx",
       "_tgt": "pages_handle_loadcriticaldata",
@@ -3453,7 +3852,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L53",
+      "source_location": "L61",
       "weight": 1.0,
       "_src": "app_routes_pages_handle_tsx",
       "_tgt": "pages_handle_loaddeferreddata",
@@ -3465,7 +3864,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L57",
+      "source_location": "L65",
       "weight": 1.0,
       "_src": "app_routes_pages_handle_tsx",
       "_tgt": "pages_handle_page",
@@ -3477,7 +3876,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L11",
+      "source_location": "L19",
       "weight": 1.0,
       "_src": "pages_handle_loader",
       "_tgt": "pages_handle_loaddeferreddata",
@@ -3489,7 +3888,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\pages.$handle.tsx",
-      "source_location": "L14",
+      "source_location": "L22",
       "weight": 1.0,
       "_src": "pages_handle_loader",
       "_tgt": "pages_handle_loadcriticaldata",
@@ -3561,7 +3960,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L16",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "app_routes_products_handle_tsx",
       "_tgt": "products_handle_meta",
@@ -3573,7 +3972,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L26",
+      "source_location": "L59",
       "weight": 1.0,
       "_src": "app_routes_products_handle_tsx",
       "_tgt": "products_handle_loader",
@@ -3585,7 +3984,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L40",
+      "source_location": "L73",
       "weight": 1.0,
       "_src": "app_routes_products_handle_tsx",
       "_tgt": "products_handle_loadcriticaldata",
@@ -3597,7 +3996,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L72",
+      "source_location": "L105",
       "weight": 1.0,
       "_src": "app_routes_products_handle_tsx",
       "_tgt": "products_handle_loaddeferreddata",
@@ -3609,24 +4008,24 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L28",
+      "source_location": "L61",
       "weight": 1.0,
       "_src": "products_handle_loader",
-      "_tgt": "products_handle_loaddeferreddata",
+      "_tgt": "products_handle_loadcriticaldata",
       "source": "products_handle_loader",
-      "target": "products_handle_loaddeferreddata",
+      "target": "products_handle_loadcriticaldata",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\products.$handle.tsx",
-      "source_location": "L31",
+      "source_location": "L64",
       "weight": 1.0,
       "_src": "products_handle_loader",
-      "_tgt": "products_handle_loadcriticaldata",
+      "_tgt": "products_handle_loaddeferreddata",
       "source": "products_handle_loader",
-      "target": "products_handle_loadcriticaldata",
+      "target": "products_handle_loaddeferreddata",
       "confidence_score": 1.0
     },
     {
@@ -3753,7 +4152,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L16",
+      "source_location": "L21",
       "weight": 1.0,
       "_src": "app_routes_index_tsx",
       "_tgt": "index_loader",
@@ -3765,7 +4164,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L30",
+      "source_location": "L35",
       "weight": 1.0,
       "_src": "app_routes_index_tsx",
       "_tgt": "index_loadcriticaldata",
@@ -3777,7 +4176,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L47",
+      "source_location": "L52",
       "weight": 1.0,
       "_src": "app_routes_index_tsx",
       "_tgt": "index_loaddeferreddata",
@@ -3786,10 +4185,22 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app\\routes\\_index.tsx",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_src": "app_routes_index_tsx",
+      "_tgt": "index_homepage",
+      "source": "app_routes_index_tsx",
+      "target": "index_homepage",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L18",
+      "source_location": "L23",
       "weight": 1.0,
       "_src": "index_loader",
       "_tgt": "index_loaddeferreddata",
@@ -3801,7 +4212,7 @@
       "relation": "calls",
       "confidence": "EXTRACTED",
       "source_file": "app\\routes\\_index.tsx",
-      "source_location": "L21",
+      "source_location": "L26",
       "weight": 1.0,
       "_src": "index_loader",
       "_tgt": "index_loadcriticaldata",

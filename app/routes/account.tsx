@@ -45,7 +45,7 @@ export default function AccountLayout() {
 
   return (
     <div className="account max-w-[1400px] mx-auto px-4 md:px-8 py-16 font-assistant">
-      <h1 className="font-anton text-4xl md:text-6xl uppercase tracking-tighter mb-8">{heading}</h1>
+      <h1 className="font-serif text-5xl md:text-7xl font-light tracking-[-0.02em] leading-[1.05] mb-10">{heading}</h1>
       <AccountMenu />
       <div className="mt-12">
         <Outlet context={{customer}} />
@@ -70,7 +70,7 @@ function AccountNavLink({to, children}: {to: string, children: React.ReactNode})
     <NavLink 
       to={to} 
       className={({isActive}) => 
-        `font-anton uppercase tracking-widest text-sm px-4 py-2 transition-all ${
+        `font-assistant font-bold uppercase tracking-[0.25em] text-xs px-4 py-2 border transition-colors duration-300 ${
           isActive 
             ? 'bg-brand-black text-white' 
             : 'bg-transparent text-brand-black/60 hover:text-brand-black'

@@ -1,9 +1,20 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/pages.$handle';
+import {getSeoMeta} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
-export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.page.title ?? ''}`}];
+export const meta: Route.MetaFunction = ({data, matches}) => {
+  const page = data?.page;
+  if (!page) return [{title: 'Hydrogen | Page'}];
+
+  const rootData = matches.find((match) => match.id === 'root')?.data as any;
+  const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
+
+  return getSeoMeta({
+    title: page.seo?.title ?? page.title,
+    description: page.seo?.description ?? page.title,
+    url: `${baseUrl}/pages/${page.handle}`,
+  });
 };
 
 export async function loader(args: Route.LoaderArgs) {

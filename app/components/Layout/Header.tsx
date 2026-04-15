@@ -7,6 +7,7 @@ import {
 } from '@shopify/hydrogen';
 import type { HeaderQuery, CartApiQueryFragment } from 'storefrontapi.generated';
 import { useAside } from '~/components/Layout/Aside';
+import { useWishlist } from '~/lib/useWishlist';
 
 interface HeaderProps {
   header: HeaderQuery;
@@ -43,7 +44,7 @@ export function Header({
 
   return (
     <header
-      className={`${isHome ? 'fixed' : 'sticky'} ${isTransparent ? 'bg-transparent border-none text-white' : 'bg-white border-b border-brand-black/5 text-brand-black shadow-sm rounded-b-2xl'} top-0 z-50 flex h-16 w-full items-center px-4 md:px-8 transition-all duration-300`}
+      className={`${isHome ? 'fixed' : 'sticky'} ${isTransparent ? 'bg-transparent border-none text-white' : 'bg-brand-bg/90 backdrop-blur-sm border-b border-brand-line text-brand-black'} top-0 z-50 flex h-16 w-full items-center px-4 md:px-8 transition-all duration-500`}
     >
       {/* Left: Desktop Menu */}
       <div className="flex-1 hidden md:block">
@@ -58,15 +59,15 @@ export function Header({
       {/* Center: Brand + Toggle */}
       <div className="flex items-center justify-center flex-1 gap-4 md:flex-initial">
         <button
-          className={`group relative flex items-center justify-center w-8 h-8 rounded-full border ${isTransparent ? 'border-white/20 hover:bg-white hover:text-brand-black' : 'border-brand-black/10 hover:bg-brand-black hover:text-white'} transition-all scale-110`}
+          className={`group relative flex items-center justify-center w-8 h-8 border ${isTransparent ? 'border-white/30 hover:bg-white hover:text-brand-black' : 'border-brand-black/20 hover:bg-brand-black hover:text-white'} transition-colors duration-300`}
           onClick={() => open('notifications')}
         >
           <span className="font-bold text-xl leading-none group-hover:rotate-90 transition-transform">+</span>
-          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-brand-blue text-[10px] text-white border border-white">2</span>
+          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center bg-brand-blue text-[10px] text-white">2</span>
         </button>
 
         <NavLink prefetch="intent" to="/" className="flex items-center" end>
-          <span className="font-anton text-2xl tracking-tighter uppercase whitespace-nowrap">
+          <span className="font-serif italic text-2xl font-light tracking-[-0.02em] whitespace-nowrap">
             Rep
           </span>
         </NavLink>
@@ -138,8 +139,32 @@ function HeaderCtas({
           </Await>
         </Suspense>
       </NavLink>
+      <HeaderWishlist />
       <CartToggle cart={cart} />
     </nav>
+  );
+}
+
+function HeaderWishlist() {
+  const { wishlistItems } = useWishlist();
+
+  return (
+    <NavLink prefetch="intent" to="/wishlist" className="relative flex items-center gap-2 group" onClick={(e) => {
+      // Temporarily alert since we don't have a /wishlist page yet
+      e.preventDefault();
+      alert(`Wishlist contains ${wishlistItems.length} products. A dedicated Wishlist page will be added.`);
+    }}>
+      <div className="w-6 h-6 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
+      </div>
+      {wishlistItems.length > 0 && (
+        <span className="text-[10px] font-assistant font-bold absolute -top-1.5 -right-1.5 bg-brand-blue text-white w-4 h-4 flex items-center justify-center rounded-full">
+          {wishlistItems.length}
+        </span>
+      )}
+    </NavLink>
   );
 }
 
@@ -170,7 +195,7 @@ function CartBadge({ count }: { count: number }) {
           style={{ width: '100%', height: '100%', background: 'transparent' }}
         ></model-viewer>
       </div>
-      <span className="text-xs font-anton absolute -top-1 -right-1 bg-brand-black text-white w-4 h-4 flex items-center justify-center rounded-full border border-white">{count}</span>
+      <span className="text-[10px] font-assistant font-bold absolute -top-1 -right-1 bg-brand-blue text-white w-4 h-4 flex items-center justify-center">{count}</span>
     </a>
   );
 }

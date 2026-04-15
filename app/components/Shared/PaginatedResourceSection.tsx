@@ -22,17 +22,22 @@ export function PaginatedResourceSection<NodesType>({
           children({node, index}),
         );
 
+        const linkClass =
+          'inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-black/80 hover:text-brand-black border-b border-brand-black/30 hover:border-brand-black pb-1 transition-colors';
         return (
-          <div>
-            <PreviousLink>
-              {isLoading ? (
-                'Loading...'
-              ) : (
-                <span>
-                  <span aria-hidden="true">↑</span> Load previous
-                </span>
-              )}
-            </PreviousLink>
+          <div className="flex flex-col gap-12">
+            <div className="flex justify-center">
+              <PreviousLink className={linkClass}>
+                {isLoading ? (
+                  'Loading…'
+                ) : (
+                  <>
+                    <span aria-hidden="true">↑</span>
+                    <span>Load previous</span>
+                  </>
+                )}
+              </PreviousLink>
+            </div>
             {resourcesClassName ? (
               <div
                 aria-label={ariaLabel}
@@ -44,15 +49,18 @@ export function PaginatedResourceSection<NodesType>({
             ) : (
               resourcesMarkup
             )}
-            <NextLink>
-              {isLoading ? (
-                'Loading...'
-              ) : (
-                <span>
-                  Load more <span aria-hidden="true">↓</span>
-                </span>
-              )}
-            </NextLink>
+            <div className="flex justify-center">
+              <NextLink className={linkClass}>
+                {isLoading ? (
+                  'Loading…'
+                ) : (
+                  <>
+                    <span>Load more</span>
+                    <span aria-hidden="true">↓</span>
+                  </>
+                )}
+              </NextLink>
+            </div>
           </div>
         );
       }}

@@ -1,5 +1,6 @@
-import {useEffect} from 'react';
-import {Analytics, getShopAnalytics, useNonce} from '@shopify/hydrogen';
+import { useEffect } from 'react';
+import { Analytics, getShopAnalytics, useNonce, getSeoMeta } from '@shopify/hydrogen';
+import { ClickTracker } from '~/components/Analytics/ClickTracker';
 import {
   Outlet,
   useRouteError,
@@ -11,15 +12,31 @@ import {
   ScrollRestoration,
   useRouteLoaderData,
 } from 'react-router';
-import type {Route} from './+types/root';
+import type { Route } from './+types/root';
 import favicon from '~/assets/favicon.svg';
-import {FOOTER_QUERY, HEADER_QUERY} from '~/lib/fragments';
+import { FOOTER_QUERY, HEADER_QUERY } from '~/lib/fragments';
 import resetStyles from '~/styles/reset.css?url';
 import appStyles from '~/styles/app.css?url';
 import tailwindCss from './styles/tailwind.css?url';
-import {PageLayout} from './components/Layout/PageLayout';
+import { PageLayout } from './components/Layout/PageLayout';
 
 export type RootLoader = typeof loader;
+
+export const meta: Route.MetaFunction = ({ data }) => {
+  return getSeoMeta({
+    titleTemplate: '%s | Rep',
+    title: 'Rep | Official Store',
+    description: 'A considered edit of the season’s most essential pieces. Each silhouette made in small runs, finished by hand, and built to last.',
+    robots: {
+      noIndex: false,
+      noFollow: false,
+      maxImagePreview: 'large',
+      maxSnippet: -1,
+      maxVideoPreview: -1,
+    },
+    url: data?.publicStoreDomain ? `https://${data.publicStoreDomain}` : undefined,
+  });
+};
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -63,7 +80,7 @@ export function links() {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    { rel: 'icon', type: 'image/svg+xml', href: favicon },
   ];
 }
 
@@ -74,12 +91,16 @@ export async function loader(args: Route.LoaderArgs) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  const {storefront, env} = args.context;
+  const { storefront, env } = args.context;
 
   return {
     ...deferredData,
     ...criticalData,
     publicStoreDomain: env.PUBLIC_STORE_DOMAIN,
+    ENV: {
+      PUBLIC_POSTHOG_KEY: env.PUBLIC_POSTHOG_KEY ?? '',
+      PUBLIC_POSTHOG_HOST: env.PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com',
+    },
     shop: getShopAnalytics({
       storefront,
       publicStorefrontId: env.PUBLIC_STOREFRONT_ID,
@@ -99,8 +120,8 @@ export async function loader(args: Route.LoaderArgs) {
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({context}: Route.LoaderArgs) {
-  const {storefront} = context;
+async function loadCriticalData({ context }: Route.LoaderArgs) {
+  const { storefront } = context;
 
   const [header] = await Promise.all([
     storefront.query(HEADER_QUERY, {
@@ -112,7 +133,7 @@ async function loadCriticalData({context}: Route.LoaderArgs) {
     // Add other queries here, so that they are loaded in parallel
   ]);
 
-  return {header};
+  return { header };
 }
 
 /**
@@ -120,8 +141,8 @@ async function loadCriticalData({context}: Route.LoaderArgs) {
  * fetched after the initial page load. If it's unavailable, the page should still 200.
  * Make sure to not throw any errors here, as it will cause the page to 500.
  */
-function loadDeferredData({context}: Route.LoaderArgs) {
-  const {storefront, customerAccount, cart} = context;
+function loadDeferredData({ context }: Route.LoaderArgs) {
+  const { storefront, customerAccount, cart } = context;
 
   // defer the footer query (below the fold)
   const footer = storefront
@@ -143,8 +164,9 @@ function loadDeferredData({context}: Route.LoaderArgs) {
   };
 }
 
-export function Layout({children}: {children?: React.ReactNode}) {
+export function Layout({ children }: { children?: React.ReactNode }) {
   const nonce = useNonce();
+  const data = useRouteLoaderData<RootLoader>('root');
 
   return (
     <html lang="en">
@@ -167,6 +189,14 @@ export function Layout({children}: {children?: React.ReactNode}) {
       </head>
       <body>
         {children}
+        {data?.ENV && (
+          <script
+            nonce={nonce}
+            dangerouslySetInnerHTML={{
+              __html: `window.__ENV = ${JSON.stringify(data.ENV)}`,
+            }}
+          />
+        )}
         <ScrollRestoration nonce={nonce} />
         <Scripts nonce={nonce} />
       </body>
@@ -181,7 +211,7 @@ export default function App() {
 
   useEffect(() => {
     if (!window) return;
-    
+
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -214,6 +244,7 @@ export default function App() {
       shop={data.shop}
       consent={data.consent}
     >
+      <ClickTracker />
       <PageLayout {...data}>
         <Outlet />
       </PageLayout>

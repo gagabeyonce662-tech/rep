@@ -20,13 +20,13 @@ export function Button({
   type = 'button',
   animate = false,
 }: ButtonProps) {
-  const baseStyles = "px-8 py-3 font-anton uppercase tracking-widest text-sm transition-all duration-300 inline-block text-center";
-  
+  const baseStyles = "px-10 py-4 font-assistant font-medium uppercase tracking-[0.25em] text-[11px] transition-colors duration-500 inline-block text-center border";
+
   const variants = {
-    primary: "bg-brand-black text-white hover:bg-brand-blue",
-    secondary: "border border-brand-black text-brand-black hover:bg-brand-black hover:text-white",
-    ghost: "bg-transparent text-brand-black/60 hover:text-brand-black",
-    white: "bg-white text-brand-black hover:bg-brand-blue hover:text-white",
+    primary: "bg-brand-black text-brand-bg border-brand-black hover:bg-brand-accent hover:border-brand-accent",
+    secondary: "border-brand-black/60 text-brand-black bg-transparent hover:border-brand-black hover:bg-brand-black hover:text-brand-bg",
+    ghost: "bg-transparent border-transparent text-brand-muted hover:text-brand-black",
+    white: "bg-transparent text-white border-white/80 hover:bg-white hover:text-brand-black",
   };
 
   const animationClass = animate ? "hover:scale-105 active:scale-95" : "";
@@ -34,7 +34,7 @@ export function Button({
 
   if (to) {
     return (
-      <Link to={to} className={combinedStyles}>
+      <Link to={to} className={combinedStyles} onClick={onClick}>
         {children}
       </Link>
     );

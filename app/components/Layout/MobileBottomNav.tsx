@@ -2,8 +2,8 @@ import {Link} from 'react-router-dom';
 
 export function MobileBottomNav() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around border-t border-brand-black/10 bg-white px-4 py-3 md:hidden">
-      <Link to="/collections/all-products" className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around border-t border-brand-line bg-brand-bg/95 backdrop-blur-sm px-4 py-3 md:hidden">
+      <Link to="/collections/all" className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"
@@ -35,7 +35,7 @@ export function MobileBottomNav() {
         </svg>
       </Link>
 
-      <div className="flex -translate-y-4 items-center justify-center rounded-full bg-brand-black p-3 text-white shadow-lg">
+      <div className="flex -translate-y-4 items-center justify-center bg-brand-black p-3 text-brand-bg">
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"

@@ -3,6 +3,19 @@
 /// <reference types="@shopify/oxygen-workers-types" />
 /// <reference types="@shopify/hydrogen/react-router-types" />
 
+declare global {
+  interface Env extends HydrogenEnv {
+    PUBLIC_POSTHOG_KEY: string;
+    PUBLIC_POSTHOG_HOST: string;
+  }
+  interface Window {
+    __ENV?: {
+      PUBLIC_POSTHOG_KEY: string;
+      PUBLIC_POSTHOG_HOST: string;
+    };
+  }
+}
+
 // Enhance TypeScript's built-in typings.
 import '@total-typescript/ts-reset';
 

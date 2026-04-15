@@ -10,6 +10,7 @@ import {Footer} from '~/components/Layout/Footer';
 import {Header, HeaderMenu} from '~/components/Layout/Header';
 import {CartMain} from '~/components/Cart/CartMain';
 import {MobileBottomNav} from '~/components/Layout/MobileBottomNav';
+import {NewsletterModal} from '~/components/Layout/NewsletterModal';
 import {
   SEARCH_ENDPOINT,
   SearchFormPredictive,
@@ -49,6 +50,7 @@ export function PageLayout({
         />
       )}
       <main className="pb-20 md:pb-0">{children}</main>
+      <NewsletterModal />
       <Footer
         footer={footer}
         header={header}
@@ -186,15 +188,15 @@ function MobileMenuAside({
 
 function NotificationsAside() {
   return (
-    <Aside type="notifications" heading="NOTIFICATIONS">
-      <div className="flex flex-col gap-4 p-4 text-brand-black">
-        <div className="border-b border-brand-black/10 pb-4 text-brand-black">
-          <p className="font-anton text-lg uppercase">Winter Drop Live</p>
-          <p className="text-sm opacity-60">Shop the new arrivals now.</p>
+    <Aside type="notifications" heading="Notifications">
+      <div className="flex flex-col gap-6 p-2 text-brand-black">
+        <div className="border-b border-brand-line pb-5">
+          <p className="font-serif text-xl font-light leading-snug">Winter Drop Live</p>
+          <p className="text-sm text-brand-muted mt-1">Shop the new arrivals now.</p>
         </div>
-        <div className="border-b border-brand-black/10 pb-4 text-brand-black">
-          <p className="font-anton text-lg uppercase">2 New Messages</p>
-          <p className="text-sm opacity-60">Your order #1234 has been shipped.</p>
+        <div className="border-b border-brand-line pb-5">
+          <p className="font-serif text-xl font-light leading-snug">2 New Messages</p>
+          <p className="text-sm text-brand-muted mt-1">Your order #1234 has been shipped.</p>
         </div>
       </div>
     </Aside>

@@ -46,6 +46,11 @@ export function SearchFormPredictive({
   /** Navigate to the search page with the current input value */
   function goToSearch() {
     const term = inputRef?.current?.value;
+    if (term) {
+      import('~/lib/posthog.client').then(({captureEvent}) =>
+        captureEvent('search_performed', {query: term}),
+      );
+    }
     void navigate(SEARCH_ENDPOINT + (term ? `?q=${term}` : ''));
     aside.close();
   }

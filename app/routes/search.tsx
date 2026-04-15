@@ -312,6 +312,7 @@ const PREDICTIVE_SEARCH_PRODUCT_FRAGMENT = `#graphql
       caseInsensitiveMatch: true
     ) {
       id
+      availableForSale
       image {
         url
         altText
@@ -319,6 +320,10 @@ const PREDICTIVE_SEARCH_PRODUCT_FRAGMENT = `#graphql
         height
       }
       price {
+        amount
+        currencyCode
+      }
+      compareAtPrice {
         amount
         currencyCode
       }

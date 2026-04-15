@@ -11,7 +11,7 @@ export function ProductMedia({
   }
 
   return (
-    <div className="product-media flex flex-col gap-4 md:gap-8">
+    <div className="product-media flex flex-col gap-2 md:gap-3">
       {media.map((med) => {
         if (med.__typename === 'Model3d') {
           const glbSource = med.sources.find(
@@ -20,7 +20,7 @@ export function ProductMedia({
           const src = glbSource?.url ?? med.sources[0]?.url;
           return (
             <div
-              className="product-media-item rounded-xl overflow-hidden bg-brand-gray/50 shadow-sm border border-brand-black/5"
+              className="product-media-item overflow-hidden bg-brand-gray/30 transition-transform duration-700 hover:scale-[1.01]"
               key={med.id}
             >
               <model-viewer
@@ -36,7 +36,7 @@ export function ProductMedia({
 
         return (
           <div
-            className="product-media-item rounded-xl overflow-hidden bg-brand-gray/50 shadow-sm border border-brand-black/5"
+            className="product-media-item overflow-hidden bg-brand-gray/30 transition-transform duration-700 hover:scale-[1.01]"
             key={med.id}
           >
             <MediaFile

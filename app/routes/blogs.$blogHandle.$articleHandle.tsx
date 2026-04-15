@@ -1,10 +1,26 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/blogs.$blogHandle.$articleHandle';
-import {Image} from '@shopify/hydrogen';
+import {Image, getSeoMeta} from '@shopify/hydrogen';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
-export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.article.title ?? ''} article`}];
+export const meta: Route.MetaFunction = ({data, matches}) => {
+  const article = data?.article;
+  if (!article) return [{title: 'Hydrogen | Article'}];
+
+  const rootData = matches.find((match) => match.id === 'root')?.data as any;
+  const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
+
+  return getSeoMeta({
+    title: article.seo?.title ?? article.title,
+    description: article.seo?.description ?? article.title,
+    url: `${baseUrl}/blogs/${article.handle}`,
+    media: article.image ? {
+      url: article.image.url,
+      width: article.image.width,
+      height: article.image.height,
+      altText: article.image.altText || article.title,
+    } : undefined,
+  });
 };
 
 export async function loader(args: Route.LoaderArgs) {

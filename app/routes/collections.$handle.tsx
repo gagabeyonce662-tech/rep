@@ -1,13 +1,32 @@
 import {redirect, useLoaderData} from 'react-router';
 import type {Route} from './+types/collections.$handle';
-import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
+import {getPaginationVariables, Analytics, Image, getSeoMeta} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/Shared/PaginatedResourceSection';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 import {ProductItem} from '~/components/Product/ProductItem';
+import {CollectionFilters} from '~/components/Collection/CollectionFilters';
 import type {ProductItemFragment} from 'storefrontapi.generated';
+import {getFiltersFromParams} from '~/lib/filter';
+import type {Filter} from '@shopify/hydrogen/storefront-api-types';
 
-export const meta: Route.MetaFunction = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+export const meta: Route.MetaFunction = ({data, matches}) => {
+  const collection = data?.collection;
+  if (!collection) return [{title: 'Hydrogen | Collection'}];
+
+  const rootData = matches.find((match) => match.id === 'root')?.data as any;
+  const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
+
+  return getSeoMeta({
+    title: collection.seo?.title ?? collection.title,
+    description: collection.seo?.description ?? collection.description ?? 'Explore our collection',
+    url: `${baseUrl}/collections/${collection.handle}`,
+    media: collection.image ? {
+      url: collection.image.url,
+      width: collection.image.width,
+      height: collection.image.height,
+      altText: collection.image.altText || collection.title,
+    } : undefined,
+  });
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -31,13 +50,16 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
     pageBy: 8,
   });
 
+  const url = new URL(request.url);
+  const filters = getFiltersFromParams(url.searchParams);
+
   if (!handle) {
     throw redirect('/collections');
   }
 
   const [{collection}] = await Promise.all([
     storefront.query(COLLECTION_QUERY, {
-      variables: {handle, ...paginationVariables},
+      variables: {handle, filters, ...paginationVariables},
       // Add other queries here, so that they are loaded in parallel
     }),
   ]);
@@ -69,21 +91,73 @@ export default function Collection() {
   const {collection} = useLoaderData<typeof loader>();
 
   return (
-    <div className="collection">
-      <h1>{collection.title}</h1>
-      <p className="collection-description">{collection.description}</p>
-      <PaginatedResourceSection<ProductItemFragment>
-        connection={collection.products}
-        resourcesClassName="products-grid"
-      >
-        {({node: product, index}) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
+    <div className="collection bg-brand-bg font-assistant text-brand-black">
+      <section className="relative w-full overflow-hidden bg-brand-gray">
+        {collection.image && (
+          <Image
+            data={collection.image}
+            className="absolute inset-0 w-full h-full object-cover"
+            sizes="100vw"
           />
         )}
-      </PaginatedResourceSection>
+        {collection.image && (
+          <div className="absolute inset-0 bg-black/35" />
+        )}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-40 flex flex-col gap-5">
+          <span
+            className={`font-serif italic text-sm md:text-base ${
+              collection.image ? 'text-white/80' : 'text-brand-muted'
+            }`}
+          >
+            Collection
+          </span>
+          <h1
+            className={`font-serif text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] ${
+              collection.image ? 'text-white' : 'text-brand-black'
+            }`}
+          >
+            {collection.title}
+          </h1>
+          {collection.description && (
+            <p
+              className={`max-w-xl text-[15px] md:text-base leading-[1.7] font-light ${
+                collection.image ? 'text-white/80' : 'text-brand-muted'
+              }`}
+            >
+              {collection.description}
+            </p>
+          )}
+        </div>
+      </section>
+
+      <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
+          <div className="hidden lg:block sticky top-24 pb-8">
+             <CollectionFilters filters={collection.products.filters as any} />
+          </div>
+          <div className="lg:hidden mb-8">
+             {/* Mobile Filters Trigger Placeholder */}
+             <div className="border border-brand-line p-4 text-center cursor-pointer hover:bg-brand-gray/50 transition-colors">
+                <span className="font-serif">Filter Products</span>
+             </div>
+          </div>
+          <div className="w-full">
+            <PaginatedResourceSection<ProductItemFragment>
+              connection={collection.products}
+              resourcesClassName="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16"
+            >
+              {({node: product, index}) => (
+                <ProductItem
+                  key={product.id}
+                  product={product}
+                  loading={index < 8 ? 'eager' : undefined}
+                />
+              )}
+            </PaginatedResourceSection>
+          </div>
+        </div>
+      </section>
+
       <Analytics.CollectionView
         data={{
           collection: {
@@ -135,18 +209,38 @@ const COLLECTION_QUERY = `#graphql
     $last: Int
     $startCursor: String
     $endCursor: String
+    $filters: [ProductFilter!]
   ) @inContext(country: $country, language: $language) {
     collection(handle: $handle) {
       id
       handle
       title
       description
+      image {
+        id
+        url
+        altText
+        width
+        height
+      }
       products(
         first: $first,
         last: $last,
         before: $startCursor,
-        after: $endCursor
+        after: $endCursor,
+        filters: $filters
       ) {
+        filters {
+          id
+          label
+          type
+          values {
+            id
+            label
+            count
+            input
+          }
+        }
         nodes {
           ...ProductItem
         }

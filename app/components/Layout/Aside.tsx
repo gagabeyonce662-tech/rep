@@ -74,12 +74,12 @@ export function Aside({
       
       {/* Aside Content */}
       <aside
-        className={`fixed top-0 right-0 h-full w-full max-w-[400px] bg-white shadow-2xl transition-transform duration-500 ease-in-out transform ${
+        className={`fixed top-0 right-0 h-full w-full max-w-[420px] bg-brand-bg border-l border-brand-line transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] transform ${
           expanded ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <header className="flex items-center justify-between h-16 px-6 border-b border-brand-black/5">
-          <h3 id={id} className="font-anton text-xl uppercase tracking-tighter">
+        <header className="flex items-center justify-between h-16 px-6 border-b border-brand-line">
+          <h3 id={id} className="font-serif italic text-xl font-light tracking-[-0.01em]">
             {heading}
           </h3>
           <button 

@@ -89,7 +89,7 @@ function SearchResultsPredictiveArticles({
 
   return (
     <div className="space-y-4 mb-8" key="articles">
-      <h5 className="font-anton text-xs uppercase tracking-widest opacity-60">Articles</h5>
+      <h5 className="font-serif italic text-sm text-brand-muted">Articles</h5>
       <ul className="space-y-2">
         {articles.map((article) => {
           const articleUrl = urlWithTrackingParams({
@@ -133,7 +133,7 @@ function SearchResultsPredictiveCollections({
 
   return (
     <div className="space-y-4 mb-8" key="collections">
-      <h5 className="font-anton text-xs uppercase tracking-widest opacity-60">Collections</h5>
+      <h5 className="font-serif italic text-sm text-brand-muted">Collections</h5>
       <ul className="space-y-2">
         {collections.map((collection) => {
           const collectionUrl = urlWithTrackingParams({
@@ -177,7 +177,7 @@ function SearchResultsPredictivePages({
 
   return (
     <div className="space-y-4 mb-8" key="pages">
-      <h5 className="font-anton text-xs uppercase tracking-widest opacity-60">Pages</h5>
+      <h5 className="font-serif italic text-sm text-brand-muted">Pages</h5>
       <ul className="space-y-2">
         {pages.map((page) => {
           const pageUrl = urlWithTrackingParams({
@@ -212,8 +212,8 @@ function SearchResultsPredictiveProducts({
 
   return (
     <div className="space-y-4 mb-8" key="products">
-      <h5 className="font-anton text-xs uppercase tracking-widest opacity-60">Products</h5>
-      <ul className="space-y-4">
+      <h5 className="font-serif italic text-sm text-brand-muted">Products</h5>
+      <ul className="grid grid-cols-2 gap-3">
         {products.map((product) => {
           const productUrl = urlWithTrackingParams({
             baseUrl: `/products/${product.handle}`,
@@ -221,23 +221,54 @@ function SearchResultsPredictiveProducts({
             term: term.current,
           });
 
-          const price = product?.selectedOrFirstAvailableVariant?.price;
-          const image = product?.selectedOrFirstAvailableVariant?.image;
+          const variant = product?.selectedOrFirstAvailableVariant;
+          const price = variant?.price;
+          const compareAtPrice = variant?.compareAtPrice;
+          const image = variant?.image;
+          const available = variant?.availableForSale ?? true;
+
           return (
             <li key={product.id}>
-              <Link to={productUrl} onClick={closeSearch} className="flex gap-4 group">
-                {image && (
-                  <Image
-                    alt={image.altText ?? ''}
-                    src={image.url}
-                    width={60}
-                    height={60}
-                    className="object-cover border border-brand-black/5"
-                  />
-                )}
-                <div className="flex flex-col justify-center">
-                  <p className="font-assistant font-bold text-sm uppercase group-hover:underline italic">{product.title}</p>
-                  <small className="font-assistant text-xs opacity-60 italic">{price && <Money data={price} />}</small>
+              <Link to={productUrl} onClick={closeSearch} className="group block">
+                {/* Image */}
+                <div className="relative aspect-3/4 overflow-hidden bg-brand-gray/40 mb-2">
+                  {image ? (
+                    <Image
+                      alt={image.altText ?? product.title}
+                      src={image.url}
+                      width={200}
+                      height={267}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-brand-muted/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                  )}
+                  {!available && (
+                    <span className="absolute top-2 left-2 text-[10px] font-assistant font-bold uppercase tracking-wider bg-brand-black text-white px-1.5 py-0.5 leading-none">
+                      Sold out
+                    </span>
+                  )}
+                </div>
+
+                {/* Info */}
+                <p className="font-assistant text-[11px] font-semibold uppercase tracking-wide leading-tight group-hover:underline line-clamp-2 mb-1">
+                  {highlightTerm(product.title, term.current)}
+                </p>
+                <div className="flex items-baseline gap-1.5">
+                  {price && (
+                    <span className="font-assistant text-xs text-brand-black">
+                      <Money data={price} />
+                    </span>
+                  )}
+                  {compareAtPrice && compareAtPrice.amount !== price?.amount && (
+                    <span className="font-assistant text-[11px] text-brand-muted line-through">
+                      <Money data={compareAtPrice} />
+                    </span>
+                  )}
                 </div>
               </Link>
             </li>
@@ -283,6 +314,32 @@ function SearchResultsPredictiveEmpty({
       </p>
     </div>
   );
+}
+
+/**
+ * Wraps matched substrings in a <mark> highlight element.
+ */
+function highlightTerm(text: string, term: string): React.ReactNode {
+  if (!term.trim()) return text;
+  try {
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escaped})`, 'gi');
+    const parts = text.split(regex);
+    return parts.map((part, i) =>
+      regex.test(part) ? (
+        <mark
+          key={i}
+          className="bg-brand-accent/20 text-brand-black not-italic px-px rounded-sm"
+        >
+          {part}
+        </mark>
+      ) : (
+        <React.Fragment key={i}>{part}</React.Fragment>
+      ),
+    );
+  } catch {
+    return text;
+  }
 }
 
 /**

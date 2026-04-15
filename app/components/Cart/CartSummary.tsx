@@ -1,6 +1,7 @@
 import type {CartApiQueryFragment} from 'storefrontapi.generated';
 import type {CartLayout} from '~/components/Cart/CartMain';
 import {CartForm, Money, type OptimisticCart} from '@shopify/hydrogen';
+import {captureEvent} from '~/lib/posthog.client';
 import {useEffect, useId, useRef, useState} from 'react';
 import {useFetcher} from 'react-router';
 import {Button} from '~/components/ui/Button';
@@ -19,10 +20,10 @@ export function CartSummary({cart, layout}: CartSummaryProps) {
 
   return (
     <div aria-labelledby={summaryId} className="flex flex-col gap-6 pt-6 border-t border-brand-black/10">
-      <h4 id={summaryId} className="font-anton text-2xl uppercase tracking-tighter">Totals</h4>
+      <h4 id={summaryId} className="font-serif text-2xl font-light tracking-[-0.02em]">Totals</h4>
       
-      <div className="flex justify-between items-center font-assistant font-bold text-lg">
-        <span className="uppercase tracking-widest text-xs opacity-60">Subtotal</span>
+      <div className="flex justify-between items-baseline font-serif text-lg font-light">
+        <span className="font-serif italic text-sm text-brand-muted">Subtotal</span>
         <span>
           {cart?.cost?.subtotalAmount?.amount ? (
             <Money data={cart?.cost?.subtotalAmount} />
@@ -54,7 +55,12 @@ function CartCheckoutActions({checkoutUrl}: {checkoutUrl?: string}) {
 
   return (
     <div className="mt-4">
-      <Button to={checkoutUrl} variant="primary" className="w-full py-4 text-lg">
+      <Button
+        to={checkoutUrl}
+        variant="primary"
+        className="w-full py-4 text-lg"
+        onClick={() => captureEvent('checkout_started', {checkout_url: checkoutUrl})}
+      >
         Checkout &rarr;
       </Button>
     </div>
@@ -80,11 +86,11 @@ function CartDiscounts({
       {/* Have existing discount, display it with a remove option */}
       {codes.length > 0 && (
         <div className="space-y-2">
-          <p id={discountsHeadingId} className="font-anton text-xs uppercase tracking-widest opacity-60">Applied Discounts</p>
+          <p id={discountsHeadingId} className="font-serif italic text-sm text-brand-muted">Applied Discounts</p>
           <UpdateDiscountForm>
             <div className="flex items-center justify-between p-3 bg-brand-gray/50 border border-brand-black/5">
               <code className="font-assistant font-bold text-sm">{codes?.join(', ')}</code>
-              <button type="submit" className="font-anton text-[10px] uppercase tracking-widest text-red-600 hover:text-red-700">
+              <button type="submit" className="font-serif italic text-xs text-brand-muted hover:text-brand-black border-b border-brand-line hover:border-brand-black pb-0.5">
                 Remove
               </button>
             </div>
@@ -147,7 +153,7 @@ function CartGiftCard({
     <section aria-label="Gift cards" className="space-y-4">
       {giftCardCodes && giftCardCodes.length > 0 && (
         <div className="space-y-2">
-          <p id={giftCardHeadingId} className="font-anton text-xs uppercase tracking-widest opacity-60">Applied Gift Cards</p>
+          <p id={giftCardHeadingId} className="font-serif italic text-sm text-brand-muted">Applied Gift Cards</p>
           {giftCardCodes.map((giftCard) => (
             <div key={giftCard.id} className="flex justify-between items-center p-3 bg-brand-gray/50 border border-brand-black/5">
               <div className="flex gap-4 items-center">
@@ -158,7 +164,7 @@ function CartGiftCard({
                 giftCardId={giftCard.id}
                 lastCharacters={giftCard.lastCharacters}
               >
-                <button type="submit" className="font-anton text-[10px] uppercase tracking-widest text-red-600 hover:text-red-700">
+                <button type="submit" className="font-serif italic text-xs text-brand-muted hover:text-brand-black border-b border-brand-line hover:border-brand-black pb-0.5">
                   Remove
                 </button>
               </RemoveGiftCardForm>

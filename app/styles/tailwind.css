@@ -1,17 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Assistant:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Assistant:wght@200..800&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --font-anton: "Anton", sans-serif;
+  /* Display serif — quiet luxury, editorial. Kept on --font-anton so
+     existing `font-anton` classes automatically switch without churn. */
+  --font-anton: "Fraunces", "Times New Roman", serif;
+  --font-serif: "Fraunces", "Times New Roman", serif;
   --font-assistant: "Assistant", sans-serif;
 
-  --color-brand-blue: #334fb4;
-  --color-brand-black: #121212;
-  --color-brand-gray: #f3f3f3;
-  --color-brand-dark-blue: #242833;
+  /* Warm near-ink, never pure black */
+  --color-brand-black: #1A1814;
+  /* Panel/card backdrop — soft bone */
+  --color-brand-gray: #EFEAE0;
+  /* Page paper — the cream that everything sits on */
+  --color-brand-bg: #FBF8F2;
+  /* Muted warm text */
+  --color-brand-muted: #6B6459;
+  /* Hairline */
+  --color-brand-line: #E4DED2;
+
+  /* Cognac/tobacco accent — old brand-blue class re-points here */
+  --color-brand-blue: #8B5E34;
+  --color-brand-accent: #8B5E34;
+  --color-brand-dark-blue: #3D342A;
 }
 
-html.lenis, html.lenis body {
+/* Warm, paper-like page background site-wide */
+html,
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-black);
+  font-family: var(--font-assistant);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Restrained, slow, single-property transitions by default on
+   the display serif — optical size + weight come from Fraunces */
+.font-anton,
+.font-serif {
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+}
+
+html.lenis,
+html.lenis body {
   height: auto;
 }
 

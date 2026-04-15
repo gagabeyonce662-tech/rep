@@ -1,12 +1,19 @@
 import type {Route} from './+types/collections.all';
 import {useLoaderData} from 'react-router';
-import {getPaginationVariables, Image, Money} from '@shopify/hydrogen';
+import {getPaginationVariables, getSeoMeta} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/Shared/PaginatedResourceSection';
 import {ProductItem} from '~/components/Product/ProductItem';
 import type {CollectionItemFragment} from 'storefrontapi.generated';
 
-export const meta: Route.MetaFunction = () => {
-  return [{title: `Hydrogen | Products`}];
+export const meta: Route.MetaFunction = ({matches}) => {
+  const rootData = matches.find((match) => match.id === 'root')?.data as any;
+  const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
+
+  return getSeoMeta({
+    title: 'All Products | Rep',
+    description: 'Discover the complete collection of essential pieces from Rep. Made in small runs, finished by hand.',
+    url: `${baseUrl}/collections/all`,
+  });
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -51,20 +58,31 @@ export default function Collection() {
   const {products} = useLoaderData<typeof loader>();
 
   return (
-    <div className="collection">
-      <h1>Products</h1>
-      <PaginatedResourceSection<CollectionItemFragment>
-        connection={products}
-        resourcesClassName="products-grid"
-      >
-        {({node: product, index}) => (
-          <ProductItem
-            key={product.id}
-            product={product}
-            loading={index < 8 ? 'eager' : undefined}
-          />
-        )}
-      </PaginatedResourceSection>
+    <div className="collection bg-brand-bg font-assistant text-brand-black">
+      <section className="max-w-[1400px] mx-auto px-4 md:px-8 pt-28 md:pt-40 pb-16 flex flex-col gap-5">
+        <span className="font-serif italic text-sm md:text-base text-brand-muted">
+          Shop all
+        </span>
+        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] text-brand-black">
+          All Products
+        </h1>
+        <div className="h-px w-full bg-brand-line mt-6" />
+      </section>
+
+      <section className="max-w-[1400px] mx-auto px-4 md:px-8 pb-16 md:pb-24">
+        <PaginatedResourceSection<CollectionItemFragment>
+          connection={products}
+          resourcesClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16"
+        >
+          {({node: product, index}) => (
+            <ProductItem
+              key={product.id}
+              product={product}
+              loading={index < 8 ? 'eager' : undefined}
+            />
+          )}
+        </PaginatedResourceSection>
+      </section>
     </div>
   );
 }
