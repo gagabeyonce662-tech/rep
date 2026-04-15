@@ -9,7 +9,7 @@ import {
   useSelectedOptionInUrlParam,
 } from '@shopify/hydrogen';
 import {ProductPrice} from '~/components/Product/ProductPrice';
-import {ProductImage} from '~/components/Product/ProductImage';
+import {ProductMedia} from '~/components/Product/ProductMedia';
 import {ProductForm} from '~/components/Product/ProductForm';
 import {redirectIfHandleIsLocalized} from '~/lib/redirect';
 
@@ -98,27 +98,31 @@ export default function Product() {
   const {title, descriptionHtml} = product;
 
   return (
-    <div className="product">
-      <ProductImage image={selectedVariant?.image} />
-      <div className="product-main">
-        <h1>{title}</h1>
-        <ProductPrice
-          price={selectedVariant?.price}
-          compareAtPrice={selectedVariant?.compareAtPrice}
-        />
-        <br />
-        <ProductForm
-          productOptions={productOptions}
-          selectedVariant={selectedVariant}
-        />
-        <br />
-        <br />
-        <p>
-          <strong>Description</strong>
-        </p>
-        <br />
-        <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-        <br />
+    <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-start">
+        <div className="md:sticky md:top-24">
+          <ProductMedia media={product.media.nodes} />
+        </div>
+        <div className="product-main">
+          <h1>{title}</h1>
+          <ProductPrice
+            price={selectedVariant?.price}
+            compareAtPrice={selectedVariant?.compareAtPrice}
+          />
+          <br />
+          <ProductForm
+            productOptions={productOptions}
+            selectedVariant={selectedVariant}
+          />
+          <br />
+          <br />
+          <p>
+            <strong>Description</strong>
+          </p>
+          <br />
+          <div dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
+          <br />
+        </div>
       </div>
       <Analytics.ProductView
         data={{
@@ -176,6 +180,47 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
   }
 ` as const;
 
+const PRODUCT_MEDIA_FRAGMENT = `#graphql
+  fragment ProductMedia on Media {
+    __typename
+    ... on MediaImage {
+      id
+      image {
+        url
+        altText
+        width
+        height
+      }
+    }
+    ... on Video {
+      id
+      sources {
+        url
+        mimeType
+        format
+        height
+        width
+      }
+    }
+    ... on ExternalVideo {
+      id
+      embedUrl
+      host
+    }
+    ... on Model3d {
+      id
+      previewImage {
+        url
+      }
+      sources {
+        url
+        mimeType
+        format
+      }
+    }
+  }
+` as const;
+
 const PRODUCT_FRAGMENT = `#graphql
   fragment Product on Product {
     id
@@ -209,12 +254,18 @@ const PRODUCT_FRAGMENT = `#graphql
     adjacentVariants (selectedOptions: $selectedOptions) {
       ...ProductVariant
     }
+    media(first: 15) {
+      nodes {
+        ...ProductMedia
+      }
+    }
     seo {
       description
       title
     }
   }
   ${PRODUCT_VARIANT_FRAGMENT}
+  ${PRODUCT_MEDIA_FRAGMENT}
 ` as const;
 
 const PRODUCT_QUERY = `#graphql

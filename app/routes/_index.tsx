@@ -1,16 +1,16 @@
-import {Await, useLoaderData, Link} from 'react-router';
-import type {Route} from './+types/_index';
-import {Suspense} from 'react';
-import {Image} from '@shopify/hydrogen';
+import { Await, useLoaderData, Link } from 'react-router';
+import type { Route } from './+types/_index';
+import { Suspense } from 'react';
+import { Image } from '@shopify/hydrogen';
 import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
-import {ProductItem} from '~/components/Product/ProductItem';
-import {MockShopNotice} from '~/components/Shared/MockShopNotice';
+import { ProductItem } from '~/components/Product/ProductItem';
+import { MockShopNotice } from '~/components/Shared/MockShopNotice';
 
 export const meta: Route.MetaFunction = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{ title: 'Hydrogen | Home' }];
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -20,15 +20,15 @@ export async function loader(args: Route.LoaderArgs) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return {...deferredData, ...criticalData};
+  return { ...deferredData, ...criticalData };
 }
 
 /**
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({context}: Route.LoaderArgs) {
-  const [{collections}] = await Promise.all([
+async function loadCriticalData({ context }: Route.LoaderArgs) {
+  const [{ collections }] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -44,7 +44,7 @@ async function loadCriticalData({context}: Route.LoaderArgs) {
  * fetched after the initial page load. If it's unavailable, the page should still 200.
  * Make sure to not throw any errors here, as it will cause the page to 500.
  */
-function loadDeferredData({context}: Route.LoaderArgs) {
+function loadDeferredData({ context }: Route.LoaderArgs) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error: Error) => {
@@ -66,15 +66,15 @@ export default function Homepage() {
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-16">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
           <div>
-            <h2 className="font-anton text-4xl md:text-6xl uppercase tracking-tighter leading-none mb-2">
+            <h2 className="font-anton text-4xl md:text-6xl uppercase  leading-none mb-2">
               New Arrivals
             </h2>
             <p className="text-brand-black/60 font-semibold uppercase tracking-widest text-xs">
               Latest Streetwear Drops
             </p>
           </div>
-          <Link 
-            to="/collections/all-products" 
+          <Link
+            to="/collections/all-products"
             className="font-anton text-sm uppercase tracking-wider border-b-2 border-brand-black pb-1 hover:opacity-70 transition-opacity"
           >
             View All
@@ -86,9 +86,9 @@ export default function Homepage() {
   );
 }
 
-import {Button} from '~/components/ui/Button';
+import { Button } from '~/components/ui/Button';
 
-function Hero({collection}: {collection: FeaturedCollectionFragment}) {
+function Hero({ collection }: { collection: FeaturedCollectionFragment }) {
   if (!collection) return null;
   const image = collection?.image;
 
@@ -133,8 +133,8 @@ function RecommendedProducts({
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-8 md:gap-y-16">
             {response
               ? response.products.nodes.map((product) => (
-                  <ProductItem key={product.id} product={product} />
-                ))
+                <ProductItem key={product.id} product={product} />
+              ))
               : null}
           </div>
         )}

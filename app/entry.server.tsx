@@ -33,7 +33,9 @@ export default async function handleRequest(
       'https://shop.app',
       'http://localhost:*',
       "'unsafe-eval'",
+      'blob:',
     ],
+    workerSrc: ["'self'", 'blob:'],
     connectSrc: [
       'self',
       'https://cdn.shopify.com',
@@ -42,6 +44,7 @@ export default async function handleRequest(
       'https://www.gstatic.com',
       'http://localhost:*',
       'ws://localhost:*',
+      'blob:',
     ],
     styleSrc: [
       'self',
