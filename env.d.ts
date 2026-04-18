@@ -3,11 +3,12 @@
 /// <reference types="@shopify/oxygen-workers-types" />
 /// <reference types="@shopify/hydrogen/react-router-types" />
 
+export interface Env extends HydrogenEnv {
+  PUBLIC_POSTHOG_KEY: string;
+  PUBLIC_POSTHOG_HOST: string;
+}
+
 declare global {
-  interface Env extends HydrogenEnv {
-    PUBLIC_POSTHOG_KEY: string;
-    PUBLIC_POSTHOG_HOST: string;
-  }
   interface Window {
     __ENV?: {
       PUBLIC_POSTHOG_KEY: string;
@@ -22,7 +23,10 @@ import '@total-typescript/ts-reset';
 // model-viewer web component JSX types
 declare namespace JSX {
   interface IntrinsicElements {
-    'model-viewer': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement> & {
+    'model-viewer': React.DetailedHTMLProps<
+      React.HTMLAttributes<HTMLElement>,
+      HTMLElement
+    > & {
       src?: string;
       poster?: string;
       alt?: string;

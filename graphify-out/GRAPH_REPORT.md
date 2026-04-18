@@ -1,12 +1,12 @@
-# Graph Report - .  (2026-04-16)
+# Graph Report - S:\rep\rep  (2026-04-18)
 
 ## Corpus Check
-- 83 files · ~519,865 words
+- 85 files · ~521,908 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 223 nodes · 184 edges · 71 communities detected
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.5)
+- 229 nodes · 194 edges · 70 communities detected
+- Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 22 edges (avg confidence: 0.58)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
@@ -80,45 +80,44 @@
 - [[_COMMUNITY_Community 67|Community 67]]
 - [[_COMMUNITY_Community 68|Community 68]]
 - [[_COMMUNITY_Community 69|Community 69]]
-- [[_COMMUNITY_Community 70|Community 70]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `AppSession` - 10 edges
 2. `redirectIfHandleIsLocalized()` - 6 edges
 3. `useAside()` - 5 edges
-4. `loadCriticalData()` - 4 edges
-5. `loader()` - 3 edges
-6. `handler()` - 3 edges
-7. `ProductItem()` - 3 edges
-8. `getFiltersFromParams()` - 3 edges
-9. `buildOrderSearchQuery()` - 3 edges
-10. `loader()` - 3 edges
+4. `handler()` - 4 edges
+5. `getFiltersFromParams()` - 4 edges
+6. `loadCriticalData()` - 4 edges
+7. `loader()` - 3 edges
+8. `loadDeferredData()` - 3 edges
+9. `ProductItem()` - 3 edges
+10. `buildOrderSearchQuery()` - 3 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `useAside()` --calls--> `Header()`  [INFERRED]
-  app\components\Layout\Aside.tsx → app\components\Layout\Header.tsx
+  app\components\Layout\Aside.tsx → S:\rep\rep\app\components\Layout\Header.tsx
+- `useAside()` --calls--> `SearchResultsPredictive()`  [INFERRED]
+  app\components\Layout\Aside.tsx → S:\rep\rep\app\components\Search\SearchResultsPredictive.tsx
 - `useAside()` --calls--> `SearchFormPredictive()`  [INFERRED]
   app\components\Layout\Aside.tsx → app\components\Search\SearchFormPredictive.tsx
-- `useAside()` --calls--> `SearchResultsPredictive()`  [INFERRED]
-  app\components\Layout\Aside.tsx → app\components\Search\SearchResultsPredictive.tsx
+- `getFiltersFromParams()` --calls--> `loadCriticalData()`  [INFERRED]
+  S:\rep\rep\app\lib\filter.ts → S:\rep\rep\app\routes\collections.$handle.tsx
 - `redirectIfHandleIsLocalized()` --calls--> `loadCriticalData()`  [INFERRED]
-  app\lib\redirect.ts → app\routes\blogs.$blogHandle._index.tsx
-- `redirectIfHandleIsLocalized()` --calls--> `loadCriticalData()`  [INFERRED]
-  app\lib\redirect.ts → app\routes\collections.$handle.tsx
+  app\lib\redirect.ts → S:\rep\rep\app\routes\collections.$handle.tsx
 
 ## Communities
 
 ### Community 0 - "Community 0"
-Cohesion: 0.2
-Nodes (1): AppSession
+Cohesion: 0.09
+Nodes (6): toggleFilter(), getFiltersFromParams(), parseAsCurrency(), initPostHog(), loader(), AppSession
 
 ### Community 1 - "Community 1"
-Cohesion: 0.2
-Nodes (2): Logout(), action()
-
-### Community 2 - "Community 2"
 Cohesion: 0.24
 Nodes (4): loader(), buildOrderSearchQuery(), parseOrderFilters(), sanitizeFilterValue()
+
+### Community 2 - "Community 2"
+Cohesion: 0.2
+Nodes (2): Logout(), action()
 
 ### Community 3 - "Community 3"
 Cohesion: 0.25
@@ -129,31 +128,31 @@ Cohesion: 0.32
 Nodes (3): loadCriticalData(), loadDeferredData(), loader()
 
 ### Community 5 - "Community 5"
-Cohesion: 0.36
-Nodes (5): loadCriticalData(), loadDeferredData(), loader(), getFiltersFromParams(), parseAsCurrency()
+Cohesion: 0.25
+Nodes (3): createHydrogenRouterContext(), handleRequest(), handler()
 
 ### Community 6 - "Community 6"
-Cohesion: 0.29
-Nodes (3): createHydrogenRouterContext(), handleRequest(), handler()
+Cohesion: 0.38
+Nodes (4): loadCriticalData(), loadDeferredData(), loader(), redirectIfHandleIsLocalized()
 
 ### Community 7 - "Community 7"
 Cohesion: 0.29
 Nodes (3): ProductItem(), useWishlist(), useVariantUrl()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.38
-Nodes (4): loadCriticalData(), loadDeferredData(), loader(), redirectIfHandleIsLocalized()
+Cohesion: 0.33
+Nodes (0): 
 
 ### Community 9 - "Community 9"
 Cohesion: 0.47
 Nodes (3): loadCriticalData(), loadDeferredData(), loader()
 
 ### Community 10 - "Community 10"
-Cohesion: 0.33
-Nodes (0): 
+Cohesion: 0.47
+Nodes (3): loadCriticalData(), loadDeferredData(), loader()
 
 ### Community 11 - "Community 11"
-Cohesion: 0.47
+Cohesion: 0.6
 Nodes (3): loadCriticalData(), loadDeferredData(), loader()
 
 ### Community 12 - "Community 12"
@@ -205,12 +204,12 @@ Cohesion: 0.67
 Nodes (0): 
 
 ### Community 24 - "Community 24"
-Cohesion: 0.67
-Nodes (0): 
-
-### Community 25 - "Community 25"
 Cohesion: 1.0
 Nodes (2): SearchForm(), useFocusOnCmdK()
+
+### Community 25 - "Community 25"
+Cohesion: 0.67
+Nodes (0): 
 
 ### Community 26 - "Community 26"
 Cohesion: 0.67
@@ -229,11 +228,11 @@ Cohesion: 0.67
 Nodes (0): 
 
 ### Community 30 - "Community 30"
-Cohesion: 0.67
+Cohesion: 1.0
 Nodes (0): 
 
 ### Community 31 - "Community 31"
-Cohesion: 0.67
+Cohesion: 1.0
 Nodes (0): 
 
 ### Community 32 - "Community 32"
@@ -388,102 +387,102 @@ Nodes (0):
 Cohesion: 1.0
 Nodes (0): 
 
-### Community 70 - "Community 70"
-Cohesion: 1.0
-Nodes (0): 
-
 ## Knowledge Gaps
-- **Thin community `Community 32`** (2 nodes): `index.js`, `handler()`
+- **Thin community `Community 30`** (2 nodes): `handler()`, `index.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 33`** (2 nodes): `AddToCartButton()`, `AddToCartButton.tsx`
+- **Thin community `Community 31`** (2 nodes): `AddToCartButton()`, `AddToCartButton.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 34`** (2 nodes): `CartMain.tsx`, `getLineItemChildrenMap()`
+- **Thin community `Community 32`** (2 nodes): `CartMain.tsx`, `getLineItemChildrenMap()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 35`** (2 nodes): `MobileBottomNav.tsx`, `MobileBottomNav()`
+- **Thin community `Community 33`** (2 nodes): `handleSubmit()`, `Footer.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 36`** (2 nodes): `ProductDescription.tsx`, `check()`
+- **Thin community `Community 34`** (2 nodes): `MobileBottomNav()`, `MobileBottomNav.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 37`** (2 nodes): `SearchResults.tsx`, `SearchResults()`
+- **Thin community `Community 35`** (2 nodes): `check()`, `ProductDescription.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 38`** (2 nodes): `MockShopNotice.tsx`, `MockShopNotice()`
+- **Thin community `Community 36`** (2 nodes): `SearchResults.tsx`, `SearchResults()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 39`** (2 nodes): `Button.tsx`, `Button()`
+- **Thin community `Community 37`** (2 nodes): `MockShopNotice.tsx`, `MockShopNotice()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 40`** (2 nodes): `loader()`, `account._index.tsx`
+- **Thin community `Community 38`** (2 nodes): `Button()`, `Button.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 41`** (2 nodes): `loader()`, `account_.authorize.tsx`
+- **Thin community `Community 39`** (2 nodes): `loader()`, `account._index.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 42`** (2 nodes): `loader()`, `account_.login.tsx`
+- **Thin community `Community 40`** (2 nodes): `loader()`, `account_.authorize.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 43`** (2 nodes): `discount.$code.tsx`, `loader()`
+- **Thin community `Community 41`** (2 nodes): `loader()`, `account_.login.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 44`** (2 nodes): `sitemap.$type.$page[.xml].tsx`, `loader()`
+- **Thin community `Community 42`** (2 nodes): `discount.$code.tsx`, `loader()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 45`** (2 nodes): `[sitemap.xml].tsx`, `loader()`
+- **Thin community `Community 43`** (2 nodes): `sitemap.$type.$page[.xml].tsx`, `loader()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 46`** (1 nodes): `customer-accountapi.generated.d.ts`
+- **Thin community `Community 44`** (2 nodes): `[sitemap.xml].tsx`, `loader()`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 47`** (1 nodes): `env.d.ts`
+- **Thin community `Community 45`** (1 nodes): `customer-accountapi.generated.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 48`** (1 nodes): `eslint.config.js`
+- **Thin community `Community 46`** (1 nodes): `env.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 49`** (1 nodes): `react-router.config.ts`
+- **Thin community `Community 47`** (1 nodes): `eslint.config.js`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 50`** (1 nodes): `server.ts`
+- **Thin community `Community 48`** (1 nodes): `react-router.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 51`** (1 nodes): `storefrontapi.generated.d.ts`
+- **Thin community `Community 49`** (1 nodes): `server.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 52`** (1 nodes): `vite.config.ts`
+- **Thin community `Community 50`** (1 nodes): `storefrontapi.generated.d.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 53`** (1 nodes): `entry.client.tsx`
+- **Thin community `Community 51`** (1 nodes): `vite.config.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 54`** (1 nodes): `routes.ts`
+- **Thin community `Community 52`** (1 nodes): `entry.client.tsx`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 53`** (1 nodes): `routes.ts`
+  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
+- **Thin community `Community 54`** (1 nodes): `server.test.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 55`** (1 nodes): `CartLineItem.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 - **Thin community `Community 56`** (1 nodes): `CartSummary.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 57`** (1 nodes): `Footer.tsx`
+- **Thin community `Community 57`** (1 nodes): `PageLayout.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 58`** (1 nodes): `PageLayout.tsx`
+- **Thin community `Community 58`** (1 nodes): `ProductForm.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 59`** (1 nodes): `ProductForm.tsx`
+- **Thin community `Community 59`** (1 nodes): `ProductMedia.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 60`** (1 nodes): `ProductMedia.tsx`
+- **Thin community `Community 60`** (1 nodes): `ProductPrice.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 61`** (1 nodes): `ProductPrice.tsx`
+- **Thin community `Community 61`** (1 nodes): `ProductReviews.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 62`** (1 nodes): `ProductReviews.tsx`
+- **Thin community `Community 62`** (1 nodes): `RelatedProducts.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 63`** (1 nodes): `RelatedProducts.tsx`
+- **Thin community `Community 63`** (1 nodes): `PaginatedResourceSection.tsx`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 64`** (1 nodes): `PaginatedResourceSection.tsx`
+- **Thin community `Community 64`** (1 nodes): `CustomerAddressMutations.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 65`** (1 nodes): `CustomerAddressMutations.ts`
+- **Thin community `Community 65`** (1 nodes): `CustomerDetailsQuery.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 66`** (1 nodes): `CustomerDetailsQuery.ts`
+- **Thin community `Community 66`** (1 nodes): `CustomerOrderQuery.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 67`** (1 nodes): `CustomerOrderQuery.ts`
+- **Thin community `Community 67`** (1 nodes): `CustomerOrdersQuery.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 68`** (1 nodes): `CustomerOrdersQuery.ts`
+- **Thin community `Community 68`** (1 nodes): `CustomerUpdateMutation.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 69`** (1 nodes): `CustomerUpdateMutation.ts`
-  Too small to be a meaningful cluster - may be noise or needs more connections extracted.
-- **Thin community `Community 70`** (1 nodes): `fragments.ts`
+- **Thin community `Community 69`** (1 nodes): `fragments.ts`
   Too small to be a meaningful cluster - may be noise or needs more connections extracted.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `redirectIfHandleIsLocalized()` connect `Community 8` to `Community 9`, `Community 12`, `Community 5`, `Community 15`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `loadCriticalData()` connect `Community 5` to `Community 8`?**
-  _High betweenness centrality (0.007) - this node is a cross-community bridge._
-- **Why does `loadCriticalData()` connect `Community 9` to `Community 8`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+- **Why does `redirectIfHandleIsLocalized()` connect `Community 6` to `Community 9`, `Community 11`, `Community 12`, `Community 15`?**
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
+- **Why does `loadCriticalData()` connect `Community 11` to `Community 0`, `Community 6`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
+- **Why does `getFiltersFromParams()` connect `Community 0` to `Community 11`?**
+  _High betweenness centrality (0.044) - this node is a cross-community bridge._
 - **Are the 5 inferred relationships involving `redirectIfHandleIsLocalized()` (e.g. with `loadCriticalData()` and `loadCriticalData()`) actually correct?**
   _`redirectIfHandleIsLocalized()` has 5 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 3 inferred relationships involving `useAside()` (e.g. with `Header()` and `SearchFormPredictive()`) actually correct?**
+- **Are the 3 inferred relationships involving `useAside()` (e.g. with `Header()` and `SearchResultsPredictive()`) actually correct?**
   _`useAside()` has 3 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 2 inferred relationships involving `loadCriticalData()` (e.g. with `getFiltersFromParams()` and `redirectIfHandleIsLocalized()`) actually correct?**
-  _`loadCriticalData()` has 2 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 3 inferred relationships involving `handler()` (e.g. with `createHydrogenRouterContext()` and `handleRequest()`) actually correct?**
+  _`handler()` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 2 inferred relationships involving `getFiltersFromParams()` (e.g. with `.get()` and `loadCriticalData()`) actually correct?**
+  _`getFiltersFromParams()` has 2 INFERRED edges - model-reasoned connections that need verification._

@@ -1,9 +1,12 @@
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router';
 
 export function MobileBottomNav() {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around border-t border-brand-line bg-brand-bg/95 backdrop-blur-sm px-4 py-3 md:hidden">
-      <Link to="/collections/all" className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
+      <Link
+        to="/collections/all"
+        className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
+      >
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"
@@ -19,7 +22,10 @@ export function MobileBottomNav() {
         </svg>
       </Link>
 
-      <Link to="/account" className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
+      <Link
+        to="/account"
+        className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
+      >
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"
@@ -43,11 +49,18 @@ export function MobileBottomNav() {
           stroke="currentColor"
           strokeWidth="2"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 4.5v15m7.5-7.5h-15"
+          />
         </svg>
       </div>
 
-      <Link to="/pages/store" className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
+      <Link
+        to="/pages/store"
+        className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
+      >
         <svg
           viewBox="0 0 24 24"
           className="h-6 w-6"
