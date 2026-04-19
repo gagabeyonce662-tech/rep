@@ -140,8 +140,30 @@ function HeaderCtas({
   cart,
   isTransparent,
 }: Pick<HeaderProps, 'isLoggedIn' | 'cart'> & {isTransparent: boolean}) {
+  const {open} = useAside();
+
   return (
-    <nav className="flex items-center gap-6" role="navigation">
+    <nav className="flex items-center gap-4" role="navigation">
+      <button
+        type="button"
+        onClick={() => open('search')}
+        aria-label="Open search"
+        className={`flex items-center justify-center w-8 h-8 border ${isTransparent ? 'border-white/30 hover:bg-white hover:text-brand-black' : 'border-brand-black/20 hover:bg-brand-black hover:text-white'} transition-colors duration-300`}
+      >
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 103.75 10.5a7.5 7.5 0 0012.9 6.15z"
+          />
+        </svg>
+      </button>
       <NavLink prefetch="intent" to="/account" className="hidden md:block">
         <Suspense fallback="...">
           <Await resolve={isLoggedIn}>

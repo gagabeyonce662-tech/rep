@@ -1,6 +1,7 @@
 import {Link} from 'react-router';
 import {Image, Money, Pagination} from '@shopify/hydrogen';
 import {urlWithTrackingParams, type RegularSearchReturn} from '~/lib/search';
+import {ProductCard} from '~/components/Product/ProductCard';
 
 type SearchItems = RegularSearchReturn['result']['items'];
 type PartialSearchResult<ItemType extends keyof SearchItems> = Pick<
@@ -40,8 +41,10 @@ function SearchResultsArticles({
 
   return (
     <div className="search-result">
-      <h2>Articles</h2>
-      <div>
+      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
+        Articles
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {articles?.nodes?.map((article) => {
           const articleUrl = urlWithTrackingParams({
             baseUrl: `/blogs/${article.handle}`,
@@ -50,15 +53,19 @@ function SearchResultsArticles({
           });
 
           return (
-            <div className="search-results-item" key={article.id}>
-              <Link prefetch="intent" to={articleUrl}>
+            <Link
+              key={article.id}
+              prefetch="intent"
+              to={articleUrl}
+              className="group block p-6 border border-brand-line hover:border-brand-black transition-colors duration-500"
+            >
+              <h3 className="font-serif text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
                 {article.title}
-              </Link>
-            </div>
+              </h3>
+            </Link>
           );
         })}
       </div>
-      <br />
     </div>
   );
 }
@@ -70,8 +77,10 @@ function SearchResultsPages({term, pages}: PartialSearchResult<'pages'>) {
 
   return (
     <div className="search-result">
-      <h2>Pages</h2>
-      <div>
+      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
+        Pages
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {pages?.nodes?.map((page) => {
           const pageUrl = urlWithTrackingParams({
             baseUrl: `/pages/${page.handle}`,
@@ -80,15 +89,19 @@ function SearchResultsPages({term, pages}: PartialSearchResult<'pages'>) {
           });
 
           return (
-            <div className="search-results-item" key={page.id}>
-              <Link prefetch="intent" to={pageUrl}>
+            <Link
+              key={page.id}
+              prefetch="intent"
+              to={pageUrl}
+              className="group block p-6 border border-brand-line hover:border-brand-black transition-colors duration-500"
+            >
+              <h3 className="font-serif text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
                 {page.title}
-              </Link>
-            </div>
+              </h3>
+            </Link>
           );
         })}
       </div>
-      <br />
     </div>
   );
 }
@@ -103,59 +116,59 @@ function SearchResultsProducts({
 
   return (
     <div className="search-result">
-      <h2>Products</h2>
+      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
+        Products
+      </h2>
       <Pagination connection={products}>
-        {({nodes, isLoading, NextLink, PreviousLink}) => {
-          const ItemsMarkup = nodes.map((product) => {
-            const productUrl = urlWithTrackingParams({
-              baseUrl: `/products/${product.handle}`,
-              trackingParams: product.trackingParameters,
-              term,
-            });
-
-            const price = product?.selectedOrFirstAvailableVariant?.price;
-            const image = product?.selectedOrFirstAvailableVariant?.image;
-
-            return (
-              <div className="search-results-item" key={product.id}>
-                <Link prefetch="intent" to={productUrl}>
-                  {image && (
-                    <Image data={image} alt={product.title} width={50} />
-                  )}
-                  <div>
-                    <p>{product.title}</p>
-                    <small>{price && <Money data={price} />}</small>
-                  </div>
-                </Link>
-              </div>
-            );
-          });
-
-          return (
-            <div>
-              <div>
-                <PreviousLink>
-                  {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-                </PreviousLink>
-              </div>
-              <div>
-                {ItemsMarkup}
-                <br />
-              </div>
-              <div>
-                <NextLink>
-                  {isLoading ? 'Loading...' : <span>Load more ↓</span>}
-                </NextLink>
-              </div>
+        {({nodes, isLoading, NextLink, PreviousLink}) => (
+          <div className="space-y-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16">
+              {nodes.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  showWishlist={true}
+                />
+              ))}
             </div>
-          );
-        }}
+
+            {(PreviousLink || NextLink) && (
+              <div className="flex justify-center items-center gap-8 pt-8">
+                {PreviousLink && (
+                  <PreviousLink className="group inline-flex items-center gap-3 font-serif italic text-sm text-brand-black pb-1">
+                    <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
+                      Previous
+                    </span>
+                    <span className="transition-transform duration-500 group-hover:-translate-x-1">
+                      ←
+                    </span>
+                  </PreviousLink>
+                )}
+                {NextLink && (
+                  <NextLink className="group inline-flex items-center gap-3 font-serif italic text-sm text-brand-black pb-1">
+                    <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
+                      Next
+                    </span>
+                    <span className="transition-transform duration-500 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </NextLink>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </Pagination>
-      <br />
     </div>
   );
 }
 
 function SearchResultsEmpty() {
-  return <p>No results, try a different search.</p>;
+  return (
+    <div className="text-center py-16">
+      <p className="font-assistant text-brand-muted text-lg">
+        No results found. Try a different search term.
+      </p>
+    </div>
+  );
 }

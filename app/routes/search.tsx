@@ -41,38 +41,78 @@ export default function SearchPage() {
   if (type === 'predictive') return null;
 
   return (
-    <div className="search">
-      <h1>Search</h1>
-      <SearchForm>
-        {({inputRef}) => (
-          <>
-            <input
-              defaultValue={term}
-              name="q"
-              placeholder="Search…"
-              ref={inputRef}
-              type="search"
-            />
-            &nbsp;
-            <button type="submit">Search</button>
-          </>
+    <div className="bg-brand-bg font-assistant text-brand-black min-h-screen">
+      <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
+        <div className="flex flex-col gap-3 mb-16">
+          <span className="font-serif italic text-sm text-brand-muted">
+            Search
+          </span>
+          <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
+            Find what you're looking for
+          </h1>
+        </div>
+
+        <div className="mb-16">
+          <SearchForm>
+            {({inputRef}) => (
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input
+                  defaultValue={term}
+                  name="q"
+                  placeholder="Search products, articles..."
+                  ref={inputRef}
+                  type="search"
+                  className="flex-1 px-6 py-4 bg-white border border-brand-line rounded-none focus:outline-none focus:border-brand-black transition-colors duration-500 text-lg font-assistant"
+                />
+                <button
+                  type="submit"
+                  className="px-8 py-4 bg-brand-black text-white font-serif italic text-sm hover:bg-brand-muted transition-colors duration-500"
+                >
+                  Search
+                </button>
+              </div>
+            )}
+          </SearchForm>
+        </div>
+
+        {error && (
+          <div className="mb-8 p-4 bg-red-50 border border-red-200">
+            <p className="text-red-800 font-assistant">{error}</p>
+          </div>
         )}
-      </SearchForm>
-      {error && <p style={{color: 'red'}}>{error}</p>}
-      {!term || !result?.total ? (
-        <SearchResults.Empty />
-      ) : (
-        <SearchResults result={result} term={term}>
-          {({articles, pages, products, term}) => (
-            <div>
-              <SearchResults.Products products={products} term={term} />
-              <SearchResults.Pages pages={pages} term={term} />
-              <SearchResults.Articles articles={articles} term={term} />
+
+        {!term || !result?.total ? (
+          <div className="text-center py-24">
+            <SearchResults.Empty />
+            {!term && (
+              <p className="text-brand-muted font-assistant mt-4">
+                Start typing to discover our collection
+              </p>
+            )}
+          </div>
+        ) : (
+          <div className="space-y-16">
+            <div className="border-t border-brand-line pt-16">
+              <h2 className="font-serif text-3xl md:text-4xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
+                Results for "{term}"
+              </h2>
+              <SearchResults result={result} term={term}>
+                {({articles, pages, products, term}) => (
+                  <div className="space-y-12">
+                    <SearchResults.Products products={products} term={term} />
+                    <SearchResults.Pages pages={pages} term={term} />
+                    <SearchResults.Articles articles={articles} term={term} />
+                  </div>
+                )}
+              </SearchResults>
             </div>
-          )}
-        </SearchResults>
-      )}
-      <Analytics.SearchView data={{searchTerm: term, searchResults: result}} />
+          </div>
+        )}
+
+        <Analytics.SearchView
+          data={{searchTerm: term, searchResults: result}}
+        />
+      </section>
     </div>
   );
 }
@@ -90,6 +130,12 @@ const SEARCH_PRODUCT_FRAGMENT = `#graphql
     title
     trackingParameters
     vendor
+    featuredImage {
+      url
+      altText
+      width
+      height
+    }
     selectedOrFirstAvailableVariant(
       selectedOptions: []
       ignoreUnknownOptions: true
