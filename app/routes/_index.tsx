@@ -75,16 +75,16 @@ export default function Homepage() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-8 py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
           <div className="flex flex-col gap-3">
-            <span className="font-serif italic text-sm text-brand-muted">
+            <span className="text-sm font-medium uppercase tracking-[0.18em] text-brand-muted">
               Latest Arrivals
             </span>
-            <h2 className="font-serif text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
+            <h2 className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-black">
               New Arrivals
             </h2>
           </div>
           <Link
             to="/collections/all"
-            className="group self-start md:self-end inline-flex items-center gap-3 font-serif italic text-sm text-brand-black pb-1"
+            className="group self-start md:self-end inline-flex items-center gap-3 text-sm font-medium uppercase tracking-[0.18em] text-brand-black pb-1"
           >
             <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
               View all
@@ -120,7 +120,7 @@ function Marquee() {
         {loop.map((item) => (
           <span
             key={item.id}
-            className="font-serif italic text-3xl md:text-5xl font-light tracking-[-0.01em] px-6 md:px-10 text-brand-black"
+            className="text-3xl md:text-5xl font-semibold uppercase tracking-[0.08em] px-6 md:px-10 text-brand-black"
           >
             {item.word}
           </span>
@@ -143,10 +143,10 @@ function FeaturedSplit({collection}: {collection: FeaturedCollectionFragment}) {
       </div>
       <div className="flex items-center justify-center px-6 md:px-20 py-20 md:py-28 bg-brand-bg">
         <div className="max-w-md flex flex-col gap-7">
-          <span className="font-serif italic text-sm text-brand-muted">
+          <span className="text-sm font-medium uppercase tracking-[0.18em] text-brand-muted">
             Featured Collection
           </span>
-          <h2 className="font-serif text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
+          <h2 className="text-5xl md:text-7xl font-semibold leading-[1.05] tracking-[-0.04em] text-brand-black">
             {collection.title}
           </h2>
           <p className="text-[15px] text-brand-muted leading-[1.7] font-light">
@@ -155,7 +155,7 @@ function FeaturedSplit({collection}: {collection: FeaturedCollectionFragment}) {
           </p>
           <Link
             to={`/collections/${collection.handle}`}
-            className="group self-start inline-flex items-center gap-3 font-serif italic text-sm text-brand-black mt-2"
+            className="group self-start inline-flex items-center gap-3 text-sm font-medium uppercase tracking-[0.18em] text-brand-black mt-2"
           >
             <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
               Shop the collection
@@ -186,10 +186,10 @@ function Hero({collection}: {collection: FeaturedCollectionFragment}) {
       </div>
       <div className="absolute inset-0 z-[1] bg-linear-to-b from-black/10 via-transparent to-black/50" />
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6">
-        <span className="font-serif italic text-sm md:text-base text-white/85 mb-5 motion-safe:animate-fade-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
+        <span className="text-sm md:text-base font-medium uppercase tracking-[0.22em] text-white/85 mb-5 motion-safe:animate-fade-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
           Featured Collection
         </span>
-        <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] text-white font-light tracking-[-0.03em] leading-[0.95] mb-10 motion-safe:animate-fade-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
+        <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] text-white font-semibold tracking-[-0.05em] leading-[0.9] mb-10 motion-safe:animate-fade-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
           {collection.title}
         </h1>
         <div className="motion-safe:animate-fade-up [animation-delay:700ms] opacity-0 [animation-fill-mode:forwards]">

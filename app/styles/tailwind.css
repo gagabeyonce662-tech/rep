@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Assistant:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@100..900&display=swap');
 @import 'tailwindcss';
 
 @theme {
@@ -6,7 +6,7 @@
      existing `font-anton` classes automatically switch without churn. */
   --font-anton: 'Fraunces', 'Times New Roman', serif;
   --font-serif: 'Fraunces', 'Times New Roman', serif;
-  --font-assistant: 'Assistant', sans-serif;
+  --font-assistant: 'Inter', sans-serif;
 
   /* Warm near-ink, never pure black */
   --color-brand-black: #1a1814;

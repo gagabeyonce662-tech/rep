@@ -77,8 +77,8 @@ export function Header({
         </button>
 
         <NavLink prefetch="intent" to="/" className="flex items-center" end>
-          <span className="font-serif italic text-2xl font-light tracking-[-0.02em] whitespace-nowrap">
-            Rep
+          <span className="font-inter italic text-2xl font-light tracking-[-0.02em] whitespace-nowrap">
+            rep
           </span>
         </NavLink>
       </div>
