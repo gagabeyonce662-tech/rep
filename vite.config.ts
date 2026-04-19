@@ -1,7 +1,7 @@
-import { defineConfig } from 'vite';
-import { hydrogen } from '@shopify/hydrogen/vite';
-import { oxygen } from '@shopify/mini-oxygen/vite';
-import { reactRouter } from '@react-router/dev/vite';
+import {defineConfig} from 'vite';
+import {hydrogen} from '@shopify/hydrogen/vite';
+import {oxygen} from '@shopify/mini-oxygen/vite';
+import {reactRouter} from '@react-router/dev/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 
@@ -11,7 +11,7 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     hydrogen(),
-    oxygen(),  // Include oxygen to bundle server.ts
+    oxygen(), // Include oxygen to bundle server.ts
     reactRouter(),
     tsconfigPaths(),
   ],
@@ -33,10 +33,16 @@ export default defineConfig({
        * Include 'example-dep' in the array below.
        * @see https://vitejs.dev/config/dep-optimization-options
        */
-      include: ['set-cookie-parser', 'cookie', 'react-router', 'react-dom/server'],
+      include: [
+        'set-cookie-parser',
+        'cookie',
+        'react-router',
+        'react-dom/server',
+      ],
     },
   },
   server: {
+    host: '0.0.0.0',
     allowedHosts: ['.tryhydrogen.dev'],
   },
 });

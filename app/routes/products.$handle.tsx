@@ -23,23 +23,28 @@ export const meta: Route.MetaFunction = ({data, matches}) => {
   if (!product) return [{title: 'Hydrogen | Product'}];
 
   const rootData = matches.find((match) => match.id === 'root')?.data as any;
-  const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
+  const baseUrl = rootData?.publicStoreDomain
+    ? `https://${rootData.publicStoreDomain}`
+    : '';
 
   const firstMedia = product.media?.nodes?.find(
-    (m: any) => m.image || m.previewImage
+    (m: any) => m.image || m.previewImage,
   );
-  const firstImage = (firstMedia as any)?.image || (firstMedia as any)?.previewImage;
+  const firstImage =
+    (firstMedia as any)?.image || (firstMedia as any)?.previewImage;
 
   return getSeoMeta({
     title: product.seo?.title ?? product.title,
     description: product.seo?.description ?? product.description,
     url: `${baseUrl}/products/${product.handle}`,
-    media: firstImage ? {
-      url: firstImage.url,
-      width: firstImage.width,
-      height: firstImage.height,
-      altText: firstImage.altText || product.title,
-    } : undefined,
+    media: firstImage
+      ? {
+          url: firstImage.url,
+          width: firstImage.width,
+          height: firstImage.height,
+          altText: firstImage.altText || product.title,
+        }
+      : undefined,
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'Product',
@@ -50,7 +55,8 @@ export const meta: Route.MetaFunction = ({data, matches}) => {
       offers: {
         '@type': 'Offer',
         price: product.selectedOrFirstAvailableVariant?.price?.amount,
-        priceCurrency: product.selectedOrFirstAvailableVariant?.price?.currencyCode,
+        priceCurrency:
+          product.selectedOrFirstAvailableVariant?.price?.currencyCode,
         availability: product.selectedOrFirstAvailableVariant?.availableForSale
           ? 'https://schema.org/InStock'
           : 'https://schema.org/OutOfStock',
@@ -64,7 +70,10 @@ export async function loader(args: Route.LoaderArgs) {
   const criticalData = await loadCriticalData(args);
 
   // Start fetching non-critical data without blocking time to first byte
-  const deferredData = loadDeferredData({...args, product: criticalData.product});
+  const deferredData = loadDeferredData({
+    ...args,
+    product: criticalData.product,
+  });
 
   return {...deferredData, ...criticalData};
 }
@@ -105,13 +114,18 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
  * fetched after the initial page load. If it's unavailable, the page should still 200.
  * Make sure to not throw any errors here, as it will cause the page to 500.
  */
-function loadDeferredData({context, product}: Route.LoaderArgs & {product?: any}) {
-  const recommended = context.storefront.query(RECOMMENDATIONS_QUERY, {
-    variables: {productId: product.id},
-  }).catch((error: Error) => {
-    console.error(error);
-    return null;
-  });
+function loadDeferredData({
+  context,
+  product,
+}: Route.LoaderArgs & {product?: any}) {
+  const recommended = context.storefront
+    .query(RECOMMENDATIONS_QUERY, {
+      variables: {productId: product.id},
+    })
+    .catch((error: Error) => {
+      console.error(error);
+      return null;
+    });
 
   return {recommended};
 }
@@ -159,7 +173,7 @@ export default function Product() {
   return (
     <div className="w-full bg-brand-bg text-brand-black">
       <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr] items-start">
-        <div className="hidden lg:block lg:sticky lg:top-0 h-screen overflow-hidden bg-brand-gray border-r border-brand-line">
+        <div className="lg:sticky lg:top-0 h-[55vh] lg:h-screen overflow-hidden bg-brand-gray border-b border-brand-line lg:border-r lg:border-b-0">
           {model3dGlbSrc ? (
             <model-viewer
               src={model3dGlbSrc}

@@ -23,22 +23,24 @@ import {useSmoothScroll} from './hooks/useSmoothScroll';
 export type RootLoader = typeof loader;
 
 export const meta: Route.MetaFunction = ({data}) => {
-  return getSeoMeta({
-    titleTemplate: '%s | Rep',
-    title: 'Rep | Official Store',
-    description:
-      'A considered edit of the season’s most essential pieces. Each silhouette made in small runs, finished by hand, and built to last.',
-    robots: {
-      noIndex: false,
-      noFollow: false,
-      maxImagePreview: 'large',
-      maxSnippet: -1,
-      maxVideoPreview: -1,
-    },
-    url: data?.publicStoreDomain
-      ? `https://${data.publicStoreDomain}`
-      : undefined,
-  });
+  return (
+    getSeoMeta({
+      titleTemplate: '%s | Rep',
+      title: 'Rep | Official Store',
+      description:
+        'A considered edit of the season’s most essential pieces. Each silhouette made in small runs, finished by hand, and built to last.',
+      robots: {
+        noIndex: false,
+        noFollow: false,
+        maxImagePreview: 'large',
+        maxSnippet: -1,
+        maxVideoPreview: -1,
+      },
+      url: data?.publicStoreDomain
+        ? `https://${data.publicStoreDomain}`
+        : undefined,
+    }) ?? []
+  );
 };
 
 /**

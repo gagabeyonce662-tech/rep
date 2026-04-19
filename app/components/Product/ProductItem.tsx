@@ -1,4 +1,9 @@
 import {ProductCard} from './ProductCard';
+import type {
+  CollectionItemFragment,
+  ProductItemFragment,
+  RecommendedProductFragment,
+} from 'storefrontapi.generated';
 
 export function ProductItem({
   product,

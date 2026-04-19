@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Link} from 'react-router';
 import {Image, Money} from '@shopify/hydrogen';
 import type {
@@ -8,6 +9,21 @@ import type {
 import {useVariantUrl} from '~/lib/variants';
 import {captureEvent} from '~/lib/posthog.client';
 import {useWishlist} from '~/lib/useWishlist';
+
+type SearchProductWithVariant = {
+  selectedOrFirstAvailableVariant?: {
+    image?: {
+      url: string;
+      altText?: string | null;
+      width?: number | null;
+      height?: number | null;
+    };
+    price?: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
+};
 
 interface ProductCardProps {
   product:
@@ -23,16 +39,24 @@ export function ProductCard({
   loading,
   showWishlist = true,
 }: ProductCardProps) {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const variantUrl = useVariantUrl(product.handle);
-  const image =
-    product.featuredImage || product.selectedOrFirstAvailableVariant?.image;
   const {isInWishlist, toggleWishlist} = useWishlist();
   const isWished = isInWishlist(product.id);
 
+  const variant = (product as SearchProductWithVariant)
+    .selectedOrFirstAvailableVariant;
+
+  const images = [product.featuredImage, variant?.image].filter(
+    (image): image is NonNullable<typeof image> => Boolean(image),
+  );
+
+  const currentImage =
+    images[activeImageIndex] ?? product.featuredImage ?? variant?.image;
+  const hasMultipleImages = images.length > 1;
+
   // Handle different product data structures (search vs regular products)
-  const priceData =
-    product.priceRange?.minVariantPrice ||
-    product.selectedOrFirstAvailableVariant?.price;
+  const priceData = product.priceRange?.minVariantPrice || variant?.price;
 
   return (
     <Link
@@ -51,16 +75,79 @@ export function ProductCard({
         })
       }
     >
-      <div className="aspect-[4/5] overflow-hidden bg-brand-gray relative">
-        {image && (
+      <div className="aspect-4/5 overflow-hidden bg-brand-gray relative">
+        {currentImage && (
           <Image
-            alt={image.altText || product.title}
-            data={image}
+            alt={currentImage.altText || product.title}
+            data={currentImage}
             loading={loading}
             sizes="(min-width: 45em) 400px, 50vw"
             className="object-cover w-full h-full group-hover:scale-[1.04] transition-transform duration-[1.2s] ease-out"
           />
         )}
+
+        {/* Hover arrows */}
+        {hasMultipleImages ? (
+          <>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setActiveImageIndex((current) =>
+                  current === 0 ? images.length - 1 : current - 1,
+                );
+              }}
+              aria-label="Show previous image"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 z-20"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-md text-brand-black">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 18l-6-6 6-6"
+                  />
+                </svg>
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={(event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                setActiveImageIndex((current) =>
+                  current === images.length - 1 ? 0 : current + 1,
+                );
+              }}
+              aria-label="Show next image"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 z-20"
+            >
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/90 shadow-md text-brand-black">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 6l6 6-6 6"
+                  />
+                </svg>
+              </span>
+            </button>
+          </>
+        ) : null}
+
         {!product.availableForSale && (
           <div className="absolute top-3 left-3 font-serif italic text-xs text-brand-black bg-brand-bg/90 px-2.5 py-1 z-10">
             Sold out

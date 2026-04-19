@@ -1,21 +1,23 @@
-import { Await, useLoaderData, Link } from 'react-router';
-import type { Route } from './+types/_index';
-import { Suspense } from 'react';
-import { Image, getSeoMeta } from '@shopify/hydrogen';
+import {Await, useLoaderData, Link} from 'react-router';
+import type {Route} from './+types/_index';
+import {Suspense} from 'react';
+import {Image, getSeoMeta} from '@shopify/hydrogen';
 import type {
   FeaturedCollectionFragment,
   RecommendedProductsQuery,
 } from 'storefrontapi.generated';
-import { ProductItem } from '~/components/Product/ProductItem';
-import { MockShopNotice } from '~/components/Shared/MockShopNotice';
+import {ProductItem} from '~/components/Product/ProductItem';
+import {MockShopNotice} from '~/components/Shared/MockShopNotice';
 
 export const meta: Route.MetaFunction = () => {
-  return getSeoMeta({
-    title: 'Rep | Official Store',
-    description: 'A considered edit of the season’s most essential pieces. Each silhouette made in small runs, finished by hand, and built to last.',
-    fallbackTitle: 'Rep',
-    titleTemplate: '%s | Rep Store',
-  });
+  return (
+    getSeoMeta({
+      title: 'Rep | Official Store',
+      description:
+        'A considered edit of the season’s most essential pieces. Each silhouette made in small runs, finished by hand, and built to last.',
+      titleTemplate: '%s | Rep Store',
+    }) ?? []
+  );
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -25,15 +27,15 @@ export async function loader(args: Route.LoaderArgs) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return { ...deferredData, ...criticalData };
+  return {...deferredData, ...criticalData};
 }
 
 /**
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({ context }: Route.LoaderArgs) {
-  const [{ collections }] = await Promise.all([
+async function loadCriticalData({context}: Route.LoaderArgs) {
+  const [{collections}] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -49,7 +51,7 @@ async function loadCriticalData({ context }: Route.LoaderArgs) {
  * fetched after the initial page load. If it's unavailable, the page should still 200.
  * Make sure to not throw any errors here, as it will cause the page to 500.
  */
-function loadDeferredData({ context }: Route.LoaderArgs) {
+function loadDeferredData({context}: Route.LoaderArgs) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error: Error) => {
@@ -70,7 +72,7 @@ export default function Homepage() {
       <Hero collection={data.featuredCollection} />
       <Marquee />
       <FeaturedSplit collection={data.featuredCollection} />
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-8 py-24 md:py-32">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
           <div className="flex flex-col gap-3">
             <span className="font-serif italic text-sm text-brand-muted">
@@ -87,7 +89,9 @@ export default function Homepage() {
             <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
               View all
             </span>
-            <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            <span className="transition-transform duration-500 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
         <RecommendedProducts products={data.recommendedProducts} />
@@ -97,9 +101,18 @@ export default function Homepage() {
 }
 
 function Marquee() {
-  const words = ['Rep', '◦', 'Worldwide', '◦', 'Limited Edition', '◦', 'Crafted with Care', '◦'];
-  const loop = Array.from({ length: 4 }, (_, i) =>
-    words.map((w, j) => ({ id: `${i}-${j}-${w}`, word: w })),
+  const words = [
+    'Rep',
+    '◦',
+    'Worldwide',
+    '◦',
+    'Limited Edition',
+    '◦',
+    'Crafted with Care',
+    '◦',
+  ];
+  const loop = Array.from({length: 4}, (_, i) =>
+    words.map((w, j) => ({id: `${i}-${j}-${w}`, word: w})),
   ).flat();
   return (
     <section className="border-y border-brand-line py-6 md:py-8 overflow-hidden bg-brand-bg">
@@ -117,11 +130,7 @@ function Marquee() {
   );
 }
 
-function FeaturedSplit({
-  collection,
-}: {
-  collection: FeaturedCollectionFragment;
-}) {
+function FeaturedSplit({collection}: {collection: FeaturedCollectionFragment}) {
   if (!collection?.image) return null;
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 items-stretch bg-brand-bg">
@@ -151,7 +160,9 @@ function FeaturedSplit({
             <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
               Shop the collection
             </span>
-            <span className="transition-transform duration-500 group-hover:translate-x-1">→</span>
+            <span className="transition-transform duration-500 group-hover:translate-x-1">
+              →
+            </span>
           </Link>
         </div>
       </div>
@@ -159,9 +170,9 @@ function FeaturedSplit({
   );
 }
 
-import { Button } from '~/components/ui/Button';
+import {Button} from '~/components/ui/Button';
 
-function Hero({ collection }: { collection: FeaturedCollectionFragment }) {
+function Hero({collection}: {collection: FeaturedCollectionFragment}) {
   if (!collection) return null;
 
   return (
@@ -182,10 +193,7 @@ function Hero({ collection }: { collection: FeaturedCollectionFragment }) {
           {collection.title}
         </h1>
         <div className="motion-safe:animate-fade-up [animation-delay:700ms] opacity-0 [animation-fill-mode:forwards]">
-          <Button
-            to={`/collections/${collection.handle}`}
-            variant="white"
-          >
+          <Button to={`/collections/${collection.handle}`} variant="white">
             Explore Drop
           </Button>
         </div>
@@ -206,14 +214,20 @@ function RecommendedProducts({
   products: Promise<RecommendedProductsQuery | null>;
 }) {
   return (
-    <Suspense fallback={<div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 italic opacity-50">Loading Drops...</div>}>
+    <Suspense
+      fallback={
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 italic opacity-50">
+          Loading Drops...
+        </div>
+      }
+    >
       <Await resolve={products}>
         {(response) => (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-8 md:gap-y-16">
             {response
               ? response.products.nodes.map((product) => (
-                <ProductItem key={product.id} product={product} />
-              ))
+                  <ProductItem key={product.id} product={product} />
+                ))
               : null}
           </div>
         )}
