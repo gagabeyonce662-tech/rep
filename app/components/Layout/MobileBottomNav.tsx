@@ -1,8 +1,8 @@
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 
 export function MobileBottomNav() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 flex items-center justify-around border-t border-brand-line bg-brand-bg/95 backdrop-blur-sm px-4 py-3 md:hidden">
+    <nav className="fixed bottom-4 inset-x-4 z-50 flex items-center justify-around border-t border-brand-line bg-brand-bg/95 backdrop-blur-sm px-4 py-3 md:hidden rounded-full ">
       <Link
         to="/collections/all"
         className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
