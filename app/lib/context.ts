@@ -1,22 +1,19 @@
-import {createHydrogenContext} from '@shopify/hydrogen';
-import {AppSession} from '~/lib/session';
-import {CART_QUERY_FRAGMENT} from '~/lib/fragments';
+import { createHydrogenContext } from '@shopify/hydrogen';
+import { AppSession } from '~/lib/session';
+import { CART_QUERY_FRAGMENT } from '~/lib/fragments';
+
+function validateEnv(env: Env) {
+  const required = ['SESSION_SECRET', 'PUBLIC_STOREFRONT_API_TOKEN'];
+  for (const key of required) {
+    if (!env[key as keyof Env]) {
+      throw new Error(`Missing required environment variable: ${key}`);
+    }
+  }
+}
 
 // Define the additional context object
 const additionalContext = {
-  // Additional context for custom properties, CMS clients, 3P SDKs, etc.
-  // These will be available as both context.propertyName and context.get(propertyContext)
-  // Example of complex objects that could be added:
-  // cms: await createCMSClient(env),
-  // reviews: await createReviewsClient(env),
 } as const;
-
-// Automatically augment HydrogenAdditionalContext with the additional context type
-type AdditionalContextType = typeof additionalContext;
-
-declare global {
-  interface HydrogenAdditionalContext extends AdditionalContextType {}
-}
 
 /**
  * Creates Hydrogen context for React Router 7.9.x
@@ -27,12 +24,8 @@ export async function createHydrogenRouterContext(
   env: Env,
   executionContext: ExecutionContext,
 ) {
-  /**
-   * Open a cache instance in the worker and a custom session instance.
-   */
-  if (!env?.SESSION_SECRET) {
-    throw new Error('SESSION_SECRET environment variable is not set');
-  }
+
+  validateEnv(env);
 
   const waitUntil = (promise: Promise<any>) => {
     return executionContext?.waitUntil
@@ -55,7 +48,7 @@ export async function createHydrogenRouterContext(
       waitUntil,
       session,
       // Or detect from URL path based on locale subpath, cookies, or any other strategy
-      i18n: {language: 'EN', country: 'US'},
+      i18n: { language: 'EN', country: 'US' },
       cart: {
         queryFragment: CART_QUERY_FRAGMENT,
       },

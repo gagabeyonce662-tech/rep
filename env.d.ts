@@ -6,6 +6,7 @@
 export interface Env extends HydrogenEnv {
   PUBLIC_POSTHOG_KEY: string;
   PUBLIC_POSTHOG_HOST: string;
+  ESSION_SECRET: string;
 }
 
 declare global {
