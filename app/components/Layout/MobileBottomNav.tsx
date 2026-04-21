@@ -1,101 +1,60 @@
 import { Link } from 'react-router';
+import { Globe, User, Plus, MapPin, Search } from 'lucide-react';
 
 export function MobileBottomNav() {
   return (
-    <nav className="fixed bottom-4 inset-x-4 z-50 flex items-center justify-around border-t border-brand-line bg-brand-bg/95 backdrop-blur-sm px-4 py-3 md:hidden rounded-full ">
+    <nav className="fixed bottom-4 inset-x-4 z-50 flex items-center justify-around bg-white/10  border border-white/30  backdrop-blur-xl px-4 py-3 md:hidden rounded-full shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] overflow-hidden ">
+
+      {/* Liquid Shine Overlay */}
+      <div className="absolute inset-0 bg-linear-to-tr from-white/20 to-transparent pointer-events-none rounded-full" />
       <Link
         to="/collections/all"
         className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-.554-7.843-1.918"
-          />
-        </svg>
+        <Globe className='h-6 w-6' strokeWidth={1.5} />
       </Link>
 
       <Link
         to="/account"
         className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-          />
-        </svg>
+        <User className="h-6 w-6" strokeWidth={1.5} />
+
       </Link>
 
-      <div className="flex -translate-y-4 items-center justify-center bg-brand-black p-3 text-brand-bg">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 4.5v15m7.5-7.5h-15"
-          />
-        </svg>
+      <div className="flex rounded-full items-center justify-center bg-brand-black p-3 text-brand-bg opacity-80 ">
+        <Plus className="h-6 w-6" strokeWidth={2} />
+
       </div>
 
       <Link
         to="/pages/store"
         className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100"
       >
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-          />
-        </svg>
+        <MapPin className="h-6 w-6" strokeWidth={1.5} />
       </Link>
 
       <button className="flex flex-col items-center gap-1 opacity-60 hover:opacity-100">
-        <svg
-          viewBox="0 0 24 24"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-          />
-        </svg>
+        <Search className="h-6 w-6" strokeWidth={1.5} />
+
       </button>
+      {/* Add this SVG at the bottom of your MobileBottomNav component */}
+      <svg style={{ position: 'absolute', width: 0, height: 0 }}>
+        <filter id="frosted" primitiveUnits="objectBoundingBox">
+          {/* This base64 is the 'refraction' map */}
+          <feImage
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6e..."
+            x="0" y="0" width="1" height="1" result="map"
+          />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="0.02" result="blur" />
+          <feDisplacementMap id="disp" in="blur" in2="map" scale="1" xChannelSelector="R" yChannelSelector="G">
+            {/* These animations make it feel 'liquid' on hover/interaction */}
+            <animate attributeName="scale" to="1.4" dur="0.3s" begin="mouseenter" fill="freeze" />
+            <animate attributeName="scale" to="1" dur="0.3s" begin="mouseleave" fill="freeze" />
+          </feDisplacementMap>
+        </filter>
+      </svg>
     </nav>
   );
 }
+
