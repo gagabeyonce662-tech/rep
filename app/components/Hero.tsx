@@ -1,3 +1,7 @@
+// app/components/Hero.tsx
+
+// this component is used in the home page to display the featured collection. It includes a background image, title, and a call-to-action button. The background image has a zoom animation, and the text elements have fade-up animations with staggered delays for a dynamic entrance effect. Additionally, there is a scroll hint at the bottom to encourage users to explore further down the page.
+
 import type {
     FeaturedCollectionFragment
 } from 'storefrontapi.generated';
