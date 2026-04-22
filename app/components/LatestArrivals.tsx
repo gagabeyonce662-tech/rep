@@ -1,3 +1,5 @@
+// app/components/LatestArrivals.tsx
+
 import { Link } from "react-router"
 import RecommendedProducts from "./RecommendedProducts"
 import type { RecommendedProductsQuery } from 'storefrontapi.generated';
@@ -8,7 +10,7 @@ export default function LatestArrivals({
     products: Promise<RecommendedProductsQuery | null>
 }) {
     return (
-        <section className="md:px-8 py-24 md:py-32">
+        <section className="md:px-8 py-24 md:py-32 m-4 md:m-8 bg-brand-bg">
             <div className="flex flex-col md:flex-row md:justify-between md:items-end gap-6 mb-16">
                 <div className="flex flex-col gap-3">
                     <span className="text-sm font-medium uppercase tracking-[0.18em] text-brand-muted">

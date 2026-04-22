@@ -1,14 +1,14 @@
-import {useState} from 'react';
-import {Link} from 'react-router';
-import {Image, Money} from '@shopify/hydrogen';
+import { useState } from 'react';
+import { Link } from 'react-router';
+import { Image, Money } from '@shopify/hydrogen';
 import type {
   ProductItemFragment,
   CollectionItemFragment,
   RecommendedProductFragment,
 } from 'storefrontapi.generated';
-import {useVariantUrl} from '~/lib/variants';
-import {captureEvent} from '~/lib/posthog.client';
-import {useWishlist} from '~/lib/useWishlist';
+import { useVariantUrl } from '~/lib/variants';
+import { captureEvent } from '~/lib/posthog.client';
+import { useWishlist } from '~/lib/useWishlist';
 
 type SearchProductWithVariant = {
   selectedOrFirstAvailableVariant?: {
@@ -27,9 +27,9 @@ type SearchProductWithVariant = {
 
 interface ProductCardProps {
   product:
-    | CollectionItemFragment
-    | ProductItemFragment
-    | RecommendedProductFragment;
+  | CollectionItemFragment
+  | ProductItemFragment
+  | RecommendedProductFragment;
   loading?: 'eager' | 'lazy';
   showWishlist?: boolean;
 }
@@ -41,7 +41,7 @@ export function ProductCard({
 }: ProductCardProps) {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const variantUrl = useVariantUrl(product.handle);
-  const {isInWishlist, toggleWishlist} = useWishlist();
+  const { isInWishlist, toggleWishlist } = useWishlist();
   const isWished = isInWishlist(product.id);
 
   const variant = (product as SearchProductWithVariant)
@@ -60,7 +60,8 @@ export function ProductCard({
 
   return (
     <Link
-      className="group flex flex-col gap-3"
+      className="group flex flex-col gap-3 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+      aria-label={product.title}
       key={product.id}
       prefetch="intent"
       to={variantUrl}
@@ -75,7 +76,7 @@ export function ProductCard({
         })
       }
     >
-      <div className="aspect-4/5 overflow-hidden bg-brand-gray relative">
+      <div className="aspect-4/5 overflow-hidden bg-brand-gray relative rounded-t-xl">
         {currentImage && (
           <Image
             alt={currentImage.altText || product.title}
@@ -179,9 +180,10 @@ export function ProductCard({
         )}
       </div>
       <div
-        className={`flex flex-col gap-1 pt-1 ${!product.availableForSale ? 'opacity-50' : ''}`}
+        className={`flex flex-col gap-1 px-4 pb-4 ${!product.availableForSale ? 'opacity-50' : ''}`}
+
       >
-        <h4 className="font-serif text-lg font-light leading-snug tracking-[-0.01em] truncate text-brand-black">
+        <h4 className="font-inter text-md font-medium  tracking-[-0.01em] truncate text-brand-black">
           {product.title}
         </h4>
         <div className="font-assistant text-sm text-brand-muted">

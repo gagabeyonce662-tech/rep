@@ -1,4 +1,4 @@
-import { useLoaderData, Link } from 'react-router';
+import { useLoaderData } from 'react-router';
 import type { Route } from './+types/_index';
 import { getSeoMeta } from '@shopify/hydrogen';
 import Hero from '~/components/Hero';
