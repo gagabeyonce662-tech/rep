@@ -65,7 +65,7 @@ export function ProductPage({
             <ProductMedia media={mediaLayout.scrollableMedia} />
           </div>
         )}
-        <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto product-main px-6 md:px-12 py-16 lg:py-20">
+        <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto product-main px-5 md:px-8 lg:px-10 py-16 lg:py-20">
           <div className="max-w-md flex flex-col gap-10">
             <div className="flex flex-col gap-4">
               <span className="italic text-sm text-brand-muted">

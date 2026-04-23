@@ -12,7 +12,7 @@ export default function CollectionsWithProducts({
     return (
         <div className="bg-brand-bg font-assistant text-brand-black">
             {collections.map((collection) => (
-                <section key={collection.id} className="max-w-[1400px] mx-auto px-4 md:px-8 py-20">
+                <section key={collection.id} className="py-20">
                     {/* Collection Header */}
                     <div className="flex justify-between items-end mb-12">
                         <div>

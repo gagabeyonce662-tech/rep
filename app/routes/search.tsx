@@ -3,6 +3,7 @@ import type {Route} from './+types/search';
 import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
 import {SearchForm} from '~/components/Search/SearchForm';
 import {SearchResults} from '~/components/Search/SearchResults';
+import {PageContainer} from '~/components/Layout/PageContainer';
 import {
   type RegularSearchReturn,
   type PredictiveSearchReturn,
@@ -42,7 +43,7 @@ export default function SearchPage() {
 
   return (
     <div className="bg-brand-bg font-assistant text-brand-black min-h-screen">
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
+      <PageContainer as="section" className="py-24 md:py-32">
         <div className="flex flex-col gap-3 mb-16">
           <span className="italic text-sm text-brand-muted">
             Search
@@ -112,7 +113,7 @@ export default function SearchPage() {
         <Analytics.SearchView
           data={{searchTerm: term, searchResults: result}}
         />
-      </section>
+      </PageContainer>
     </div>
   );
 }

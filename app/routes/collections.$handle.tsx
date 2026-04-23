@@ -9,6 +9,7 @@ import { PaginatedResourceSection } from '~/components/Shared/PaginatedResourceS
 import { redirectIfHandleIsLocalized } from '~/lib/redirect';
 import { ProductItem } from '~/components/Product/ProductItem';
 import { CollectionFilters } from '~/components/Collection/CollectionFilters';
+import {PageContainer} from '~/components/Layout/PageContainer';
 import type { ProductItemFragment } from 'storefrontapi.generated';
 import { getFiltersFromParams } from '~/lib/filter';
 import type { Filter } from '@shopify/hydrogen/storefront-api-types';
@@ -131,7 +132,7 @@ export default function Collection() {
         </div>
       </section>
 
-      <section className="max-w-350 mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-16 md:py-24">
+      <PageContainer as="section" className="py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 items-start">
           <div className="hidden lg:block sticky top-24 pb-8">
             <CollectionFilters filters={collection.products.filters as any} />
@@ -157,7 +158,7 @@ export default function Collection() {
             </PaginatedResourceSection>
           </div>
         </div>
-      </section>
+      </PageContainer>
 
       <Analytics.CollectionView
         data={{

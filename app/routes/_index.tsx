@@ -7,6 +7,7 @@ import Marquee from '~/components/Marquee';
 import { FEATURED_COLLECTION_QUERY, RECOMMENDED_PRODUCTS_QUERY, ALL_COLLECTIONS_WITH_PRODUCTS_QUERY } from '~/lib/queries';
 import LatestArrivals from '~/components/LatestArrivals';
 import CollectionsWithProducts from '~/components/Homepage/CollectionsWithProducts';
+import {PageContainer} from '~/components/Layout/PageContainer';
 
 
 export const meta: Route.MetaFunction = () => {
@@ -83,11 +84,11 @@ export default function Homepage() {
     <div className="home bg-brand-bg font-assistant text-brand-black ">
       <Hero collection={data.featuredCollection} />
       <Marquee />
-      <div className="px-4 md:px-6 lg:px-8" >
+      <PageContainer>
         <FeaturedSplit collection={data.featuredCollection} />
         <CollectionsWithProducts collections={data.collectionsWithProducts} />
         <LatestArrivals products={data.recommendedProducts} />
-      </div>
+      </PageContainer>
     </div>
   );
 }

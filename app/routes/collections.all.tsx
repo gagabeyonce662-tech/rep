@@ -3,6 +3,7 @@ import {useLoaderData} from 'react-router';
 import {getPaginationVariables, getSeoMeta} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/Shared/PaginatedResourceSection';
 import {ProductItem} from '~/components/Product/ProductItem';
+import {PageContainer} from '~/components/Layout/PageContainer';
 import type {CollectionItemFragment} from 'storefrontapi.generated';
 
 export const meta: Route.MetaFunction = ({matches}) => {
@@ -59,7 +60,7 @@ export default function Collection() {
 
   return (
     <div className="collection bg-brand-bg font-assistant text-brand-black">
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 pt-28 md:pt-40 pb-16 flex flex-col gap-5">
+      <PageContainer as="section" className="px-6 md:px-8 lg:px-10 pt-28 md:pt-40 pb-16 flex flex-col gap-5">
         <span className="italic text-sm md:text-base text-brand-muted">
           Shop all
         </span>
@@ -67,9 +68,9 @@ export default function Collection() {
           All Products
         </h1>
         <div className="h-px w-full bg-brand-line mt-6" />
-      </section>
+      </PageContainer>
 
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 pb-16 md:pb-24">
+      <PageContainer as="section" className="px-6 md:px-8 lg:px-10 pb-16 md:pb-24">
         <PaginatedResourceSection<CollectionItemFragment>
           connection={products}
           resourcesClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16"
@@ -82,7 +83,7 @@ export default function Collection() {
             />
           )}
         </PaginatedResourceSection>
-      </section>
+      </PageContainer>
     </div>
   );
 }

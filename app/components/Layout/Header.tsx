@@ -50,7 +50,7 @@ export function Header({
 
   return (
     <header
-      className={`${isHome ? 'fixed' : 'sticky'} ${isTransparent ? 'bg-transparent border-none text-white' : 'bg-brand-bg/90 backdrop-blur-sm border-b border-brand-line text-brand-black'} top-0 z-50 flex h-16 w-full items-center px-4 md:px-8 transition-all duration-500`}
+      className={`${isHome ? 'fixed' : 'sticky'} ${isTransparent ? 'bg-transparent border-none text-white' : 'bg-brand-bg/90 backdrop-blur-sm border-b border-brand-line text-brand-black'} top-0 z-50 flex h-16 w-full items-center px-5 md:px-8 lg:px-10 transition-all duration-500`}
     >
       {/* Left: Desktop Menu */}
       <div className="flex-1 hidden md:block">

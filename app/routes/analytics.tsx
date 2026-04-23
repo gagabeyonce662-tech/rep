@@ -1,5 +1,6 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/analytics';
+import {PageContainer} from '~/components/Layout/PageContainer';
 
 export const meta: Route.MetaFunction = () => [
   {title: 'Analytics — Rep'},
@@ -106,13 +107,13 @@ export default function AnalyticsDashboard() {
 
   if (data.error) {
     return (
-      <div className="max-w-3xl mx-auto px-6 py-32 font-assistant">
+      <PageContainer className="py-32 font-assistant" narrow>
         <p className="italic text-2xl font-light text-brand-black mb-4">
           Analytics not configured
         </p>
         <p className="text-brand-muted text-sm leading-relaxed">{data.error}</p>
         <SetupInstructions />
-      </div>
+      </PageContainer>
     );
   }
 
@@ -120,7 +121,7 @@ export default function AnalyticsDashboard() {
 
   return (
     <div className="min-h-screen bg-brand-bg font-assistant text-brand-black">
-      <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <PageContainer className="py-20 md:py-28">
 
         <div className="mb-16">
           <p className="italic text-sm text-brand-muted mb-3">Overview</p>
@@ -219,7 +220,7 @@ export default function AnalyticsDashboard() {
           </div>
         </div>
 
-      </div>
+      </PageContainer>
     </div>
   );
 }

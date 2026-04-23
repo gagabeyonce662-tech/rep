@@ -7,6 +7,7 @@ import {
 } from 'react-router';
 import type {Route} from './+types/account';
 import {CUSTOMER_DETAILS_QUERY} from '~/graphql/customer-account/CustomerDetailsQuery';
+import {PageContainer} from '~/components/Layout/PageContainer';
 
 export function shouldRevalidate() {
   return true;
@@ -44,13 +45,13 @@ export default function AccountLayout() {
     : 'Account Details';
 
   return (
-    <div className="account max-w-[1400px] mx-auto px-4 md:px-8 py-16 font-assistant">
+    <PageContainer as="div" className="account py-16 font-assistant">
       <h1 className="text-5xl md:text-7xl font-light tracking-[-0.02em] leading-[1.05] mb-10">{heading}</h1>
       <AccountMenu />
       <div className="mt-12">
         <Outlet context={{customer}} />
       </div>
-    </div>
+    </PageContainer>
   );
 }
 
