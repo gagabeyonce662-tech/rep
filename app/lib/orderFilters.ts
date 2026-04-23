@@ -1,3 +1,6 @@
+// app/lib/orderFilters.ts
+// This file contains utility functions for building and parsing order filter queries for the Customer Account API. It allows us to construct a query string based on user input (e.g. order name, confirmation number) and to parse filter parameters from URL search params.
+
 /**
  * Field name constants for order filtering
  */

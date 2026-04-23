@@ -1,4 +1,7 @@
-import type {ProductFilter} from '@shopify/hydrogen/storefront-api-types';
+// app/lib/filter.ts
+// This file contains utility functions for parsing and handling product filters in the collection page. It includes functions to parse URL search params into Storefront API filters, and to serialize filters back into URL search params.
+
+import type { ProductFilter } from '@shopify/hydrogen/storefront-api-types';
 
 export function parseAsCurrency(value: string | null) {
   if (!value) return undefined;
@@ -18,8 +21,8 @@ export function getFiltersFromParams(searchParams: URLSearchParams): ProductFilt
   if (priceMin !== undefined || priceMax !== undefined) {
     filters.push({
       price: {
-        ...(priceMin !== undefined ? {min: priceMin} : {}),
-        ...(priceMax !== undefined ? {max: priceMax} : {}),
+        ...(priceMin !== undefined ? { min: priceMin } : {}),
+        ...(priceMax !== undefined ? { max: priceMax } : {}),
       },
     });
   }
@@ -27,13 +30,13 @@ export function getFiltersFromParams(searchParams: URLSearchParams): ProductFilt
   // Parse productVendor
   const productVendor = searchParams.getAll('productVendor');
   productVendor.forEach((vendor) => {
-    filters.push({productVendor: vendor});
+    filters.push({ productVendor: vendor });
   });
 
   // Parse productType
   const productType = searchParams.getAll('productType');
   productType.forEach((type) => {
-    filters.push({productType: type});
+    filters.push({ productType: type });
   });
 
   // Parse variantOption (e.g. ?variantOption=Color:Red)
@@ -41,7 +44,7 @@ export function getFiltersFromParams(searchParams: URLSearchParams): ProductFilt
   variantOptions.forEach((option) => {
     const [name, value] = option.split(':');
     if (name && value) {
-      filters.push({variantOption: {name, value}});
+      filters.push({ variantOption: { name, value } });
     }
   });
 

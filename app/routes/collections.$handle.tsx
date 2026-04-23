@@ -1,17 +1,21 @@
-import {redirect, useLoaderData} from 'react-router';
-import type {Route} from './+types/collections.$handle';
-import {getPaginationVariables, Analytics, Image, getSeoMeta} from '@shopify/hydrogen';
-import {PaginatedResourceSection} from '~/components/Shared/PaginatedResourceSection';
-import {redirectIfHandleIsLocalized} from '~/lib/redirect';
-import {ProductItem} from '~/components/Product/ProductItem';
-import {CollectionFilters} from '~/components/Collection/CollectionFilters';
-import type {ProductItemFragment} from 'storefrontapi.generated';
-import {getFiltersFromParams} from '~/lib/filter';
-import type {Filter} from '@shopify/hydrogen/storefront-api-types';
+// app/routes/collections.%24handle.tsx
 
-export const meta: Route.MetaFunction = ({data, matches}) => {
+// This is a route module for the collection page, which is accessed via /collections/:handle. It fetches the collection data based on the handle, and renders the collection page with the collection details and products. It also handles pagination and filtering of products within the collection.
+
+import { redirect, useLoaderData } from 'react-router';
+import type { Route } from './+types/collections.$handle';
+import { getPaginationVariables, Analytics, Image, getSeoMeta } from '@shopify/hydrogen';
+import { PaginatedResourceSection } from '~/components/Shared/PaginatedResourceSection';
+import { redirectIfHandleIsLocalized } from '~/lib/redirect';
+import { ProductItem } from '~/components/Product/ProductItem';
+import { CollectionFilters } from '~/components/Collection/CollectionFilters';
+import type { ProductItemFragment } from 'storefrontapi.generated';
+import { getFiltersFromParams } from '~/lib/filter';
+import type { Filter } from '@shopify/hydrogen/storefront-api-types';
+
+export const meta: Route.MetaFunction = ({ data, matches }) => {
   const collection = data?.collection;
-  if (!collection) return [{title: 'Hydrogen | Collection'}];
+  if (!collection) return [{ title: 'Hydrogen | Collection' }];
 
   const rootData = matches.find((match) => match.id === 'root')?.data as any;
   const baseUrl = rootData?.publicStoreDomain ? `https://${rootData.publicStoreDomain}` : '';
@@ -26,7 +30,7 @@ export const meta: Route.MetaFunction = ({data, matches}) => {
       height: collection.image.height,
       altText: collection.image.altText || collection.title,
     } : undefined,
-  });
+  }) ?? [];
 };
 
 export async function loader(args: Route.LoaderArgs) {
@@ -36,16 +40,16 @@ export async function loader(args: Route.LoaderArgs) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return {...deferredData, ...criticalData};
+  return { ...deferredData, ...criticalData };
 }
 
 /**
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
-  const {handle} = params;
-  const {storefront} = context;
+async function loadCriticalData({ context, params, request }: Route.LoaderArgs) {
+  const { handle } = params;
+  const { storefront } = context;
   const paginationVariables = getPaginationVariables(request, {
     pageBy: 8,
   });
@@ -57,9 +61,9 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
     throw redirect('/collections');
   }
 
-  const [{collection}] = await Promise.all([
+  const [{ collection }] = await Promise.all([
     storefront.query(COLLECTION_QUERY, {
-      variables: {handle, filters, ...paginationVariables},
+      variables: { handle, filters, ...paginationVariables },
       // Add other queries here, so that they are loaded in parallel
     }),
   ]);
@@ -71,7 +75,7 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
   }
 
   // The API handle might be localized, so redirect to the localized handle
-  redirectIfHandleIsLocalized(request, {handle, data: collection});
+  redirectIfHandleIsLocalized(request, { handle, data: collection });
 
   return {
     collection,
@@ -83,12 +87,12 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
  * fetched after the initial page load. If it's unavailable, the page should still 200.
  * Make sure to not throw any errors here, as it will cause the page to 500.
  */
-function loadDeferredData({context}: Route.LoaderArgs) {
+function loadDeferredData({ context }: Route.LoaderArgs) {
   return {};
 }
 
 export default function Collection() {
-  const {collection} = useLoaderData<typeof loader>();
+  const { collection } = useLoaderData<typeof loader>();
 
   return (
     <div className="collection bg-brand-bg font-assistant text-brand-black">
@@ -101,28 +105,25 @@ export default function Collection() {
           />
         )}
         {collection.image && (
-          <div className="absolute inset-0 bg-black/35" />
+          <div className="absolute inset-0 bg-black/20" />
         )}
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-40 flex flex-col gap-5">
+        <div className="relative z-10 max-w-350 mx-auto p-6 flex flex-col gap-5">
           <span
-            className={`font-serif italic text-sm md:text-base ${
-              collection.image ? 'text-white/80' : 'text-brand-muted'
-            }`}
+            className={`font-inter italic text-lg ${collection.image ? 'text-white/80' : 'text-brand-muted'
+              }`}
           >
             Collection
           </span>
           <h1
-            className={`font-serif text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] ${
-              collection.image ? 'text-white' : 'text-brand-black'
-            }`}
+            className={`font-inter text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] ${collection.image ? 'text-white' : 'text-brand-black'
+              }`}
           >
             {collection.title}
           </h1>
           {collection.description && (
             <p
-              className={`max-w-xl text-[15px] md:text-base leading-[1.7] font-light ${
-                collection.image ? 'text-white/80' : 'text-brand-muted'
-              }`}
+              className={`max-w-xl text-[15px] md:text-base leading-[1.7] font-light ${collection.image ? 'text-white/80' : 'text-brand-muted'
+                }`}
             >
               {collection.description}
             </p>
@@ -130,23 +131,23 @@ export default function Collection() {
         </div>
       </section>
 
-      <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-12 items-start">
+      <section className="max-w-350 mx-auto px-5 sm:px-6 md:px-10 lg:px-16 py-16 md:py-24">
+        <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 items-start">
           <div className="hidden lg:block sticky top-24 pb-8">
-             <CollectionFilters filters={collection.products.filters as any} />
+            <CollectionFilters filters={collection.products.filters as any} />
           </div>
           <div className="lg:hidden mb-8">
-             {/* Mobile Filters Trigger Placeholder */}
-             <div className="border border-brand-line p-4 text-center cursor-pointer hover:bg-brand-gray/50 transition-colors">
-                <span className="font-serif">Filter Products</span>
-             </div>
+            {/* Mobile Filters Trigger Placeholder */}
+            <div className="border border-brand-line p-4 text-center cursor-pointer hover:bg-brand-gray/50 transition-colors">
+              <span className="font-inter">Filter Products</span>
+            </div>
           </div>
           <div className="w-full">
             <PaginatedResourceSection<ProductItemFragment>
               connection={collection.products}
-              resourcesClassName="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16"
+              resourcesClassName="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-20"
             >
-              {({node: product, index}) => (
+              {({ node: product, index }) => (
                 <ProductItem
                   key={product.id}
                   product={product}

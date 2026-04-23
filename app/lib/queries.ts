@@ -51,3 +51,61 @@ export const RECOMMENDED_PRODUCTS_QUERY = `#graphql
     }
   }
 ` as const;
+
+// Add to app/lib/queries.ts
+
+export const ALL_COLLECTIONS_WITH_PRODUCTS_QUERY = `#graphql
+  fragment CollectionProduct on Product {
+    id
+    handle
+    title
+    featuredImage {
+      id
+      url
+      altText
+      width
+      height
+    }
+    priceRange {
+      minVariantPrice {
+        amount
+        currencyCode
+      }
+    }
+    availableForSale
+  }
+  
+  fragment CollectionWithProducts on Collection {
+    id
+    title
+    handle
+    image {
+      id
+      url
+      altText
+      width
+      height
+    }
+    products(first: 4) {
+      nodes {
+        ...CollectionProduct
+      }
+    }
+  }
+  
+  query AllCollectionsWithProducts(
+    $country: CountryCode
+    $language: LanguageCode
+    $first: Int = 10
+  ) @inContext(country: $country, language: $language) {
+    collections(first: $first) {
+      nodes {
+        ...CollectionWithProducts
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+` as const;

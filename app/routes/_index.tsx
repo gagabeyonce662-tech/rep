@@ -4,8 +4,10 @@ import { getSeoMeta } from '@shopify/hydrogen';
 import Hero from '~/components/Hero';
 import FeaturedSplit from '~/components/FeaturedSplit';
 import Marquee from '~/components/Marquee';
-import { FEATURED_COLLECTION_QUERY, RECOMMENDED_PRODUCTS_QUERY } from '~/lib/queries';
+import { FEATURED_COLLECTION_QUERY, RECOMMENDED_PRODUCTS_QUERY, ALL_COLLECTIONS_WITH_PRODUCTS_QUERY } from '~/lib/queries';
 import LatestArrivals from '~/components/LatestArrivals';
+import CollectionsWithProducts from '~/components/Homepage/CollectionsWithProducts';
+
 
 export const meta: Route.MetaFunction = () => {
   return (
@@ -33,14 +35,26 @@ export async function loader(args: Route.LoaderArgs) {
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
 async function loadCriticalData({ context }: Route.LoaderArgs) {
-  const [{ collections }] = await Promise.all([
-    context.storefront.query(FEATURED_COLLECTION_QUERY),
-    // Add other queries here, so that they are loaded in parallel
+  const [{ collections }, { collections: featuredCollections }] = await Promise.all([
+    context.storefront.query(ALL_COLLECTIONS_WITH_PRODUCTS_QUERY, {
+      variables: {
+        first: 6,
+        country: context.storefront.i18n.country,
+        language: context.storefront.i18n.language,
+      }
+    }),
+    context.storefront.query(FEATURED_COLLECTION_QUERY, {
+      variables: {
+        country: context.storefront.i18n.country,
+        language: context.storefront.i18n.language,
+      }
+    }),
   ]);
 
   return {
     isShopLinked: Boolean(context.env.PUBLIC_STORE_DOMAIN),
-    featuredCollection: collections.nodes[0],
+    featuredCollection: featuredCollections.nodes[0],
+    collectionsWithProducts: collections.nodes, // NEW
   };
 }
 
@@ -66,11 +80,15 @@ function loadDeferredData({ context }: Route.LoaderArgs) {
 export default function Homepage() {
   const data = useLoaderData<typeof loader>();
   return (
-    <div className="home bg-brand-bg font-assistant text-brand-black">
+    <div className="home bg-brand-bg font-assistant text-brand-black ">
       <Hero collection={data.featuredCollection} />
       <Marquee />
-      <FeaturedSplit collection={data.featuredCollection} />
-      <LatestArrivals products={data.recommendedProducts} />
+      <div className="px-4 md:px-6 lg:px-8" >
+        <FeaturedSplit collection={data.featuredCollection} />
+        <CollectionsWithProducts collections={data.collectionsWithProducts} />
+        <LatestArrivals products={data.recommendedProducts} />
+      </div>
     </div>
   );
 }
+

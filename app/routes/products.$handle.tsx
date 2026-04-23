@@ -1,6 +1,15 @@
-import {redirect, useLoaderData} from 'react-router';
-import {ProductDescription} from '~/components/Product/ProductDescription';
-import type {Route} from './+types/products.$handle';
+// app/routes/products.%24handle.tsx
+
+// This is a route module for the product page, which is accessed via /products/:handle. It fetches the product data based on the handle, and renders the product page with the product details and related products. It also handles variant selection and updates the URL with the selected variant.
+
+
+// imports: redirect and useLoaderData from react-router for handling data loading and redirection, and various components and utilities from the app and Hydrogen framework for rendering the product page and fetching data from the storefront API. 
+// It also imports a utility function redirectIfHandleIsLocalized to handle redirection for localized product handles, and getSeoMeta for generating SEO metadata for the product page.
+
+
+import { redirect, useLoaderData } from 'react-router';
+import { ProductDescription } from '~/components/Product/ProductDescription';
+import type { Route } from './+types/products.$handle';
 import {
   getSelectedProductOptions,
   Analytics,
@@ -11,16 +20,16 @@ import {
   Image,
   getSeoMeta,
 } from '@shopify/hydrogen';
-import {ProductPrice} from '~/components/Product/ProductPrice';
-import {ProductMedia} from '~/components/Product/ProductMedia';
-import {ProductForm} from '~/components/Product/ProductForm';
-import {ProductReviews} from '~/components/Product/ProductReviews';
-import {RelatedProducts} from '~/components/Product/RelatedProducts';
-import {redirectIfHandleIsLocalized} from '~/lib/redirect';
+import { ProductPrice } from '~/components/Product/ProductPrice';
+import { ProductMedia } from '~/components/Product/ProductMedia';
+import { ProductForm } from '~/components/Product/ProductForm';
+import { ProductReviews } from '~/components/Product/ProductReviews';
+import { RelatedProducts } from '~/components/Product/RelatedProducts';
+import { redirectIfHandleIsLocalized } from '~/lib/redirect';
 
-export const meta: Route.MetaFunction = ({data, matches}) => {
+export const meta: Route.MetaFunction = ({ data, matches }) => {
   const product = data?.product;
-  if (!product) return [{title: 'Hydrogen | Product'}];
+  if (!product) return [{ title: 'Hydrogen | Product' }];
 
   const rootData = matches.find((match) => match.id === 'root')?.data as any;
   const baseUrl = rootData?.publicStoreDomain
@@ -39,11 +48,11 @@ export const meta: Route.MetaFunction = ({data, matches}) => {
     url: `${baseUrl}/products/${product.handle}`,
     media: firstImage
       ? {
-          url: firstImage.url,
-          width: firstImage.width,
-          height: firstImage.height,
-          altText: firstImage.altText || product.title,
-        }
+        url: firstImage.url,
+        width: firstImage.width,
+        height: firstImage.height,
+        altText: firstImage.altText || product.title,
+      }
       : undefined,
     jsonLd: {
       '@context': 'https://schema.org',
@@ -75,34 +84,34 @@ export async function loader(args: Route.LoaderArgs) {
     product: criticalData.product,
   });
 
-  return {...deferredData, ...criticalData};
+  return { ...deferredData, ...criticalData };
 }
 
 /**
  * Load data necessary for rendering content above the fold. This is the critical data
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  */
-async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
-  const {handle} = params;
-  const {storefront} = context;
+async function loadCriticalData({ context, params, request }: Route.LoaderArgs) {
+  const { handle } = params;
+  const { storefront } = context;
 
   if (!handle) {
     throw new Error('Expected product handle to be defined');
   }
 
-  const [{product}] = await Promise.all([
+  const [{ product }] = await Promise.all([
     storefront.query(PRODUCT_QUERY, {
-      variables: {handle, selectedOptions: getSelectedProductOptions(request)},
+      variables: { handle, selectedOptions: getSelectedProductOptions(request) },
     }),
     // Add other queries here, so that they are loaded in parallel
   ]);
 
   if (!product?.id) {
-    throw new Response(null, {status: 404});
+    throw new Response(null, { status: 404 });
   }
 
   // The API handle might be localized, so redirect to the localized handle
-  redirectIfHandleIsLocalized(request, {handle, data: product});
+  redirectIfHandleIsLocalized(request, { handle, data: product });
 
   return {
     product,
@@ -117,21 +126,21 @@ async function loadCriticalData({context, params, request}: Route.LoaderArgs) {
 function loadDeferredData({
   context,
   product,
-}: Route.LoaderArgs & {product?: any}) {
+}: Route.LoaderArgs & { product?: any }) {
   const recommended = context.storefront
     .query(RECOMMENDATIONS_QUERY, {
-      variables: {productId: product.id},
+      variables: { productId: product.id },
     })
     .catch((error: Error) => {
       console.error(error);
       return null;
     });
 
-  return {recommended};
+  return { recommended };
 }
 
 export default function Product() {
-  const {product, recommended} = useLoaderData<typeof loader>();
+  const { product, recommended } = useLoaderData<typeof loader>();
 
   // Optimistically selects a variant with given available variant information
   const selectedVariant = useOptimisticVariant(
@@ -149,7 +158,7 @@ export default function Product() {
     selectedOrFirstAvailableVariant: selectedVariant,
   });
 
-  const {title, descriptionHtml} = product;
+  const { title, descriptionHtml } = product;
   const mediaNodes = product.media.nodes;
   const model3d = mediaNodes.find((m) => m.__typename === 'Model3d');
   const firstImageMedia = !model3d
@@ -163,16 +172,18 @@ export default function Product() {
   const model3dGlbSrc =
     model3d && model3d.__typename === 'Model3d'
       ? (model3d.sources.find(
-          (s) => s.mimeType === 'model/gltf-binary' || s.format === 'glb',
-        )?.url ?? model3d.sources[0]?.url)
+        (s) => s.mimeType === 'model/gltf-binary' || s.format === 'glb',
+      )?.url ?? model3d.sources[0]?.url)
       : null;
   const scrollableMedia = mediaNodes.filter(
     (m) => !pinnedMedia || m.id !== pinnedMedia.id,
   );
 
+  const hasMultipleImages = scrollableMedia.length > 0;
+
   return (
     <div className="w-full bg-brand-bg text-brand-black">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr] items-start">
+      <div className={`grid grid-cols-1 ${hasMultipleImages ? 'lg:grid-cols-[1.1fr_1fr_1fr]' : 'lg:grid-cols-[1fr_1.2fr]'} items-start`}>
         <div className="lg:sticky lg:top-0 h-[55vh] lg:h-screen overflow-hidden bg-brand-gray border-b border-brand-line lg:border-r lg:border-b-0">
           {model3dGlbSrc ? (
             <model-viewer
@@ -184,7 +195,7 @@ export default function Product() {
               }
               camera-controls
               auto-rotate
-              style={{width: '100%', height: '100%', background: 'transparent'}}
+              style={{ width: '100%', height: '100%', background: 'transparent' }}
             />
           ) : firstImage ? (
             <Image
@@ -196,9 +207,11 @@ export default function Product() {
             <div className="w-full h-full" />
           )}
         </div>
-        <div className="lg:py-6 lg:px-3 border-r border-brand-line">
-          <ProductMedia media={scrollableMedia} />
-        </div>
+        {hasMultipleImages && (
+          <div className="lg:py-6 lg:px-3 border-r border-brand-line">
+            <ProductMedia media={scrollableMedia} />
+          </div>
+        )}
         <div className="lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto product-main px-6 md:px-12 py-16 lg:py-20">
           <div className="max-w-md flex flex-col gap-10">
             <div className="flex flex-col gap-4">
@@ -227,8 +240,6 @@ export default function Product() {
 
             <ProductDescription html={descriptionHtml} />
           </div>
-
-          <ProductReviews />
           <RelatedProducts recommended={recommended as any} />
         </div>
       </div>

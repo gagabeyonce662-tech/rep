@@ -1,3 +1,6 @@
+// app/components/Product/ProductCard.tsx
+// this component is used as the base for how we render products across the app. It handles rendering the product image, title, price, and wishlist button. It also handles the hover state for showing multiple images. This allows us to have a consistent product card across the app, and we can extend it in the future to include additional functionality without having to update multiple components.
+
 import { useState } from 'react';
 import { Link } from 'react-router';
 import { Image, Money } from '@shopify/hydrogen';
