@@ -16,13 +16,13 @@ export default function CollectionsWithProducts({
                     {/* Collection Header */}
                     <div className="flex justify-between items-end mb-12">
                         <div>
-                            <h2 className="font-serif text-4xl md:text-6xl font-light tracking-[-0.03em]">
+                            <h2 className="font-inter text-4xl md:text-6xl font-light tracking-[-0.03em]">
                                 {collection.title}
                             </h2>
                         </div>
                         <Link
                             to={`/collections/${collection.handle}`}
-                            className="text-sm font-medium uppercase tracking-[0.1em] hover:opacity-60 transition"
+                            className="text-sm font-medium uppercase tracking-widest hover:opacity-60 transition"
                         >
                             View All →
                         </Link>
