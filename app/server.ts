@@ -4,29 +4,34 @@ import {createHydrogenRouterContext} from '~/lib/context';
 import type {Env} from '../env';
 import * as serverBuild from 'virtual:react-router/server-build';
 
+const isDev = process.env.NODE_ENV !== 'production';
+function debugLog(...args: unknown[]) {
+  if (isDev) console.log(...args);
+}
+
 /**
  * Node.js server entry point for Hydrogen + React Router
  */
 export const handler = async (request: Request) => {
-  console.log('[handler] START - Request:', request.method, request.url);
+  debugLog('[handler] START - Request:', request.method, request.url);
 
   const env = {
     ...process.env,
   } as unknown as Env;
-  console.log(
+  debugLog(
     '[handler] Env loaded - SESSION_SECRET exists:',
     !!env.SESSION_SECRET,
   );
 
   // Create the full Hydrogen context (sessions, cache, etc.)
-  console.log('[handler] Creating Hydrogen context...');
+  debugLog('[handler] Creating Hydrogen context...');
   const hydrogenContext = await createHydrogenRouterContext(request, env, {
     waitUntil: (promise: Promise<any>) => {
       // In Node.js, we just let the promise run or handle it differently
       promise.catch(console.error);
     },
   } as ExecutionContext);
-  console.log('[handler] Hydrogen context created ✓');
+  debugLog('[handler] Hydrogen context created ✓');
 
   /**
    * Create a Hydrogen request handler that internally
@@ -37,21 +42,21 @@ export const handler = async (request: Request) => {
     mode: process.env.NODE_ENV,
     getLoadContext: () => hydrogenContext,
   });
-  console.log('[handler] Request handler created ✓');
+  debugLog('[handler] Request handler created ✓');
 
   const response = await handleRequest(request);
-  console.log('[handler] Response received - Status:', response.status);
+  debugLog('[handler] Response received - Status:', response.status);
 
   // Commit session if pending
   if (hydrogenContext.session.isPending) {
-    console.log('[handler] Session pending - committing...');
+    debugLog('[handler] Session pending - committing...');
     response.headers.append(
       'Set-Cookie',
       await hydrogenContext.session.commit(),
     );
   }
 
-  console.log('[handler] END - Returning response');
+  debugLog('[handler] END - Returning response');
 };
 
 /**
@@ -59,18 +64,18 @@ export const handler = async (request: Request) => {
  * This part executes when the file is run directly by Node.
  */
 async function startServer() {
-  console.log('[startServer] Initializing...');
+  debugLog('[startServer] Initializing...');
   const port = process.env.PORT || 3000;
-  console.log('[startServer] Port:', port);
+  debugLog('[startServer] Port:', port);
   const {createServer} = await import('node:http');
   const {Request, Headers} = await import('undici'); // Node 18+ web standards
 
   const server = createServer(async (req, res) => {
-    console.log('[request] Incoming:', req.method, req.url);
+    debugLog('[request] Incoming:', req.method, req.url);
     try {
       const protocol = req.headers['x-forwarded-proto'] || 'http';
       const url = new URL(req.url || '/', `${protocol}://${req.headers.host}`);
-      console.log('[request] URL parsed:', url.toString());
+      debugLog('[request] URL parsed:', url.toString());
 
       const headers = new Headers();
       for (const [key, value] of Object.entries(req.headers)) {
@@ -83,15 +88,22 @@ async function startServer() {
         }
       }
 
-      const request = new Request(url.toString(), {
+      const requestInit: RequestInit = {
         method: req.method,
         headers,
-        // Body handling would go here for POST/PUT
-      });
+      };
+      if (req.method && !['GET', 'HEAD'].includes(req.method.toUpperCase())) {
+        const chunks: Uint8Array[] = [];
+        for await (const chunk of req) {
+          chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk);
+        }
+        requestInit.body = Buffer.concat(chunks);
+      }
+      const request = new Request(url.toString(), requestInit);
 
       const response = await handler(request);
 
-      console.log('[request] Handler returned - Status:', response.status);
+      debugLog('[request] Handler returned - Status:', response.status);
       res.statusCode = response.status;
       response.headers.forEach((value, key) => {
         res.setHeader(key, value);
@@ -106,7 +118,7 @@ async function startServer() {
         }
       }
       res.end();
-      console.log('[request] Response sent ✓');
+      debugLog('[request] Response sent ✓');
     } catch (error) {
       console.error('[request] Error:', error);
       res.statusCode = 500;

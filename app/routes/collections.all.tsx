@@ -60,10 +60,10 @@ export default function Collection() {
   return (
     <div className="collection bg-brand-bg font-assistant text-brand-black">
       <section className="max-w-[1400px] mx-auto px-4 md:px-8 pt-28 md:pt-40 pb-16 flex flex-col gap-5">
-        <span className="font-serif italic text-sm md:text-base text-brand-muted">
+        <span className="italic text-sm md:text-base text-brand-muted">
           Shop all
         </span>
-        <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] text-brand-black">
+        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] text-brand-black">
           All Products
         </h1>
         <div className="h-px w-full bg-brand-line mt-6" />

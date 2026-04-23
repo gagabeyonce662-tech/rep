@@ -41,7 +41,7 @@ function SearchResultsArticles({
 
   return (
     <div className="search-result">
-      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
+      <h2 className="text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
         Articles
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -59,7 +59,7 @@ function SearchResultsArticles({
               to={articleUrl}
               className="group block p-6 border border-brand-line hover:border-brand-black transition-colors duration-500"
             >
-              <h3 className="font-serif text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
+              <h3 className="text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
                 {article.title}
               </h3>
             </Link>
@@ -77,7 +77,7 @@ function SearchResultsPages({term, pages}: PartialSearchResult<'pages'>) {
 
   return (
     <div className="search-result">
-      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
+      <h2 className="text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-6">
         Pages
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -95,7 +95,7 @@ function SearchResultsPages({term, pages}: PartialSearchResult<'pages'>) {
               to={pageUrl}
               className="group block p-6 border border-brand-line hover:border-brand-black transition-colors duration-500"
             >
-              <h3 className="font-serif text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
+              <h3 className="text-lg font-light leading-snug tracking-[-0.01em] text-brand-black group-hover:text-brand-muted transition-colors duration-500">
                 {page.title}
               </h3>
             </Link>
@@ -116,7 +116,7 @@ function SearchResultsProducts({
 
   return (
     <div className="search-result">
-      <h2 className="font-serif text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
+      <h2 className="text-2xl md:text-3xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
         Products
       </h2>
       <Pagination connection={products}>
@@ -135,7 +135,7 @@ function SearchResultsProducts({
             {(PreviousLink || NextLink) && (
               <div className="flex justify-center items-center gap-8 pt-8">
                 {PreviousLink && (
-                  <PreviousLink className="group inline-flex items-center gap-3 font-serif italic text-sm text-brand-black pb-1">
+                  <PreviousLink className="group inline-flex items-center gap-3 italic text-sm text-brand-black pb-1">
                     <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
                       Previous
                     </span>
@@ -145,7 +145,7 @@ function SearchResultsProducts({
                   </PreviousLink>
                 )}
                 {NextLink && (
-                  <NextLink className="group inline-flex items-center gap-3 font-serif italic text-sm text-brand-black pb-1">
+                  <NextLink className="group inline-flex items-center gap-3 italic text-sm text-brand-black pb-1">
                     <span className="border-b border-brand-line group-hover:border-brand-black pb-1 transition-colors duration-500">
                       Next
                     </span>

@@ -107,7 +107,7 @@ export default function AnalyticsDashboard() {
   if (data.error) {
     return (
       <div className="max-w-3xl mx-auto px-6 py-32 font-assistant">
-        <p className="font-serif italic text-2xl font-light text-brand-black mb-4">
+        <p className="italic text-2xl font-light text-brand-black mb-4">
           Analytics not configured
         </p>
         <p className="text-brand-muted text-sm leading-relaxed">{data.error}</p>
@@ -123,8 +123,8 @@ export default function AnalyticsDashboard() {
       <div className="max-w-6xl mx-auto px-6 py-20 md:py-28">
 
         <div className="mb-16">
-          <p className="font-serif italic text-sm text-brand-muted mb-3">Overview</p>
-          <h1 className="font-serif text-5xl md:text-7xl font-light tracking-[-0.03em] leading-[0.95]">
+          <p className="italic text-sm text-brand-muted mb-3">Overview</p>
+          <h1 className="text-5xl md:text-7xl font-light tracking-[-0.03em] leading-[0.95]">
             Analytics
           </h1>
         </div>
@@ -147,7 +147,7 @@ export default function AnalyticsDashboard() {
 
         {/* Sparkline chart */}
         <div className="border border-brand-line p-8 mb-8">
-          <p className="font-serif italic text-sm text-brand-muted mb-6">
+          <p className="italic text-sm text-brand-muted mb-6">
             Page views — last 7 days
           </p>
           <div className="flex items-end gap-2 h-32">
@@ -171,7 +171,7 @@ export default function AnalyticsDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Top pages */}
           <div className="border border-brand-line p-8">
-            <p className="font-serif italic text-sm text-brand-muted mb-6">Top pages</p>
+            <p className="italic text-sm text-brand-muted mb-6">Top pages</p>
             <div className="flex flex-col gap-4">
               {data.topPages.length === 0 && (
                 <p className="text-brand-muted text-sm italic">No data yet</p>
@@ -191,7 +191,7 @@ export default function AnalyticsDashboard() {
 
           {/* Event breakdown */}
           <div className="border border-brand-line p-8">
-            <p className="font-serif italic text-sm text-brand-muted mb-6">
+            <p className="italic text-sm text-brand-muted mb-6">
               Events
             </p>
             <div className="flex flex-col gap-4">
@@ -235,9 +235,9 @@ function Stat({
 }) {
   return (
     <div className="bg-brand-bg px-6 py-8 flex flex-col gap-2">
-      <p className="font-serif italic text-xs text-brand-muted">{label}</p>
+      <p className="italic text-xs text-brand-muted">{label}</p>
       <p
-        className={`font-serif font-light tracking-[-0.02em] text-brand-black truncate ${
+        className={`font-light tracking-[-0.02em] text-brand-black truncate ${
           small ? 'text-lg' : 'text-4xl'
         }`}
       >
@@ -250,7 +250,7 @@ function Stat({
 function SetupInstructions() {
   return (
     <div className="mt-12 border border-brand-line p-8 font-assistant text-sm text-brand-muted leading-relaxed space-y-3">
-      <p className="font-serif italic text-base text-brand-black">Setup (2 minutes)</p>
+      <p className="italic text-base text-brand-black">Setup (2 minutes)</p>
       <ol className="list-decimal pl-5 space-y-2">
         <li>
           Create a free account at{' '}

@@ -45,7 +45,7 @@ export default function AccountLayout() {
 
   return (
     <div className="account max-w-[1400px] mx-auto px-4 md:px-8 py-16 font-assistant">
-      <h1 className="font-serif text-5xl md:text-7xl font-light tracking-[-0.02em] leading-[1.05] mb-10">{heading}</h1>
+      <h1 className="text-5xl md:text-7xl font-light tracking-[-0.02em] leading-[1.05] mb-10">{heading}</h1>
       <AccountMenu />
       <div className="mt-12">
         <Outlet context={{customer}} />

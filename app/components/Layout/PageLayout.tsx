@@ -191,11 +191,11 @@ function NotificationsAside() {
     <Aside type="notifications" heading="Notifications">
       <div className="flex flex-col gap-6 p-2 text-brand-black">
         <div className="border-b border-brand-line pb-5">
-          <p className="font-serif text-xl font-light leading-snug">Winter Drop Live</p>
+          <p className="text-xl font-light leading-snug">Winter Drop Live</p>
           <p className="text-sm text-brand-muted mt-1">Shop the new arrivals now.</p>
         </div>
         <div className="border-b border-brand-line pb-5">
-          <p className="font-serif text-xl font-light leading-snug">2 New Messages</p>
+          <p className="text-xl font-light leading-snug">2 New Messages</p>
           <p className="text-sm text-brand-muted mt-1">Your order #1234 has been shipped.</p>
         </div>
       </div>

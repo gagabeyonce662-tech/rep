@@ -92,7 +92,7 @@
 .product-description h1,
 .product-description h2,
 .product-description h3 {
-  font-family: "Fraunces", "Times New Roman", serif;
+  font-family: "Inter", sans-serif;
   color: rgb(26 24 20);
   font-weight: 400;
   letter-spacing: -0.015em;

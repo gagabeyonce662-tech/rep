@@ -79,7 +79,7 @@ export function Aside({
         }`}
       >
         <header className="flex items-center justify-between h-16 px-6 border-b border-brand-line">
-          <h3 id={id} className="font-serif italic text-xl font-light tracking-[-0.01em]">
+          <h3 id={id} className="italic text-xl font-light tracking-[-0.01em]">
             {heading}
           </h3>
           <button 

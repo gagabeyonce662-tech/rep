@@ -76,7 +76,7 @@ export function CollectionFilters({ filters }: { filters: Filter[] }) {
   return (
     <div className="collection-filters flex flex-col gap-6">
       <div className="flex justify-between items-center pb-4 border-b border-brand-line">
-        <h3 className="font-serif text-2xl text-brand-black">Filters</h3>
+        <h3 className="text-2xl text-brand-black">Filters</h3>
         {activeFiltersCount > 0 && (
           <button
             onClick={clearFilters}

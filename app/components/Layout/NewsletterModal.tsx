@@ -150,7 +150,7 @@ export function NewsletterModal() {
             </p>
             <h2
               id="nl-modal-heading"
-              className="font-serif italic text-3xl font-light text-brand-black leading-tight mb-2"
+              className="italic text-3xl font-light text-brand-black leading-tight mb-2"
             >
               Stay in the know.
             </h2>
@@ -175,7 +175,7 @@ export function NewsletterModal() {
                     />
                   </svg>
                 </div>
-                <p className="font-serif italic text-xl font-light text-brand-black">
+                <p className="italic text-xl font-light text-brand-black">
                   Welcome to the circle.
                 </p>
                 <p className="font-assistant text-sm text-brand-muted mt-1">

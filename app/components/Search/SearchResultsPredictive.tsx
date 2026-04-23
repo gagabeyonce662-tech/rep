@@ -89,7 +89,7 @@ function SearchResultsPredictiveArticles({
 
   return (
     <div className="space-y-4 mb-8" key="articles">
-      <h5 className="font-serif italic text-sm text-brand-muted">Articles</h5>
+      <h5 className="italic text-sm text-brand-muted">Articles</h5>
       <ul className="space-y-2">
         {articles.map((article) => {
           const articleUrl = urlWithTrackingParams({
@@ -133,7 +133,7 @@ function SearchResultsPredictiveCollections({
 
   return (
     <div className="space-y-4 mb-8" key="collections">
-      <h5 className="font-serif italic text-sm text-brand-muted">Collections</h5>
+      <h5 className="italic text-sm text-brand-muted">Collections</h5>
       <ul className="space-y-2">
         {collections.map((collection) => {
           const collectionUrl = urlWithTrackingParams({
@@ -177,7 +177,7 @@ function SearchResultsPredictivePages({
 
   return (
     <div className="space-y-4 mb-8" key="pages">
-      <h5 className="font-serif italic text-sm text-brand-muted">Pages</h5>
+      <h5 className="italic text-sm text-brand-muted">Pages</h5>
       <ul className="space-y-2">
         {pages.map((page) => {
           const pageUrl = urlWithTrackingParams({
@@ -212,7 +212,7 @@ function SearchResultsPredictiveProducts({
 
   return (
     <div className="space-y-4 mb-8" key="products">
-      <h5 className="font-serif italic text-sm text-brand-muted">Products</h5>
+      <h5 className="italic text-sm text-brand-muted">Products</h5>
       <ul className="grid grid-cols-2 gap-3">
         {products.map((product) => {
           const productUrl = urlWithTrackingParams({

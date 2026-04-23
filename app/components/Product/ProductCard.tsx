@@ -153,7 +153,7 @@ export function ProductCard({
         ) : null}
 
         {!product.availableForSale && (
-          <div className="absolute top-3 left-3 font-serif italic text-xs text-brand-black bg-brand-bg/90 px-2.5 py-1 z-10">
+          <div className="absolute top-3 left-3 italic text-xs text-brand-black bg-brand-bg/90 px-2.5 py-1 z-10">
             Sold out
           </div>
         )}

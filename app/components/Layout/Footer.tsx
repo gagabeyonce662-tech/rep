@@ -24,7 +24,7 @@ export function Footer({
               <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                 {/* Brand column */}
                 <div>
-                  <p className="font-serif italic text-xl font-light text-white tracking-tight mb-3">
+                  <p className="italic text-xl font-light text-white tracking-tight mb-3">
                     {header.shop.name}
                   </p>
                   <p className="font-assistant text-sm text-white/40 leading-relaxed max-w-[200px]">
@@ -103,7 +103,7 @@ function NewsletterBanner({shopName}: {shopName: string}) {
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 md:gap-16">
           {/* Headline */}
           <div className="max-w-xs">
-            <h2 className="font-serif italic text-3xl md:text-4xl font-light text-white leading-tight tracking-tight mb-2">
+            <h2 className="italic text-3xl md:text-4xl font-light text-white leading-tight tracking-tight mb-2">
               Join the story.
             </h2>
             <p className="font-assistant text-sm text-white/40 leading-relaxed">
@@ -130,7 +130,7 @@ function NewsletterBanner({shopName}: {shopName: string}) {
                   />
                 </svg>
                 <div>
-                  <p className="font-serif italic text-lg font-light text-white">
+                  <p className="italic text-lg font-light text-white">
                     You're on the list.
                   </p>
                   <p className="font-assistant text-xs text-white/40 mt-0.5">

@@ -1,16 +1,16 @@
 import {Await} from 'react-router';
 import {Suspense} from 'react';
 import {ProductItem} from './ProductItem';
-import type {ProductItemFragment} from 'storefrontapi.generated';
+import type {ProductRecommendationsQuery} from 'storefrontapi.generated';
 
 export function RelatedProducts({
   recommended,
 }: {
-  recommended: Promise<any>;
+  recommended: Promise<ProductRecommendationsQuery | null> | ProductRecommendationsQuery | null;
 }) {
   return (
     <div className="related-products pt-16 pb-24 border-t border-brand-line mt-12 w-full">
-      <h3 className="font-serif text-3xl md:text-4xl text-brand-black mb-10 tracking-[-0.01em]">
+      <h3 className="text-3xl md:text-4xl text-brand-black mb-10 tracking-[-0.01em]">
         You may also like
       </h3>
       <Suspense fallback={<RelatedProductsSkeleton />}>

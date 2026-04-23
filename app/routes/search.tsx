@@ -44,10 +44,10 @@ export default function SearchPage() {
     <div className="bg-brand-bg font-assistant text-brand-black min-h-screen">
       <section className="max-w-[1400px] mx-auto px-4 md:px-8 py-24 md:py-32">
         <div className="flex flex-col gap-3 mb-16">
-          <span className="font-serif italic text-sm text-brand-muted">
+          <span className="italic text-sm text-brand-muted">
             Search
           </span>
-          <h1 className="font-serif text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
+          <h1 className="text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
             Find what you're looking for
           </h1>
         </div>
@@ -66,7 +66,7 @@ export default function SearchPage() {
                 />
                 <button
                   type="submit"
-                  className="px-8 py-4 bg-brand-black text-white font-serif italic text-sm hover:bg-brand-muted transition-colors duration-500"
+                  className="px-8 py-4 bg-brand-black text-white italic text-sm hover:bg-brand-muted transition-colors duration-500"
                 >
                   Search
                 </button>
@@ -93,7 +93,7 @@ export default function SearchPage() {
         ) : (
           <div className="space-y-16">
             <div className="border-t border-brand-line pt-16">
-              <h2 className="font-serif text-3xl md:text-4xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
+              <h2 className="text-3xl md:text-4xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black mb-8">
                 Results for "{term}"
               </h2>
               <SearchResults result={result} term={term}>

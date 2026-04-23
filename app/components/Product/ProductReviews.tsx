@@ -1,7 +1,7 @@
 export function ProductReviews() {
   return (
     <div className="product-reviews pt-16 pb-24 border-t border-brand-line mt-12 w-full flex flex-col items-center">
-      <h3 className="font-serif text-3xl md:text-4xl text-brand-black mb-8 tracking-[-0.01em]">
+      <h3 className="text-3xl md:text-4xl text-brand-black mb-8 tracking-[-0.01em]">
         Customer Reviews
       </h3>
       <div className="flex flex-col items-center mb-12">
@@ -14,7 +14,7 @@ export function ProductReviews() {
         </div>
         <p className="font-assistant text-lg tracking-wide text-brand-black">5.00 out of 5</p>
         <p className="font-light text-brand-muted mt-1">Based on 3 reviews</p>
-        <button className="mt-6 px-10 py-3 bg-brand-black text-white font-serif uppercase tracking-widest text-sm hover:bg-brand-gray hover:text-brand-black hover:border-brand-black border border-transparent transition-all">
+        <button className="mt-6 px-10 py-3 bg-brand-black text-white uppercase tracking-widest text-sm hover:bg-brand-gray hover:text-brand-black hover:border-brand-black border border-transparent transition-all">
           Write a Review
         </button>
       </div>
@@ -29,7 +29,7 @@ export function ProductReviews() {
                 </svg>
               ))}
             </div>
-            <p className="font-serif text-lg text-brand-black mb-2">"{review.title}"</p>
+            <p className="text-lg text-brand-black mb-2">"{review.title}"</p>
             <p className="font-light text-brand-black/80 flex-grow mb-6 leading-relaxed">
               {review.body}
             </p>

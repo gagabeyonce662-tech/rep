@@ -24,8 +24,8 @@ function getLineItemChildrenMap(lines: CartLine[]): LineItemChildrenMap {
       children[parentId].push(line);
     }
     if ('lineComponents' in line) {
-      const children = getLineItemChildrenMap(line.lineComponents);
-      for (const [parentId, childIds] of Object.entries(children)) {
+      const nestedChildren = getLineItemChildrenMap(line.lineComponents);
+      for (const [parentId, childIds] of Object.entries(nestedChildren)) {
         if (!children[parentId]) children[parentId] = [];
         children[parentId].push(...childIds);
       }
@@ -93,7 +93,7 @@ function CartEmpty({
           <path d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z" />
         </svg>
       </div>
-      <h3 className="font-serif text-3xl font-light tracking-[-0.02em] mb-3">Your bag is empty</h3>
+      <h3 className="text-3xl font-light tracking-[-0.02em] mb-3">Your bag is empty</h3>
       <p className="font-assistant text-brand-black/60 mb-8 max-w-[250px] text-sm">
         Looks like you haven&rsquo;t added anything yet. Let&rsquo;s get you started!
       </p>
