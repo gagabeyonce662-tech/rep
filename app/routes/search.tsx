@@ -1,9 +1,10 @@
 import {useLoaderData} from 'react-router';
 import type {Route} from './+types/search';
 import {getPaginationVariables, Analytics} from '@shopify/hydrogen';
+import {PageHeader} from '~/components/Layout/PageHeader';
+import {PageSection} from '~/components/Layout/PageSection';
 import {SearchForm} from '~/components/Search/SearchForm';
 import {SearchResults} from '~/components/Search/SearchResults';
-import {PageContainer} from '~/components/Layout/PageContainer';
 import {
   type RegularSearchReturn,
   type PredictiveSearchReturn,
@@ -43,15 +44,14 @@ export default function SearchPage() {
 
   return (
     <div className="bg-brand-bg font-assistant text-brand-black min-h-screen">
-      <PageContainer as="section" className="py-24 md:py-32">
-        <div className="flex flex-col gap-3 mb-16">
-          <span className="italic text-sm text-brand-muted">
-            Search
-          </span>
-          <h1 className="text-5xl md:text-7xl font-light leading-[1.05] tracking-[-0.02em] text-brand-black">
-            Find what you're looking for
-          </h1>
-        </div>
+      <PageSection className="py-24 md:py-32">
+        <PageHeader
+          eyebrow="Search"
+          title="Find what you're looking for"
+          titleClassName="text-5xl md:text-7xl tracking-[-0.02em] leading-[1.05]"
+          withDivider={false}
+          className="mb-16"
+        />
 
         <div className="mb-16">
           <SearchForm>
@@ -113,7 +113,7 @@ export default function SearchPage() {
         <Analytics.SearchView
           data={{searchTerm: term, searchResults: result}}
         />
-      </PageContainer>
+      </PageSection>
     </div>
   );
 }

@@ -3,7 +3,9 @@ import {useLoaderData} from 'react-router';
 import {getPaginationVariables, getSeoMeta} from '@shopify/hydrogen';
 import {PaginatedResourceSection} from '~/components/Shared/PaginatedResourceSection';
 import {ProductItem} from '~/components/Product/ProductItem';
-import {PageContainer} from '~/components/Layout/PageContainer';
+import {PageHeader} from '~/components/Layout/PageHeader';
+import {PageSection} from '~/components/Layout/PageSection';
+import {PRODUCT_GRID_CLASS} from '~/components/Product/product-grid';
 import type {CollectionItemFragment} from 'storefrontapi.generated';
 
 export const meta: Route.MetaFunction = ({matches}) => {
@@ -60,20 +62,18 @@ export default function Collection() {
 
   return (
     <div className="collection bg-brand-bg font-assistant text-brand-black">
-      <PageContainer as="section" className="px-6 md:px-8 lg:px-10 pt-28 md:pt-40 pb-16 flex flex-col gap-5">
-        <span className="italic text-sm md:text-base text-brand-muted">
-          Shop all
-        </span>
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-light tracking-[-0.03em] leading-[0.95] text-brand-black">
-          All Products
-        </h1>
-        <div className="h-px w-full bg-brand-line mt-6" />
-      </PageContainer>
+      <PageSection className="px-7 md:px-8 lg:px-10 pt-28 md:pt-40 pb-16">
+        <PageHeader
+          eyebrow="Shop all"
+          title="All Products"
+          titleClassName="text-6xl md:text-8xl lg:text-9xl"
+        />
+      </PageSection>
 
-      <PageContainer as="section" className="px-6 md:px-8 lg:px-10 pb-16 md:pb-24">
+      <PageSection className="px-7 md:px-8 lg:px-10 pb-28 md:pb-24">
         <PaginatedResourceSection<CollectionItemFragment>
           connection={products}
-          resourcesClassName="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-x-6 md:gap-y-16"
+          resourcesClassName={PRODUCT_GRID_CLASS.responsiveDense}
         >
           {({node: product, index}) => (
             <ProductItem
@@ -83,7 +83,7 @@ export default function Collection() {
             />
           )}
         </PaginatedResourceSection>
-      </PageContainer>
+      </PageSection>
     </div>
   );
 }

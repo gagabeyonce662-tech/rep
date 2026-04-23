@@ -1,5 +1,4 @@
 import { Link } from 'react-router';
-import { Image } from '@shopify/hydrogen';
 import type { AllCollectionsWithProductsQuery } from 'storefrontapi.generated';
 import { ProductCard } from '../Product/ProductCard';
 
@@ -9,9 +8,13 @@ export default function CollectionsWithProducts({
 }: {
     collections: AllCollectionsWithProductsQuery['collections']['nodes'];
 }) {
+    const collectionsWithProducts = collections.filter(
+        (collection) => (collection.products?.nodes?.length ?? 0) > 0,
+    );
+
     return (
         <div className="bg-brand-bg font-assistant text-brand-black">
-            {collections.map((collection) => (
+            {collectionsWithProducts.map((collection) => (
                 <section key={collection.id} className="py-20">
                     {/* Collection Header */}
                     <div className="flex justify-between items-end mb-12">
@@ -31,27 +34,12 @@ export default function CollectionsWithProducts({
                     {/* Products Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
                         {collection.products.nodes.map((product) => (
-                            <Link
+                            <div
                                 key={product.id}
-                                to={`/products/${product.handle}`}
-                                className="group"
+                                className="h-full"
                             >
-                                {product.featuredImage && (
-                                    <Image
-                                        alt={product.featuredImage.altText || product.title}
-                                        aspectRatio="1/1"
-                                        data={product.featuredImage}
-                                        sizes="(min-width: 45em) 400px, 100vw"
-                                        className="w-full object-cover mb-3 group-hover:opacity-75 transition"
-                                    />
-                                )}
-                                <h3 className="text-sm font-medium mb-2">{product.title}</h3>
-                                {product.priceRange && (
-                                    <p className="text-sm text-brand-muted">
-                                        ${product.priceRange.minVariantPrice.amount}
-                                    </p>
-                                )}
-                            </Link>
+                                <ProductCard product={product as any} loading="lazy" />
+                            </div>
                         ))}
                     </div>
 

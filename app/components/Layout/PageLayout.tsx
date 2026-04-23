@@ -49,7 +49,7 @@ export function PageLayout({
           publicStoreDomain={publicStoreDomain}
         />
       )}
-      <main className="pb-20 md:pb-0">{children}</main>
+      <main className="pb-28 md:pb-0">{children}</main>
       <NewsletterModal />
       <Footer
         footer={footer}

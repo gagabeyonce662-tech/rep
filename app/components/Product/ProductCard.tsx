@@ -63,7 +63,7 @@ export function ProductCard({
 
   return (
     <Link
-      className="group flex flex-col gap-3 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+      className="group flex h-full flex-col gap-2.5 rounded-lg border border-brand-line/70 bg-white overflow-hidden shadow-[0_4px_18px_rgba(0,0,0,0.06)] hover:border-brand-black/20 transition-all duration-500"
       aria-label={product.title}
       key={product.id}
       prefetch="intent"
@@ -79,14 +79,14 @@ export function ProductCard({
         })
       }
     >
-      <div className="aspect-4/5 overflow-hidden bg-brand-gray relative rounded-t-xl">
+      <div className="aspect-4/5 overflow-hidden bg-brand-gray relative">
         {currentImage && (
           <Image
             alt={currentImage.altText || product.title}
             data={currentImage}
             loading={loading}
             sizes="(min-width: 45em) 400px, 50vw"
-            className="object-cover w-full h-full group-hover:scale-[1.04] transition-transform duration-[1.2s] ease-out"
+            className="object-cover w-full h-full group-hover:scale-[1.025] transition-transform duration-[1.2s] ease-out"
           />
         )}
 
@@ -153,7 +153,7 @@ export function ProductCard({
         ) : null}
 
         {!product.availableForSale && (
-          <div className="absolute top-3 left-3 italic text-xs text-brand-black bg-brand-bg/90 px-2.5 py-1 z-10">
+          <div className="absolute top-3 left-3 text-[10px] uppercase tracking-[0.14em] text-brand-black bg-brand-bg/90 px-2 py-1 z-10">
             Sold out
           </div>
         )}
@@ -164,14 +164,14 @@ export function ProductCard({
               e.stopPropagation();
               toggleWishlist(product.id);
             }}
-            className="absolute top-3 right-3 z-20 w-8 h-8 flex items-center justify-center bg-white/70 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+            className="absolute top-3 right-3 z-20 w-7 h-7 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-full opacity-80 hover:opacity-100 hover:bg-white transition-all"
             aria-label={isWished ? 'Remove from wishlist' : 'Add to wishlist'}
           >
             <svg
-              className={`w-4 h-4 ${isWished ? 'fill-red-500 text-red-500' : 'fill-transparent text-brand-black'}`}
+              className={`w-3.5 h-3.5 ${isWished ? 'fill-red-500 text-red-500' : 'fill-transparent text-brand-black/80'}`}
               stroke="currentColor"
               viewBox="0 0 24 24"
-              strokeWidth="1.5"
+              strokeWidth="1.25"
             >
               <path
                 strokeLinecap="round"
@@ -183,13 +183,13 @@ export function ProductCard({
         )}
       </div>
       <div
-        className={`flex flex-col gap-1 px-4 pb-4 ${!product.availableForSale ? 'opacity-50' : ''}`}
+        className={`flex flex-col gap-1.5 px-3.5 pb-4 ${!product.availableForSale ? 'opacity-55' : ''}`}
 
       >
-        <h4 className="font-inter text-md font-medium  tracking-[-0.01em] truncate text-brand-black">
+        <h4 className="font-inter text-[15px] leading-snug font-medium tracking-[-0.01em] truncate text-brand-black">
           {product.title}
         </h4>
-        <div className="font-assistant text-sm text-brand-muted">
+        <div className="font-assistant text-sm tabular-nums text-brand-black/70">
           {priceData && <Money data={priceData} />}
         </div>
       </div>

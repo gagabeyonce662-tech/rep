@@ -10,6 +10,7 @@ import { redirectIfHandleIsLocalized } from '~/lib/redirect';
 import { ProductItem } from '~/components/Product/ProductItem';
 import { CollectionFilters } from '~/components/Collection/CollectionFilters';
 import {PageContainer} from '~/components/Layout/PageContainer';
+import {PRODUCT_GRID_CLASS} from '~/components/Product/product-grid';
 import type { ProductItemFragment } from 'storefrontapi.generated';
 import { getFiltersFromParams } from '~/lib/filter';
 import type { Filter } from '@shopify/hydrogen/storefront-api-types';
@@ -146,7 +147,7 @@ export default function Collection() {
           <div className="w-full">
             <PaginatedResourceSection<ProductItemFragment>
               connection={collection.products}
-              resourcesClassName="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 md:gap-x-8 md:gap-y-20"
+              resourcesClassName={PRODUCT_GRID_CLASS.collection}
             >
               {({ node: product, index }) => (
                 <ProductItem
